@@ -1,27 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import control.GameControl;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *
- * @author Ceo
+ * Game class
  */
 public class Game {
 
+    //Initializing and instanciating variables. 
     GameControl gc = new GameControl();
-
     private Scanner sca = new Scanner(System.in);
 
+    /**
+     * Constructor
+     */
     public Game() {
         NewGame();
     }
 
+    /**
+     * Method used to start a new game.
+     */
     private void NewGame() {
 
         boolean gameActive = true;
@@ -38,13 +39,17 @@ public class Game {
         }
     }
 
+    /**
+     * Method used to "move" the player around the dungeon.
+     *
+     * @param move Takes a string, move, that is used to control which way the
+     * player move.
+     */
     private void movement(String move) {
 
-        
         gc.setPrevRoom(gc.getCurrentRoom());
         System.out.println("PrevRoom: " + gc.getPrevRoom().getRoomName());
-        
-        
+
         System.out.println(move);
         if (move.equalsIgnoreCase("North") || move.equalsIgnoreCase("n")) {
 
@@ -52,7 +57,7 @@ public class Game {
             if (gc.getCurrentRoom().equals(gc.getPrevRoom())) {
                 System.out.println("***You hit a wall***");
             }
-           
+
         } else if (move.equalsIgnoreCase("South") || move.equalsIgnoreCase("s")) {
 
             gc.move(move);
@@ -67,11 +72,10 @@ public class Game {
             }
         } else if (move.equalsIgnoreCase("West") || move.equalsIgnoreCase("w")) {
 
-          gc.move(move);
-          if (gc.getCurrentRoom().equals(gc.getPrevRoom())) {
+            gc.move(move);
+            if (gc.getCurrentRoom().equals(gc.getPrevRoom())) {
                 System.out.println("***You hit a wall***");
             }
-           
 
         } else {
             System.out.println("Please enter a direction");

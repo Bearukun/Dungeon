@@ -1,21 +1,35 @@
 package control;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import model.Player;
 import model.Room;
 
 /**
- *
- * @author bearu
+ * GameControl class
  */
 public class GameControl {
+
+    //Initializing and instanciating variables. 
+    ArrayList<String> highScore = new ArrayList();
 
     Room currentRoom;
     Room prevRoom;
 
+    /**
+     * Constructor
+     */
     public GameControl() {
         createRooms();
     }
 
+    
+    /**
+     * Method used to create the rooms. 
+     */
     private void createRooms() {
 
         Room wall = new Room("Wall", "You've hit a wall and are still in the same room!.... Dumbass!", 0);
@@ -194,6 +208,66 @@ public class GameControl {
 
     }
 
+    /**
+     * Save method, used to save the current state of game variables. 
+     * #NOTE# Currently only saving highScore
+     */
+    public void save() {
+
+        //Catch errors in I/O if necessary.
+        try {
+
+            // Open a file to write to, named SavedObj.sav.
+            FileOutputStream saveFile = new FileOutputStream("saveFile.sav");
+
+            // Create an ObjectOutputStream to put objects into save file.
+            ObjectOutputStream save = new ObjectOutputStream(saveFile);
+
+            //Write objects in the ObjectOutputStream.
+            save.writeObject(highScore);
+
+            //Closes the stream.
+            save.close();
+
+        } catch (Exception exc) {
+
+            //If there was an error, print the info.
+            exc.printStackTrace();
+
+        }
+    }
+
+    /**
+     * Load method, used to read the data in saveFile and load it into the game
+     * variables. 
+     * #NOTE# Currently only loading highScore
+     */
+    public void load() {
+
+        //Catch errors in I/O if necessary.
+        try {
+
+            //Open file to read from, named SavedObj.sav.
+            FileInputStream saveFile = new FileInputStream("saveFile.sav");
+
+            //Create an ObjectInputStream to get objects from save file.
+            ObjectInputStream save = new ObjectInputStream(saveFile);
+
+            highScore = (ArrayList<String>) save.readObject();
+
+            //Closes the input stream.
+            save.close();
+
+        } catch (Exception exc) {
+
+            //If there was an error, print the info.
+            exc.printStackTrace();
+
+        }
+
+    }
+
+    //Getters and Setters, nothing special here - move along..!
     public Room getCurrentRoom() {
         return currentRoom;
     }
