@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Test");
         System.out.println("Hej");
-        
+        System.out.println("It's high noon!");
         
     }
     
