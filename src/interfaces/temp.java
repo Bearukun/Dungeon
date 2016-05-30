@@ -1,11 +1,9 @@
-package control;
+package interfaces;
 
 /**
  *
  * @author bearu
  */
-
-//test v2
 public class temp {
     
 }
