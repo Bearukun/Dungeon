@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Room {
     
-    private String description;
+    private String roomName,description;
     private ArrayList<Item> items = new ArrayList();
     private int spawnMonsterID;
     
@@ -24,9 +24,10 @@ public class Room {
     
     public Room north, south, west, east;
 
-    public Room(String description, int spawnMonsterID) {
+    public Room(String roomname,String description, int spawnMonsterID ) {
+        this.roomName = roomname;
         this.description = description;
-        this.spawnMonsterID = spawnMonsterID;
+        this.spawnMonsterID = spawnMonsterID;        
         this.north = null;
         this.south = null;
         this.west = null;
@@ -93,6 +94,15 @@ public class Room {
     public void setEast(Room east) {
         this.east = east;
     }
+
+    public String getRoomName() {
+        return roomName;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
+    }
+    
     
     
     

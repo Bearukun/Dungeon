@@ -40,22 +40,47 @@ public class Game {
 
     private void movement(String move) {
 
+        
+        gc.setPrevRoom(gc.getCurrentRoom());
+        System.out.println("PrevRoom: " + gc.getPrevRoom().getRoomName());
+        
+        
         System.out.println(move);
         if (move.equalsIgnoreCase("North") || move.equalsIgnoreCase("n")) {
+
             gc.move(move);
+            if (gc.getCurrentRoom().equals(gc.getPrevRoom())) {
+                System.out.println("***You hit a wall***");
+            }
+           
         } else if (move.equalsIgnoreCase("South") || move.equalsIgnoreCase("s")) {
+
             gc.move(move);
+            if (gc.getCurrentRoom().equals(gc.getPrevRoom())) {
+                System.out.println("***You hit a wall***");
+            }
         } else if (move.equalsIgnoreCase("East") || move.equalsIgnoreCase("e")) {
+
             gc.move(move);
+            if (gc.getCurrentRoom().equals(gc.getPrevRoom())) {
+                System.out.println("***You hit a wall***");
+            }
         } else if (move.equalsIgnoreCase("West") || move.equalsIgnoreCase("w")) {
-            gc.move(move);
+
+          gc.move(move);
+          if (gc.getCurrentRoom().equals(gc.getPrevRoom())) {
+                System.out.println("***You hit a wall***");
+            }
+           
 
         } else {
             System.out.println("Please enter a direction");
         }
 
+        System.out.println("----" + gc.getCurrentRoom().getRoomName() + "--------");
+        System.out.println("------------------------------------------");
         System.out.println(gc.getCurrentRoom().getDescription());
-
+        System.out.println("PrevRoom: " + gc.getPrevRoom().getRoomName());
     }
 
 }
