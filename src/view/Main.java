@@ -13,6 +13,8 @@ public class Main {
         System.out.println("Test");
         System.out.println("Hej");
         System.out.println("It's high noon!");
+        System.out.println("Star Wars");
+        
         
     }
     
