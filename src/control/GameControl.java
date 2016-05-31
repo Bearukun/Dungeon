@@ -5,8 +5,10 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import model.Monster;
 import model.Player;
 import model.Room;
+import model.monsterType.Boss;
 
 /**
  * GameControl class
@@ -32,8 +34,6 @@ public class GameControl {
      * Method used to create the rooms. 
      */
     private void createRooms() {
-
-        Room wall = new Room("Wall", "You've hit a wall and are still in the same room!.... Dumbass!", 0);
 
         Room room1 = new Room("Entrance", "You are standing in the Entrance ", 0);
         Room room2 = new Room("Tomb", "You are in the tomb", 0);
@@ -178,9 +178,17 @@ public class GameControl {
 
         prevRoom = currentRoom;
 
-        wall = prevRoom;
         currentRoom = room1;
 
+    }
+    
+    /**
+     * Method used to spawn monsters.
+     */
+    private void spawnMonsters(){
+        
+        Monster mon1 = new Monster("Big boss", "A baddass motherfucker", 0, new Boss(50, 5, 900));
+        
     }
 
     public void createPlayer(String name) {
