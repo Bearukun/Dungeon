@@ -26,8 +26,6 @@ public class Game {
     private void NewGame() {
 
         gc = new GameControl();
-        
-        boolean gameActive = true;
 
         System.out.println("What's your name?");
         String name = sca.next();
