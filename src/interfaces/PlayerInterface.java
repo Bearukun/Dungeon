@@ -1,0 +1,23 @@
+package interfaces;
+
+import java.util.ArrayList;
+import model.Item;
+
+public interface PlayerInterface {
+    
+    public String getName();
+    
+    public int hp();
+    
+    public int getDamage();
+    
+    public int getLevel();
+    
+    public int getArmor();
+    
+    public ArrayList<Item> getInventory();
+    
+    public ArrayList<Item> getEquipment();
+
+
+}

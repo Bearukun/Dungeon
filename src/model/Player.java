@@ -7,19 +7,26 @@ package model;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Ceo
- */
-
-
 public class Player {
 
-private String name;    
-private int hp, damage, level;
-private ArrayList<Item> inventory = new ArrayList();
-private ArrayList<Item> equipment = new ArrayList();
+    private String name;
+    private int hp, damage, level, armor;
+    private ArrayList<Item> inventory = new ArrayList();
+    private ArrayList<Item> equipment = new ArrayList();
 
+    public Player(String name) {
+        this.name = name;
+    
+        hp = 100;
+        level = 1;
+        damage = 6;
+        equipment.add(new Item("Short Sword", "", "This is a Short Sword", 6, false, true, false));
+        inventory.add(new Item("Health Potion", "", "This is a Health Potion", 0, false, false, true));
+        
+    }
+    
+    
+    
     public String getName() {
         return name;
     }
@@ -52,6 +59,14 @@ private ArrayList<Item> equipment = new ArrayList();
         this.level = level;
     }
 
+    public int getArmor() {
+        return armor;
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
+
     public ArrayList<Item> getInventory() {
         return inventory;
     }
@@ -68,6 +83,4 @@ private ArrayList<Item> equipment = new ArrayList();
         this.equipment = equipment;
     }
 
-
-    
 }

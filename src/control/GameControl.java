@@ -9,6 +9,8 @@ import model.Monster;
 import model.Player;
 import model.Room;
 import model.monsterType.Boss;
+import model.Item;
+
 
 /**
  * GameControl class
@@ -20,6 +22,7 @@ public class GameControl {
 
     Room currentRoom;
     Room prevRoom;
+    Item item;
     private boolean inBattle = false;
 
     /**
@@ -27,6 +30,7 @@ public class GameControl {
      */
     public GameControl() {
         createRooms();
+       
     }
 
     
@@ -179,6 +183,11 @@ public class GameControl {
         prevRoom = currentRoom;
 
         currentRoom = room1;
+    
+        
+        
+        
+        
 
     }
     
@@ -192,12 +201,12 @@ public class GameControl {
     }
 
     public void createPlayer(String name) {
-        Player player = new Player();
+        Player player = new Player(name);
 
-        player.setName(name);
 
         System.out.println(player.getName());
-
+        
+        
     }
 
     public void move(String direction) {
@@ -319,8 +328,13 @@ public class GameControl {
         System.out.println("----" + getCurrentRoom().getRoomName() + "--------");
         System.out.println("------------------------------------------");
         System.out.println(getCurrentRoom().getDescription());
+        
+        
 //        System.out.println("PrevRoom: " + getPrevRoom().getRoomName());
     }
+    
+    
+
     
     
     
@@ -342,5 +356,15 @@ public class GameControl {
     public void setPrevRoom(Room prevRoom) {
         this.prevRoom = prevRoom;
     }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+    
+    
 
 }
