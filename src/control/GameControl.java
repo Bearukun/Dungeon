@@ -20,9 +20,14 @@ public class GameControl {
     ArrayList<String> highScore = new ArrayList();
 
     //Declaring objects. 
-    Room currentRoom, previousRoom;
+    Room room1, room2, room3, room4, room5, room6, room7, room8, room9, room10,
+            room11, room12, room13, room14, room15, room16, room17, room18, room19,
+            room20, currentRoom, previousRoom;
     Item item;
     Player player;
+
+    private boolean gameActive = true;
+    private boolean hasDied = false;
 
     private boolean inBattle = false;
 
@@ -41,26 +46,26 @@ public class GameControl {
     private void createRooms() {
 
         //Initalising and instantiating new rooms. 
-        Room room1 = new Room("Entrance", "It's very dark and you feel a very unwelcoming aura around you.");
-        Room room2 = new Room("Tomb", "You see many bones laying around as if this have been some sort of mass burial.");
-        Room room3 = new Room("Pit", "It seems like this is some sort of ancient Sacrefice site, it still reeks of corpses.");
-        Room room4 = new Room("Dungeon", "S/M Dungeon ");
-        Room room5 = new Room("Fast Food joint", "McDonalds");
-        Room room6 = new Room("Fast Food joint", "Burger King");
-        Room room7 = new Room("Ano Lando", "Kingdom from Dark Souls 1 & 2");
-        Room room8 = new Room("Azeroth", "Land of Warcraft");
-        Room room9 = new Room("Apple", "The space ship in Cuppertino");
-        Room room10 = new Room("Kitchen", "There is food here!");
-        Room room11 = new Room("Pet Shop", "There is no dead parrots here!");
-        Room room12 = new Room("Microsoft", "The other tech company in Seattle");
-        Room room13 = new Room("Sanctuary", "Land of Diablo");
-        Room room14 = new Room("Capulo Sector", "StarCraft univers");
-        Room room15 = new Room("Mother Base", "Home of the Diamond Dogs");
-        Room room16 = new Room("Boston", "Home of Crane, Pool & Smitch");
-        Room room17 = new Room("Mushroom Kingdom", "Te land of Super Mario");
-        Room room18 = new Room("Yharnam", "Land of the Pale Blood Moon");
-        Room room19 = new Room("Middle-Earth", "Land of JRR Tolkien");
-        Room room20 = new Room("Exploding Kitten Room", "A room full of exploding kittens");
+        room1 = new Room("Entrance", "It's very dark and you feel a very unwelcoming aura around you.");
+        room2 = new Room("Tomb", "You see many bones laying around as if this have been some sort of mass burial.");
+        room3 = new Room("Pit", "It seems like this is some sort of ancient Sacrefice site, it still reeks of corpses.");
+        room4 = new Room("Dungeon", "S/M Dungeon ");
+        room5 = new Room("Fast Food joint", "McDonalds");
+        room6 = new Room("Fast Food joint", "Burger King");
+        room7 = new Room("Ano Lando", "Kingdom from Dark Souls 1 & 2");
+        room8 = new Room("Azeroth", "Land of Warcraft");
+        room9 = new Room("Apple", "The space ship in Cuppertino");
+        room10 = new Room("Kitchen", "There is food here!");
+        room11 = new Room("Pet Shop", "There is no dead parrots here!");
+        room12 = new Room("Microsoft", "The other tech company in Seattle");
+        room13 = new Room("Sanctuary", "Land of Diablo");
+        room14 = new Room("Capulo Sector", "StarCraft univers");
+        room15 = new Room("Mother Base", "Home of the Diamond Dogs");
+        room16 = new Room("Boston", "Home of Crane, Pool & Smitch");
+        room17 = new Room("Mushroom Kingdom", "Te land of Super Mario");
+        room18 = new Room("Yharnam", "Land of the Pale Blood Moon");
+        room19 = new Room("Middle-Earth", "Land of JRR Tolkien");
+        room20 = new Room("Exploding Kitten Room", "A room full of exploding kittens");
 
         //Room 1
         room1.east = room2;
@@ -252,15 +257,15 @@ public class GameControl {
             default:
                 break;
         }
-        
+
         //Checking if the room isn't empty
-        if (!currentRoom.getMonsters().isEmpty()) {
+        if (currentRoom.getMonster() != null) {
 
             inBattle = true;
-            player.setHp(player.getHp()-currentRoom.getMonsters().get(0).getMonsterInterface().getDamage());
-            print = "As you enter " + currentRoom.getRoomName() + ", you encounter " + currentRoom.getMonsters().get(0).getName() + " - " + currentRoom.getMonsters().get(0).getDescription()+
-                    currentRoom.getMonsters().get(0).getName()+" attacks you and gives you " + currentRoom.getMonsters().get(0).getMonsterInterface().getDamage() + " damage!" +
-                    "\nYou now have " + player.getHp() + "HP left..!";
+            player.setHp(player.getHp() - currentRoom.getMonster().getMonsterInterface().getDamage());
+            print = "As you enter " + currentRoom.getRoomName() + ", you encounter " + currentRoom.getMonster().getName() + " - " + currentRoom.getMonster().getDescription()+". "
+                    + currentRoom.getMonster().getName() + " attacks you and gives you " + currentRoom.getMonster().getMonsterInterface().getDamage() + " damage!"
+                    + "\nYou now have " + player.getHp() + "HP left..!";
 
         } else {
 
@@ -273,21 +278,36 @@ public class GameControl {
     }
 
     public void combatSystem(String command) {
-        
-        if(command.equals("attack")){
-            
-            
-            
-        }else if(command.equals("heal")){
-            
-            
-            
-        }else if(command.equals("flee")){
-            
+
+        if (command.equals("attack")) {
+
+            currentRoom.getMonster().getMonsterInterface().setHp(currentRoom.getMonster().getMonsterInterface().getHp() - player.getDamage());
+            player.setHp(player.getHp() - currentRoom.getMonster().getMonsterInterface().getDamage());
+            printer("You hit " + currentRoom.getMonster().getName() + " for " + player.getDamage() + "! " + currentRoom.getMonster().getMonsterInterface().getHp() + "HP left."
+                    + "\n" + currentRoom.getMonster().getName() + " attacks you for " + currentRoom.getMonster().getMonsterInterface().getDamage() + "! You have " + player.getHp() + "HP left!");
+
+            if (currentRoom.getMonster().getMonsterInterface().getHp() <= 0) {
+
+                printer("You have slain " + currentRoom.getMonster().getName() + "!");
+                inBattle = false;
+                move("");
+            }
+            if(player.getHp() <= 0){
+                
+                printer("You have been slayed, game over!");
+                hasDied = true;
+                gameActive = false;
+                
+            }
+
+        } else if (command.equals("heal")) {
+
+        } else if (command.equals("flee")) {
+
             currentRoom = previousRoom;
             printer("You flee from the enemy, and have returned to " + currentRoom.getRoomName() + ".");
             inBattle = false;
-            
+
         }
 
     }
@@ -321,8 +341,8 @@ public class GameControl {
             String commands = "While in a battle, you can't move further in the dungeon..!"
                     + "\nAttack: Attacks the enemy in the current room"
                     + "\n\tSyntax: attack"
-                    + "\nHeal: Uses a random potion in your inventory, if you have any."
-                    + "\n\tSyntax: heal"
+                    + "\nHeal: Uses a potion in your inventory, if you have any."
+                    + "\n\tSyntax: heal 'potion name"
                     + "\nFlee: Flees to the previous room."
                     + "\n\tSyntax: flee";
             printer(commands);
@@ -335,11 +355,11 @@ public class GameControl {
 
                 combatSystem("attack");
 
-            } else if(input.equalsIgnoreCase("Heal")) {
+            } else if (input.equalsIgnoreCase("Heal")) {
 
                 combatSystem("heal");
-            } else if(input.equalsIgnoreCase("Flee")){
-                
+            } else if (input.equalsIgnoreCase("Flee")) {
+
                 combatSystem("flee");
             }
 
@@ -411,4 +431,15 @@ public class GameControl {
 
     }
 
+    
+    public boolean isGameActive() {
+        return gameActive;
+    }
+
+    public boolean hasDied() {
+        return hasDied;
+    }
+
+    
+    
 }

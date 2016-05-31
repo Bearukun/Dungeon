@@ -34,7 +34,7 @@ public class Game {
         gc.createPlayer(name);
         System.out.println("Type 'help' to show a list of available commands.");
 
-        while (gameActive) {
+        while (gc.isGameActive() == true) {
             
             gc.inputAnalyzer(sca.nextLine());
             

@@ -20,12 +20,7 @@ public class Minion implements MonsterInterface {
     
     
 
-    @Override
-    public int getHp() {
-        
-        return hp;
-        
-    }
+ 
 
     @Override
     public int getDamage() {
@@ -54,5 +49,17 @@ public class Minion implements MonsterInterface {
         return inventory;
         
     }
+
+    @Override
+    public int getHp() {
+        return hp;
+    }
+
+    @Override
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+   
     
 }

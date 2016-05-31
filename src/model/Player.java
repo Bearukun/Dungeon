@@ -19,7 +19,7 @@ public class Player implements PlayerInterface {
     public Player(String name) {
         this.name = name;
     
-        hp = 100;
+        hp = 10;
         level = 1;
         damage = 6;
         

@@ -56,9 +56,10 @@ public class Boss implements MonsterInterface{
         return inventory;
         
     }
-    
 
-             
-   
+    @Override
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
     
 }

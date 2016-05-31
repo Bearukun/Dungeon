@@ -12,8 +12,8 @@ public class Room {
     //Initializing and instanciating variables. 
     private String roomName, description;
     private ArrayList<Item> items = new ArrayList();
-    private ArrayList<Monster> monsters = new ArrayList();
     private TextGenerator textGen = new TextGenerator();
+    private Monster monster;
 
     public Room north, south, west, east;
 
@@ -42,7 +42,7 @@ public class Room {
 
     public void addMonster(String name, String description, int id, MonsterInterface monsterType) {
 
-        monsters.add(new Monster(name, description, id, monsterType));
+        monster = new Monster(name, description, id, monsterType);
 
     }
 
@@ -153,14 +153,12 @@ public class Room {
         return textGen;
     }
 
-    public ArrayList<Monster> getMonsters() {
-        return monsters;
+    public Monster getMonster() {
+        return monster;
     }
 
-    public void setMonsters(ArrayList<Monster> monsters) {
-        this.monsters = monsters;
+    public void setMonster(Monster monster) {
+        this.monster = monster;
     }
-    
-    
 
 }
