@@ -1,9 +1,5 @@
 package view;
 
-/**
- *
- * @author bearu
- */
 public class Main {
 
     /**

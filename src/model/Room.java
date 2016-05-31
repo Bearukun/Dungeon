@@ -1,37 +1,37 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import interfaces.ItemInterface;
+import interfaces.MonsterInterface;
 import java.util.ArrayList;
 
 /**
- *
- * @author Ceo
+ * Room class
  */
 public class Room {
 
+    //Initializing and instanciating variables. 
     private String roomName, description;
     private ArrayList<Item> items = new ArrayList();
-    private int spawnMonsterID;
+    private ArrayList<Monster> monsters = new ArrayList();
+    private TextGenerator textGen = new TextGenerator();
 
-//    public Room north;
-//    public Room south;
-//    public Room west;
-//    public Room east;
     public Room north, south, west, east;
 
-    public Room(String roomname, String description, int spawnMonsterID) {
+    /**
+     * Constructor for the Room class.
+     *
+     * @param roomname Name for the room.
+     * @param description Description for the room.
+     */
+    public Room(String roomname, String description) {
+
         this.roomName = roomname;
         this.description = description;
-        this.spawnMonsterID = spawnMonsterID;
         this.north = null;
         this.south = null;
         this.west = null;
         this.east = null;
+
     }
 
     public void addItem(String name, String roomText, String inspectText, int value, ItemInterface itemType) {
@@ -40,20 +40,49 @@ public class Room {
 
     }
 
+    public void addMonster(String name, String description, int id, MonsterInterface monsterType) {
+
+        monsters.add(new Monster(name, description, id, monsterType));
+
+    }
+
+    /**
+     * Method used to look up room items.
+     * @return Returns a string with available items. 
+     */
     public String itemLookup() {
-        
+
         String returnString = "";
 
         if (!items.isEmpty()) {
-            returnString = "Lootable items: ";
-            
-            for (Item item : items) {
+            returnString = textGen.generateItemLookupText();
 
-                returnString += "" + item.getName() + " " + item.getRoomText() + "\n";
+            if (items.size() == 1) {
+
+                returnString += "" + items.get(0).getRoomText() + ".\n";
+
+            } else {
+
+                for (int i = 0; i < items.size(); i++) {
+                    
+                    returnString += "" + items.get(i).getRoomText();
+                    
+                    if(i != items.size()-1){
+                        
+                        returnString += " and ";
+                        
+                    }else if(i == items.size()-1){
+                        
+                        returnString += ".\n";
+                        
+                    }
+                    
+                }
 
             }
+
         }
-        
+
         return returnString;
 
     }
@@ -78,14 +107,6 @@ public class Room {
 
     public void setItems(ArrayList<Item> items) {
         this.items = items;
-    }
-
-    public int getSpawnMonsterID() {
-        return spawnMonsterID;
-    }
-
-    public void setSpawnMonsterID(int spawnMonsterID) {
-        this.spawnMonsterID = spawnMonsterID;
     }
 
     public Room getNorth() {
@@ -126,6 +147,10 @@ public class Room {
 
     public void setRoomName(String roomName) {
         this.roomName = roomName;
+    }
+
+    public TextGenerator getTextGen() {
+        return textGen;
     }
 
 }

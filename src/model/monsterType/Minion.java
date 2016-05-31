@@ -1,5 +1,6 @@
 package model.monsterType;
 
+import model.TextGenerator;
 import interfaces.MonsterInterface;
 import java.util.ArrayList;
 import model.Item;
@@ -7,13 +8,14 @@ import model.Item;
 public class Minion implements MonsterInterface {
     
     private int hp, damage, level;
-    private String taunt =  TauntGenerator.generateTaunt("Minion");
+    private String taunt;
     private ArrayList<Item> inventory = new ArrayList();
 
-    public Minion(int hp, int damage, int level) {
+    public Minion(int hp, int damage, int level, String taunt) {
         this.hp = hp;
         this.damage = damage;
         this.level = level;
+        this.taunt = taunt;
     }
     
     

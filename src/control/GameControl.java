@@ -5,13 +5,11 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import model.Monster;
 import model.Player;
 import model.Room;
 import model.monsterType.Boss;
 import model.Item;
 import model.itemType.Consumable;
-
 
 /**
  * GameControl class
@@ -22,58 +20,60 @@ public class GameControl {
     ArrayList<String> highScore = new ArrayList();
 
     Room currentRoom;
-    Room prevRoom;
     Item item;
+    
     private boolean inBattle = false;
 
     /**
      * Constructor
      */
     public GameControl() {
+
         createRooms();
-        spawnMonsters();
-       
+
     }
 
-    
     /**
-     * Method used to create the rooms. 
+     * Method used to create rooms.
      */
     private void createRooms() {
 
-        Room room1 = new Room("Entrance", "You are standing in the Entrance ", 0);
-        Room room2 = new Room("Tomb", "You are in the tomb", 0);
-        Room room3 = new Room("Pit", "Sacrefice Pit", 0);
-        Room room4 = new Room("Dungeon", "S/M Dungeon ", 0);
-        Room room5 = new Room("Fast Food joint", "McDonalds", 0);
-        Room room6 = new Room("Fast Food joint", "Burger King", 0);
-        Room room7 = new Room("Ano Lando", "Kingdom from Dark Souls 1 & 2", 0);
-        Room room8 = new Room("Azeroth", "Land of Warcraft", 0);
-        Room room9 = new Room("Apple", "The space ship in Cuppertino", 0);
-        Room room10 = new Room("Kitchen", "There is food here!", 0);
-        Room room11 = new Room("Pet Shop", "There is no dead parrots here!", 0);
-        Room room12 = new Room("Microsoft", "The other tech company in Seattle", 0);
-        Room room13 = new Room("Sanctuary", "Land of Diablo", 0);
-        Room room14 = new Room("Capulo Sector", "StarCraft univers", 0);
-        Room room15 = new Room("Mother Base", "Home of the Diamond Dogs", 0);
-        Room room16 = new Room("Boston", "Home of Crane, Pool & Smitch", 0);
-        Room room17 = new Room("Mushroom Kingdom", "THe land of Super Mario", 0);
-        Room room18 = new Room("Yharnam", "Land of the Pale Blood Moon", 0);
-        Room room19 = new Room("Middle-Earth", "Land of JRR Tolkien", 0);
-        Room room20 = new Room("Exploding Kitten Room", "A room full of exploding kittens", 0);
+        //Initalising and instantiating new rooms. 
+        Room room1 = new Room("Entrance", "You are standing in the Entrance ");
+        Room room2 = new Room("Tomb", "You are in the tomb");
+        Room room3 = new Room("Pit", "Sacrefice Pit");
+        Room room4 = new Room("Dungeon", "S/M Dungeon ");
+        Room room5 = new Room("Fast Food joint", "McDonalds");
+        Room room6 = new Room("Fast Food joint", "Burger King");
+        Room room7 = new Room("Ano Lando", "Kingdom from Dark Souls 1 & 2");
+        Room room8 = new Room("Azeroth", "Land of Warcraft");
+        Room room9 = new Room("Apple", "The space ship in Cuppertino");
+        Room room10 = new Room("Kitchen", "There is food here!");
+        Room room11 = new Room("Pet Shop", "There is no dead parrots here!");
+        Room room12 = new Room("Microsoft", "The other tech company in Seattle");
+        Room room13 = new Room("Sanctuary", "Land of Diablo");
+        Room room14 = new Room("Capulo Sector", "StarCraft univers");
+        Room room15 = new Room("Mother Base", "Home of the Diamond Dogs");
+        Room room16 = new Room("Boston", "Home of Crane, Pool & Smitch");
+        Room room17 = new Room("Mushroom Kingdom", "Te land of Super Mario");
+        Room room18 = new Room("Yharnam", "Land of the Pale Blood Moon");
+        Room room19 = new Room("Middle-Earth", "Land of JRR Tolkien");
+        Room room20 = new Room("Exploding Kitten Room", "A room full of exploding kittens");
 
         //Room 1
         room1.east = room2;
         room1.north = room3;
         room1.west = room4;
         room1.south = room5;
-        room1.addItem("Willy", "Wonka", "A mighty willy!", 900, new Consumable(50, true));
+        room1.addItem("Mystic Potion", "a mysterious looking potion", "You don't know what effect it will have on you", 900, new Consumable(50, true));
+        room1.addItem("Odd-looking vial", "an odd-looking vial", "You don't know what effect it will have on you", 300, new Consumable(-20, true));
 
         //Room 2
         room2.west = room1;
         room2.east = room6;
         room2.south = null;
         room2.north = null;
+        room2.addMonster("Big boss", "A baddass motherfucker", 0, new Boss(50, 5, 900, room2.getTextGen().generateTaunt("Boss")));
 
         //Room 3
         room3.east = null;
@@ -183,75 +183,92 @@ public class GameControl {
         room20.south = null;
         room20.north = room17;
 
-        prevRoom = currentRoom;
-
         currentRoom = room1;
-    
-        
-        
-        
-        
 
     }
-    
+
     /**
-     * Method used to spawn monsters.
+     * Method used to create a new player.
+     * @param name Takes a string, used to name the player. 
      */
-    private void spawnMonsters(){
-        
-        Monster mon1 = new Monster("Big boss", "A baddass motherfucker", 0, new Boss(50, 5, 900));
-        System.out.println(mon1.getMonsterInterface().getTaunt());
-        
-    }
-
     public void createPlayer(String name) {
         Player player = new Player(name);
 
-
         System.out.println(player.getName());
-        
-        
+
     }
 
+    /**
+     * Method used to move around. 
+     * @param direction Used to tell what direction the player should move. 
+     */
     public void move(String direction) {
 
         if (direction.equalsIgnoreCase("North") || direction.equalsIgnoreCase("N")) {
-            if(currentRoom.north == null){
+            if (currentRoom.north == null) {
                 System.out.println("\n***You hit a wall***\n");
             } else {
-            currentRoom = currentRoom.north;
-            
+                currentRoom = currentRoom.north;
+
             }
         } else if (direction.equalsIgnoreCase("west") || direction.equalsIgnoreCase("w")) {
-            if(currentRoom.west == null){
+            if (currentRoom.west == null) {
                 System.out.println("\n***You hit a wall***\n");
             } else {
-            currentRoom = currentRoom.west;
+                currentRoom = currentRoom.west;
             }
         } else if (direction.equalsIgnoreCase("east") || direction.equalsIgnoreCase("e")) {
-            if(currentRoom.east == null){
+            if (currentRoom.east == null) {
                 System.out.println("\n***You hit a wall***\n");
             } else {
-            currentRoom = currentRoom.east;
+                currentRoom = currentRoom.east;
             }
         } else if (direction.equalsIgnoreCase("south") || direction.equalsIgnoreCase("s")) {
-            if(currentRoom.south == null){
+            if (currentRoom.south == null) {
                 System.out.println("\n***You hit a wall***\n");
             } else {
-            currentRoom = currentRoom.south;
+                currentRoom = currentRoom.south;
             }
         } else {
             System.out.println("Error in movement");
 
         }
-        
+
         roomPrinter();
 
     }
 
+    public void inputAnalyzer(String input) {
+
+        if (!inBattle) {
+            if (input.equalsIgnoreCase("West") || input.equalsIgnoreCase("w")) {
+                move(input);
+
+            } else if (input.equalsIgnoreCase("East") || input.equalsIgnoreCase("e")) {
+                move(input);
+                System.out.println("EEEEEEAAAAASTT");
+            } else if (input.equalsIgnoreCase("North") || input.equalsIgnoreCase("n")) {
+                move(input);
+            } else if (input.equalsIgnoreCase("South") || input.equalsIgnoreCase("s")) {
+                move(input);
+
+            }
+        }
+
+    }
+
+    public void roomPrinter() {
+
+        System.out.println("----" + getCurrentRoom().getRoomName() + "--------");
+        System.out.println("------------------------------------------");
+        System.out.println(getCurrentRoom().getDescription());
+        System.out.println(getCurrentRoom().itemLookup());
+
+    }
+
     /**
-     * Save method, used to save the current state of game variables. 
-     * #NOTE# Currently only saving highScore
+     * Save method, used to save the current state of game variables. #NOTE#
+     * Currently only saving highScore
      */
     public void save() {
 
@@ -280,8 +297,7 @@ public class GameControl {
 
     /**
      * Load method, used to read the data in saveFile and load it into the game
-     * variables. 
-     * #NOTE# Currently only loading highScore
+     * variables. #NOTE# Currently only loading highScore
      */
     public void load() {
 
@@ -307,42 +323,6 @@ public class GameControl {
         }
 
     }
-    
-    public void inputAnalyzer(String input){
-        
-        if(!inBattle){
-        if(input.equalsIgnoreCase("West") || input.equalsIgnoreCase("w")){
-            move(input);
-            
-        } else if (input.equalsIgnoreCase("East") || input.equalsIgnoreCase("e")){
-            move(input);
-            System.out.println("EEEEEEAAAAASTT");
-        }else if (input.equalsIgnoreCase("North") || input.equalsIgnoreCase("n")){
-            move(input);
-        }else if (input.equalsIgnoreCase("South") || input.equalsIgnoreCase("s")){
-            move(input);
-            
-        }
-        }
-        
-        
-    }
-    
-    public void roomPrinter(){
-        
-        System.out.println("----" + getCurrentRoom().getRoomName() + "--------");
-        System.out.println("------------------------------------------");
-        System.out.println(getCurrentRoom().getDescription());
-        System.out.println(getCurrentRoom().itemLookup());
-        
-    }
-    
-    
-
-    
-    
-    
-    
 
     //Getters and Setters, nothing special here - move along..!
     public Room getCurrentRoom() {
@@ -353,14 +333,6 @@ public class GameControl {
         this.currentRoom = currentRoom;
     }
 
-    public Room getPrevRoom() {
-        return prevRoom;
-    }
-
-    public void setPrevRoom(Room prevRoom) {
-        this.prevRoom = prevRoom;
-    }
-
     public Item getItem() {
         return item;
     }
@@ -368,7 +340,5 @@ public class GameControl {
     public void setItem(Item item) {
         this.item = item;
     }
-    
-    
 
 }
