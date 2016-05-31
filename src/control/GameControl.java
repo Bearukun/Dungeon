@@ -32,7 +32,6 @@ public class GameControl {
     public GameControl() {
 
         createRooms();
-        
 
     }
 
@@ -69,13 +68,12 @@ public class GameControl {
         room1.west = room4;
         room1.south = room5;
 
-
         //Room 2
         room2.west = room1;
         room2.east = room6;
         room2.south = null;
         room2.north = null;
-        room2.addMonster("Big boss", "A baddass motherfucker", 0, new Boss(50, 5, 900, room2.getTextGen().generateTaunt("Boss")));
+        room2.addMonster("Big boss", "a baddass motherfucker", 0, new Boss(50, 5, 900, room2.getTextGen().generateTaunt("Boss")));
 
         //Room 3
         room3.east = null;
@@ -209,9 +207,9 @@ public class GameControl {
      * @param direction Used to tell what direction the player should move.
      */
     public void move(String direction) {
-        
-        String print = ""; 
-        
+
+        String print = "";
+
         switch (direction) {
             case "west":
                 if (currentRoom.west == null) {
@@ -248,29 +246,49 @@ public class GameControl {
 
                     previousRoom = currentRoom;
                     currentRoom = currentRoom.south;
-                    
+
                 }
                 break;
             default:
                 break;
         }
-        
-        print = "You are now standing in the "+currentRoom.getRoomName() +". "+ currentRoom.getDescription() + "\n" + currentRoom.itemLookup();
-        
+
+        if (!currentRoom.getMonsters().isEmpty()) {
+
+            inBattle = true;
+            print = "As you enter " + currentRoom.getRoomName() + ", you encounter " + currentRoom.getMonsters().get(0).getName() + " - " + currentRoom.getMonsters().get(0).getDescription();
+
+        } else {
+
+            print = "You are now standing in the " + currentRoom.getRoomName() + ". " + currentRoom.getDescription() + "\n" + currentRoom.itemLookup();
+
+        }
+
         printer(print);
 
     }
 
-    public void combatSystem() {
+    public void combatSystem(String command) {
+        
+        if(command.equalsIgnoreCase("flee")){
+            
+            currentRoom = previousRoom;
+            printer("You flee from the enemy, and have returned to " + currentRoom.getRoomName() + ".");
+            inBattle = false;
+            
+        }
+        
+        
+        
 
     }
 
     public void inputAnalyzer(String input) {
 
-        if (input.equalsIgnoreCase("Help")) {
+        if (input.equalsIgnoreCase("Help") && !inBattle) {
 
             String commands = "Movement: north/n, south/s, east/e or west/w\n\tSyntax: go 'heading'";
-            System.out.println(commands);
+            printer(commands);
 
         }
 
@@ -289,12 +307,40 @@ public class GameControl {
 
         }
 
+        if (input.equalsIgnoreCase("Help") && inBattle) {
+
+            String commands = "While in a battle, you can't move further in the dungeon..!"
+                    + "\nAttack: Attacks the enemy in the current room"
+                    + "\n\tSyntax: attack"
+                    + "\nHeal: Uses a random potion in your inventory, if you have any."
+                    + "\n\tSyntax: heal"
+                    + "\nFlee: Flees to the previous room."
+                    + "\n\tSyntax: flee";
+            printer(commands);
+
+        }
+
+        if (inBattle) {
+
+            if (input.equalsIgnoreCase("Attack")) {
+
+                combatSystem("attack");
+
+            } else if(input.equalsIgnoreCase("Heal")) {
+
+                combatSystem("heal");
+            } else if(input.equalsIgnoreCase("Flee")){
+                
+                combatSystem("flee");
+            }
+
+        }
+
     }
 
     public void printer(String toPrinter) {
 
         System.out.println(toPrinter);
-
 
     }
 
@@ -355,6 +401,5 @@ public class GameControl {
         }
 
     }
-
 
 }

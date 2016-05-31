@@ -153,4 +153,14 @@ public class Room {
         return textGen;
     }
 
+    public ArrayList<Monster> getMonsters() {
+        return monsters;
+    }
+
+    public void setMonsters(ArrayList<Monster> monsters) {
+        this.monsters = monsters;
+    }
+    
+    
+
 }
