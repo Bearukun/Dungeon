@@ -69,88 +69,88 @@ public class GameControl {
         room2.north = null;
 
         //Room 3
-        room3.east = room3;
-        room3.west = room3;
+        room3.east = null;
+        room3.west = null;
         room3.south = room1;
         room3.north = room7;
 
         //Room4
         room4.east = room1;
         room4.west = room16;
-        room4.south = room4;
-        room4.north = room4;
+        room4.south = null;
+        room4.north = null;
 
         //Room5
-        room5.east = room5;
-        room5.west = room5;
+        room5.east = null;
+        room5.west = null;
         room5.south = room14;
         room5.north = room1;
 
         //Room6
-        room6.east = room6;
+        room6.east = null;
         room6.west = room2;
         room6.south = room11;
         room6.north = room10;
 
         //Room7
         room7.east = room8;
-        room7.west = room7;
+        room7.west = null;
         room7.south = room3;
-        room7.north = room7;
+        room7.north = null;
 
         //Room8
         room8.east = room7;
         room8.west = room9;
-        room8.south = room8;
-        room8.north = room8;
+        room8.south = null;
+        room8.north = null;
 
         //Room9
-        room9.east = room9;
+        room9.east = null;
         room9.west = room8;
         room9.south = room10;
-        room9.north = room9;
+        room9.north = null;
 
         //Room10
-        room10.east = room10;
-        room10.west = room10;
+        room10.east = null;
+        room10.west = null;
         room10.south = room6;
         room10.north = room9;
 
         //Room11
-        room11.east = room11;
-        room11.west = room11;
+        room11.east = null;
+        room11.west = null;
         room11.south = room12;
         room11.north = room6;
 
         //Room12
-        room12.east = room12;
+        room12.east = null;
         room12.west = room13;
-        room12.south = room12;
+        room12.south = null;
         room12.north = room11;
 
         //Room13
         room13.east = room12;
         room13.west = room14;
         room13.south = room15;
-        room13.north = room13;
+        room13.north = null;
 
         //Room14
         room14.east = room13;
-        room14.west = room14;
-        room14.south = room14;
+        room14.west = null;
+        room14.south = null;
         room14.north = room5;
 
         //Room15
-        room15.east = room15;
-        room15.west = room15;
-        room15.south = room15;
+        room15.east = null;
+        room15.west = null;
+        room15.south = null;
         room15.north = room13;
 
         //Room16
         room16.east = room4;
         room16.west = room17;
-        room16.south = room16;
-        room16.north = room16;
+        room16.south = null;
+        room16.north = null;
 
         //Room17
         room17.east = room16;
@@ -159,21 +159,21 @@ public class GameControl {
         room17.north = room18;
 
         //Room18
-        room18.east = room18;
-        room18.west = room18;
+        room18.east = null;
+        room18.west = null;
         room18.south = room17;
-        room18.north = room18;
+        room18.north = null;
 
         //Room19
         room19.east = room17;
-        room19.west = room19;
-        room19.south = room19;
-        room19.north = room19;
+        room19.west = null;
+        room19.south = null;
+        room19.north = null;
 
         //Room20
-        room20.east = room20;
-        room20.west = room20;
-        room20.south = room20;
+        room20.east = null;
+        room20.west = null;
+        room20.south = null;
         room20.north = room17;
 
         prevRoom = currentRoom;
