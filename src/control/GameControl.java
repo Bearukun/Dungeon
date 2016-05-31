@@ -5,8 +5,10 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import model.Player;
 import model.Room;
+import model.Item;
 
 /**
  * GameControl class
@@ -18,6 +20,7 @@ public class GameControl {
 
     Room currentRoom;
     Room prevRoom;
+    Item item;
     private boolean inBattle = false;
 
     /**
@@ -25,6 +28,7 @@ public class GameControl {
      */
     public GameControl() {
         createRooms();
+       
     }
 
     
@@ -180,6 +184,11 @@ public class GameControl {
 
         wall = prevRoom;
         currentRoom = room1;
+    
+        
+        
+        
+        
 
     }
 
@@ -311,8 +320,13 @@ public class GameControl {
         System.out.println("----" + getCurrentRoom().getRoomName() + "--------");
         System.out.println("------------------------------------------");
         System.out.println(getCurrentRoom().getDescription());
+        
+        
 //        System.out.println("PrevRoom: " + getPrevRoom().getRoomName());
     }
+    
+    
+
     
     
     
@@ -334,5 +348,15 @@ public class GameControl {
     public void setPrevRoom(Room prevRoom) {
         this.prevRoom = prevRoom;
     }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+    
+    
 
 }
