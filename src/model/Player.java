@@ -6,6 +6,7 @@
 package model;
 
 import java.util.ArrayList;
+import model.itemType.Weapon;
 
 public class Player {
 
@@ -20,8 +21,8 @@ public class Player {
         hp = 100;
         level = 1;
         damage = 6;
-//        equipment.add(new Item("Short Sword", "", "This is a Short Sword", 6, false, true, false));
-//        inventory.add(new Item("Health Potion", "", "This is a Health Potion", 0, false, false, true));
+        
+        equipment.add(new Item("Short Sword", "", "This is a short sword", 1, new Weapon(6)));
         
     }
     
