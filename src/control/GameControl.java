@@ -19,7 +19,7 @@ public class GameControl {
     //Initializing and instanciating variables. 
     ArrayList<String> highScore = new ArrayList();
 
-    Room currentRoom;
+    Room currentRoom, previousRoom;
     Item item;
     
     private boolean inBattle = false;
@@ -184,6 +184,7 @@ public class GameControl {
         room20.north = room17;
 
         currentRoom = room1;
+        previousRoom = currentRoom;
 
     }
 
@@ -208,6 +209,8 @@ public class GameControl {
             if (currentRoom.north == null) {
                 System.out.println("\n***You hit a wall***\n");
             } else {
+                
+                previousRoom = currentRoom;
                 currentRoom = currentRoom.north;
 
             }
@@ -215,21 +218,28 @@ public class GameControl {
             if (currentRoom.west == null) {
                 System.out.println("\n***You hit a wall***\n");
             } else {
+                
+                previousRoom = currentRoom;
                 currentRoom = currentRoom.west;
             }
         } else if (direction.equalsIgnoreCase("east") || direction.equalsIgnoreCase("e")) {
             if (currentRoom.east == null) {
                 System.out.println("\n***You hit a wall***\n");
             } else {
+                
+                previousRoom = currentRoom;
                 currentRoom = currentRoom.east;
             }
         } else if (direction.equalsIgnoreCase("south") || direction.equalsIgnoreCase("s")) {
             if (currentRoom.south == null) {
                 System.out.println("\n***You hit a wall***\n");
             } else {
+                
+                previousRoom = currentRoom;
                 currentRoom = currentRoom.south;
             }
         } else {
+            
             System.out.println("Error in movement");
 
         }
