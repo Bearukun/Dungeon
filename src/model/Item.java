@@ -13,16 +13,19 @@ public class Item {
     
     private String name, roomText, inspectText;
     private int value;
-    private boolean isKeyItem, isEquiptAble;
+    private boolean isKeyItem, isEquiptAble, isConsumable;
 
-    public Item(String name, String roomText, String inspectText, int value, boolean isKeyItem, boolean isEquiptAble) {
+    public Item(String name, String roomText, String inspectText, int value, boolean isKeyItem, boolean isEquiptAble, boolean isConsumable) {
         this.name = name;
         this.roomText = roomText;
         this.inspectText = inspectText;
         this.value = value;
         this.isKeyItem = isKeyItem;
         this.isEquiptAble = isEquiptAble;
+        this.isConsumable = isConsumable;
     }
+
+    
 
    
 
@@ -72,6 +75,14 @@ public class Item {
 
     public void setIsEquiptAble(boolean isEquiptAble) {
         this.isEquiptAble = isEquiptAble;
+    }
+
+    public boolean isIsConsumable() {
+        return isConsumable;
+    }
+
+    public void setIsConsumable(boolean isConsumable) {
+        this.isConsumable = isConsumable;
     }
     
     
