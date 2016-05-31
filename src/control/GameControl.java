@@ -16,13 +16,14 @@ import model.itemType.Consumable;
  */
 public class GameControl {
 
-    //Initializing and instanciating variables. 
+    //Declaring, initializing and instanciating variables. 
     ArrayList<String> highScore = new ArrayList();
 
+    //Declaring objects. 
     Room currentRoom, previousRoom;
     Item item;
     Player player;
-    
+
     private boolean inBattle = false;
 
     /**
@@ -191,88 +192,94 @@ public class GameControl {
 
     /**
      * Method used to create a new player.
-     * @param name Takes a string, used to name the player. 
+     *
+     * @param name Takes a string, used to name the player.
      */
     public void createPlayer(String name) {
-        
+
         player = new Player(name);
 
     }
 
     /**
-     * Method used to move around. 
-     * @param direction Used to tell what direction the player should move. 
+     * Method used to move around.
+     *
+     * @param direction Used to tell what direction the player should move.
      */
     public void move(String direction) {
 
-        if (direction.equalsIgnoreCase("North") || direction.equalsIgnoreCase("N")) {
-            if (currentRoom.north == null) {
-                System.out.println("\n***You hit a wall***\n");
-            } else {
-                
-                previousRoom = currentRoom;
-                currentRoom = currentRoom.north;
+        switch (direction) {
+            case "west":
+                if (currentRoom.west == null) {
+                    System.out.println("\n***You hit a wall***\n");
+                } else {
 
-            }
-        } else if (direction.equalsIgnoreCase("west") || direction.equalsIgnoreCase("w")) {
-            if (currentRoom.west == null) {
-                System.out.println("\n***You hit a wall***\n");
-            } else {
-                
-                previousRoom = currentRoom;
-                currentRoom = currentRoom.west;
-            }
-        } else if (direction.equalsIgnoreCase("east") || direction.equalsIgnoreCase("e")) {
-            if (currentRoom.east == null) {
-                System.out.println("\n***You hit a wall***\n");
-            } else {
-                
-                previousRoom = currentRoom;
-                currentRoom = currentRoom.east;
-            }
-        } else if (direction.equalsIgnoreCase("south") || direction.equalsIgnoreCase("s")) {
-            if (currentRoom.south == null) {
-                System.out.println("\n***You hit a wall***\n");
-            } else {
-                
-                previousRoom = currentRoom;
-                currentRoom = currentRoom.south;
-            }
-        } else {
-            
-            System.out.println("Error in movement");
+                    previousRoom = currentRoom;
+                    currentRoom = currentRoom.west;
+                }
+                break;
+            case "east":
+                if (currentRoom.east == null) {
+                    System.out.println("\n***You hit a wall***\n");
+                } else {
 
+                    previousRoom = currentRoom;
+                    currentRoom = currentRoom.east;
+                }
+                break;
+            case "north":
+                if (currentRoom.north == null) {
+                    System.out.println("\n***You hit a wall***\n");
+                } else {
+
+                    previousRoom = currentRoom;
+                    currentRoom = currentRoom.north;
+
+                }
+                break;
+            case "south":
+                if (currentRoom.south == null) {
+                    System.out.println("\n***You hit a wall***\n");
+                } else {
+
+                    previousRoom = currentRoom;
+                    currentRoom = currentRoom.south;
+                }
+                break;
+            default:
+                throw new AssertionError();
         }
 
         roomPrinter();
 
     }
-    
-    public void combatSystem(){
-        
-        
-        
-        
+
+    public void combatSystem() {
+
     }
-    
-    
 
     public void inputAnalyzer(String input) {
 
-        if (!inBattle) {
-            if (input.equalsIgnoreCase("West") || input.equalsIgnoreCase("w")) {
-                move(input);
+        if (input.equalsIgnoreCase("Commands")) {
 
-            } else if (input.equalsIgnoreCase("East") || input.equalsIgnoreCase("e")) {
-                move(input);
-                System.out.println("EEEEEEAAAAASTT");
-            } else if (input.equalsIgnoreCase("North") || input.equalsIgnoreCase("n")) {
-                move(input);
-            } else if (input.equalsIgnoreCase("South") || input.equalsIgnoreCase("s")) {
-                move(input);
+            String commands = "Movement: north/n, south/s, east/e or west/w\n\tSyntax: go 'heading'";
+            System.out.println(commands);
+
+        }
+
+        if (!inBattle) {
+            if (input.equalsIgnoreCase("go west") || input.equalsIgnoreCase("go w")) {
+                move("west");
+
+            } else if (input.equalsIgnoreCase("go east") || input.equalsIgnoreCase("go e")) {
+                move("east");
+            } else if (input.equalsIgnoreCase("go north") || input.equalsIgnoreCase("go n")) {
+                move("north");
+            } else if (input.equalsIgnoreCase("go south") || input.equalsIgnoreCase("go s")) {
+                move("south");
 
             }
-            
+
         }
 
     }

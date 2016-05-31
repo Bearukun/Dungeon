@@ -9,8 +9,8 @@ import java.util.Scanner;
  */
 public class Game {
 
-    //Initializing and instanciating variables. 
-    GameControl gc = new GameControl();
+    //Declaring, initializing and instanciating variables. 
+    GameControl gc;
     private Scanner sca = new Scanner(System.in);
 
     /**
@@ -25,19 +25,21 @@ public class Game {
      */
     private void NewGame() {
 
+        gc = new GameControl();
+        
         boolean gameActive = true;
 
         System.out.println("What's your name?");
         String name = sca.next();
         gc.createPlayer(name);
-        System.out.println("");
+        System.out.println("Type 'commands' to show a list of available commands.");
 
         while (gameActive) {
-            System.out.println("Where would you like to move to?");
-            String input = sca.next();
+            String input = sca.nextLine();
             gc.inputAnalyzer(input);
             
         }
+        
     }
 
     

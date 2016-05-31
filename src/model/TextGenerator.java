@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class TextGenerator {
 
-    //Initializing and instanciating variables. 
+    //Declaring, initializing and instanciating variables. 
     ArrayList<String> itemLookupText = new ArrayList();
     Random rand = new Random();
 
