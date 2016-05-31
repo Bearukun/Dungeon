@@ -18,6 +18,7 @@ public class GameControl {
 
     Room currentRoom;
     Room prevRoom;
+    private boolean inBattle = false;
 
     /**
      * Constructor
@@ -64,8 +65,8 @@ public class GameControl {
         //Room 2
         room2.west = room1;
         room2.east = room6;
-        room2.south = room2;
-        room2.north = room2;
+        room2.south = null;
+        room2.north = null;
 
         //Room 3
         room3.east = room3;
@@ -194,17 +195,36 @@ public class GameControl {
     public void move(String direction) {
 
         if (direction.equalsIgnoreCase("North") || direction.equalsIgnoreCase("N")) {
+            if(currentRoom.north == null){
+                System.out.println("\n***You hit a wall***\n");
+            } else {
             currentRoom = currentRoom.north;
+            
+            }
         } else if (direction.equalsIgnoreCase("west") || direction.equalsIgnoreCase("w")) {
+            if(currentRoom.west == null){
+                System.out.println("\n***You hit a wall***\n");
+            } else {
             currentRoom = currentRoom.west;
+            }
         } else if (direction.equalsIgnoreCase("east") || direction.equalsIgnoreCase("e")) {
+            if(currentRoom.east == null){
+                System.out.println("\n***You hit a wall***\n");
+            } else {
             currentRoom = currentRoom.east;
+            }
         } else if (direction.equalsIgnoreCase("south") || direction.equalsIgnoreCase("s")) {
+            if(currentRoom.south == null){
+                System.out.println("\n***You hit a wall***\n");
+            } else {
             currentRoom = currentRoom.south;
+            }
         } else {
             System.out.println("Error in movement");
 
         }
+        
+        roomPrinter();
 
     }
 
@@ -266,6 +286,37 @@ public class GameControl {
         }
 
     }
+    
+    public void inputAnalyzer(String input){
+        
+        if(!inBattle){
+        if(input.equalsIgnoreCase("West") || input.equalsIgnoreCase("w")){
+            move(input);
+            
+        } else if (input.equalsIgnoreCase("East") || input.equalsIgnoreCase("e")){
+            move(input);
+            System.out.println("EEEEEEAAAAASTT");
+        }else if (input.equalsIgnoreCase("North") || input.equalsIgnoreCase("n")){
+            move(input);
+        }else if (input.equalsIgnoreCase("South") || input.equalsIgnoreCase("s")){
+            move(input);
+            
+        }
+        }
+        
+        
+    }
+    
+    public void roomPrinter(){
+        System.out.println("----" + getCurrentRoom().getRoomName() + "--------");
+        System.out.println("------------------------------------------");
+        System.out.println(getCurrentRoom().getDescription());
+//        System.out.println("PrevRoom: " + getPrevRoom().getRoomName());
+    }
+    
+    
+    
+    
 
     //Getters and Setters, nothing special here - move along..!
     public Room getCurrentRoom() {
