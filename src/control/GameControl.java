@@ -33,8 +33,6 @@ public class GameControl {
      */
     private void createRooms() {
 
-        Room wall = new Room("Wall", "You've hit a wall and are still in the same room!.... Dumbass!", 0);
-
         Room room1 = new Room("Entrance", "You are standing in the Entrance ", 0);
         Room room2 = new Room("Tomb", "You are in the tomb", 0);
         Room room3 = new Room("Pit", "Sacrefice Pit", 0);
@@ -178,18 +176,17 @@ public class GameControl {
 
         prevRoom = currentRoom;
 
-        wall = prevRoom;
         currentRoom = room1;
 
     }
 
     public void createPlayer(String name) {
-        Player player = new Player();
+        Player player = new Player(name);
 
-        player.setName(name);
 
         System.out.println(player.getName());
-
+        
+        
     }
 
     public void move(String direction) {
