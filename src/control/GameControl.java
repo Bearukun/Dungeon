@@ -198,7 +198,7 @@ public class GameControl {
     public void createPlayer(String name) {
 
         player = new Player(name);
-        move("first");
+        move("");
     }
 
     /**
@@ -274,16 +274,21 @@ public class GameControl {
 
     public void combatSystem(String command) {
         
-        if(command.equalsIgnoreCase("flee")){
+        if(command.equals("attack")){
+            
+            
+            
+        }else if(command.equals("heal")){
+            
+            
+            
+        }else if(command.equals("flee")){
             
             currentRoom = previousRoom;
             printer("You flee from the enemy, and have returned to " + currentRoom.getRoomName() + ".");
             inBattle = false;
             
         }
-        
-        
-        
 
     }
 
