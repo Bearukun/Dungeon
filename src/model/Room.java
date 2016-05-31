@@ -5,6 +5,7 @@
  */
 package model;
 
+import interfaces.ItemInterface;
 import java.util.ArrayList;
 
 /**
@@ -12,26 +13,49 @@ import java.util.ArrayList;
  * @author Ceo
  */
 public class Room {
-    
-    private String roomName,description;
+
+    private String roomName, description;
     private ArrayList<Item> items = new ArrayList();
     private int spawnMonsterID;
-    
+
 //    public Room north;
 //    public Room south;
 //    public Room west;
 //    public Room east;
-    
     public Room north, south, west, east;
 
-    public Room(String roomname,String description, int spawnMonsterID ) {
+    public Room(String roomname, String description, int spawnMonsterID) {
         this.roomName = roomname;
         this.description = description;
-        this.spawnMonsterID = spawnMonsterID;        
+        this.spawnMonsterID = spawnMonsterID;
         this.north = null;
         this.south = null;
         this.west = null;
         this.east = null;
+    }
+
+    public void addItem(String name, String roomText, String inspectText, int value, ItemInterface itemType) {
+
+        items.add(new Item(name, roomText, inspectText, value, itemType));
+
+    }
+
+    public String itemLookup() {
+        
+        String returnString = "";
+
+        if (!items.isEmpty()) {
+            returnString = "Lootable items: ";
+            
+            for (Item item : items) {
+
+                returnString += "" + item.getName() + " " + item.getRoomText() + "\n";
+
+            }
+        }
+        
+        return returnString;
+
     }
 
     @Override
@@ -49,6 +73,7 @@ public class Room {
 
     public ArrayList<Item> getItems() {
         return items;
+
     }
 
     public void setItems(ArrayList<Item> items) {
@@ -102,13 +127,5 @@ public class Room {
     public void setRoomName(String roomName) {
         this.roomName = roomName;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 }

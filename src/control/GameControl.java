@@ -10,6 +10,7 @@ import model.Player;
 import model.Room;
 import model.monsterType.Boss;
 import model.Item;
+import model.itemType.Consumable;
 
 
 /**
@@ -66,6 +67,7 @@ public class GameControl {
         room1.north = room3;
         room1.west = room4;
         room1.south = room5;
+        room1.addItem("Willy", "Wonka", "A mighty willy!", 900, new Consumable(50, true));
 
         //Room 2
         room2.west = room1;
@@ -327,12 +329,12 @@ public class GameControl {
     }
     
     public void roomPrinter(){
+        
         System.out.println("----" + getCurrentRoom().getRoomName() + "--------");
         System.out.println("------------------------------------------");
         System.out.println(getCurrentRoom().getDescription());
+        System.out.println(getCurrentRoom().itemLookup());
         
-        
-//        System.out.println("PrevRoom: " + getPrevRoom().getRoomName());
     }
     
     
