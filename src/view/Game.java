@@ -32,11 +32,11 @@ public class Game {
         System.out.println("What's your name?");
         String name = sca.next();
         gc.createPlayer(name);
-        System.out.println("Type 'commands' to show a list of available commands.");
+        System.out.println("Type 'help' to show a list of available commands.");
 
         while (gameActive) {
-            String input = sca.nextLine();
-            gc.inputAnalyzer(input);
+            
+            gc.inputAnalyzer(sca.nextLine());
             
         }
         

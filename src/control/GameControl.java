@@ -32,6 +32,7 @@ public class GameControl {
     public GameControl() {
 
         createRooms();
+        
 
     }
 
@@ -41,9 +42,9 @@ public class GameControl {
     private void createRooms() {
 
         //Initalising and instantiating new rooms. 
-        Room room1 = new Room("Entrance", "You are standing in the Entrance ");
-        Room room2 = new Room("Tomb", "You are in the tomb");
-        Room room3 = new Room("Pit", "Sacrefice Pit");
+        Room room1 = new Room("Entrance", "It's very dark and you feel a very unwelcoming aura around you.");
+        Room room2 = new Room("Tomb", "You see many bones laying around as if this have been some sort of mass burial.");
+        Room room3 = new Room("Pit", "It seems like this is some sort of ancient Sacrefice site, it still reeks of corpses.");
         Room room4 = new Room("Dungeon", "S/M Dungeon ");
         Room room5 = new Room("Fast Food joint", "McDonalds");
         Room room6 = new Room("Fast Food joint", "Burger King");
@@ -67,8 +68,7 @@ public class GameControl {
         room1.north = room3;
         room1.west = room4;
         room1.south = room5;
-        room1.addItem("Mystic Potion", "a mysterious looking potion", "You don't know what effect it will have on you", 900, new Consumable(50, true));
-        room1.addItem("Odd-looking vial", "an odd-looking vial", "You don't know what effect it will have on you", 300, new Consumable(-20, true));
+
 
         //Room 2
         room2.west = room1;
@@ -82,6 +82,8 @@ public class GameControl {
         room3.west = null;
         room3.south = room1;
         room3.north = room7;
+        room3.addItem("Mystic Potion", "a mysterious looking potion", "You don't know what effect it will have on you", 900, new Consumable(50, true));
+        room3.addItem("Odd-looking vial", "an odd-looking vial", "You don't know what effect it will have on you", 300, new Consumable(-20, true));
 
         //Room4
         room4.east = room1;
@@ -198,7 +200,7 @@ public class GameControl {
     public void createPlayer(String name) {
 
         player = new Player(name);
-
+        move("first");
     }
 
     /**
@@ -207,11 +209,13 @@ public class GameControl {
      * @param direction Used to tell what direction the player should move.
      */
     public void move(String direction) {
-
+        
+        String print = ""; 
+        
         switch (direction) {
             case "west":
                 if (currentRoom.west == null) {
-                    System.out.println("\n***You hit a wall***\n");
+                    print = "\n***You hit a wall***\n";
                 } else {
 
                     previousRoom = currentRoom;
@@ -220,7 +224,7 @@ public class GameControl {
                 break;
             case "east":
                 if (currentRoom.east == null) {
-                    System.out.println("\n***You hit a wall***\n");
+                    print = "\n***You hit a wall***\n";
                 } else {
 
                     previousRoom = currentRoom;
@@ -229,7 +233,7 @@ public class GameControl {
                 break;
             case "north":
                 if (currentRoom.north == null) {
-                    System.out.println("\n***You hit a wall***\n");
+                    print = "\n***You hit a wall***\n";
                 } else {
 
                     previousRoom = currentRoom;
@@ -239,18 +243,21 @@ public class GameControl {
                 break;
             case "south":
                 if (currentRoom.south == null) {
-                    System.out.println("\n***You hit a wall***\n");
+                    print = "\n***You hit a wall***\n";
                 } else {
 
                     previousRoom = currentRoom;
                     currentRoom = currentRoom.south;
+                    
                 }
                 break;
             default:
-                throw new AssertionError();
+                break;
         }
-
-        roomPrinter();
+        
+        print = "You are now standing in the "+currentRoom.getRoomName() +". "+ currentRoom.getDescription() + "\n" + currentRoom.itemLookup();
+        
+        printer(print);
 
     }
 
@@ -260,7 +267,7 @@ public class GameControl {
 
     public void inputAnalyzer(String input) {
 
-        if (input.equalsIgnoreCase("Commands")) {
+        if (input.equalsIgnoreCase("Help")) {
 
             String commands = "Movement: north/n, south/s, east/e or west/w\n\tSyntax: go 'heading'";
             System.out.println(commands);
@@ -284,12 +291,10 @@ public class GameControl {
 
     }
 
-    public void roomPrinter() {
+    public void printer(String toPrinter) {
 
-        System.out.println("----" + getCurrentRoom().getRoomName() + "--------");
-        System.out.println("------------------------------------------");
-        System.out.println(getCurrentRoom().getDescription());
-        System.out.println(getCurrentRoom().itemLookup());
+        System.out.println(toPrinter);
+
 
     }
 
@@ -351,21 +356,5 @@ public class GameControl {
 
     }
 
-    //Getters and Setters, nothing special here - move along..!
-    public Room getCurrentRoom() {
-        return currentRoom;
-    }
-
-    public void setCurrentRoom(Room currentRoom) {
-        this.currentRoom = currentRoom;
-    }
-
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
-    }
 
 }
