@@ -7,7 +7,7 @@ public interface PlayerInterface {
     
     public String getName();
     
-    public int hp();
+    public int getHp();
     
     public int getDamage();
     

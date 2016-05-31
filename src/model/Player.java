@@ -5,10 +5,11 @@
  */
 package model;
 
+import interfaces.PlayerInterface;
 import java.util.ArrayList;
 import model.itemType.Weapon;
 
-public class Player {
+public class Player implements PlayerInterface {
 
     private String name;
     private int hp, damage, level, armor;
@@ -28,6 +29,7 @@ public class Player {
     
     
     
+    @Override
     public String getName() {
         return name;
     }
@@ -36,6 +38,7 @@ public class Player {
         this.name = name;
     }
 
+    @Override
     public int getHp() {
         return hp;
     }
@@ -44,6 +47,7 @@ public class Player {
         this.hp = hp;
     }
 
+    @Override
     public int getDamage() {
         return damage;
     }
@@ -52,6 +56,7 @@ public class Player {
         this.damage = damage;
     }
 
+    @Override
     public int getLevel() {
         return level;
     }
@@ -60,6 +65,7 @@ public class Player {
         this.level = level;
     }
 
+    @Override
     public int getArmor() {
         return armor;
     }
@@ -68,6 +74,7 @@ public class Player {
         this.armor = armor;
     }
 
+    @Override
     public ArrayList<Item> getInventory() {
         return inventory;
     }
@@ -76,6 +83,7 @@ public class Player {
         this.inventory = inventory;
     }
 
+    @Override
     public ArrayList<Item> getEquipment() {
         return equipment;
     }
@@ -83,5 +91,7 @@ public class Player {
     public void setEquipment(ArrayList<Item> equipment) {
         this.equipment = equipment;
     }
+
+ 
 
 }

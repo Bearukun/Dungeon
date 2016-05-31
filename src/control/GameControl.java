@@ -21,6 +21,7 @@ public class GameControl {
 
     Room currentRoom, previousRoom;
     Item item;
+    Player player;
     
     private boolean inBattle = false;
 
@@ -193,9 +194,8 @@ public class GameControl {
      * @param name Takes a string, used to name the player. 
      */
     public void createPlayer(String name) {
-        Player player = new Player(name);
-
-        System.out.println(player.getName());
+        
+        player = new Player(name);
 
     }
 
@@ -247,6 +247,15 @@ public class GameControl {
         roomPrinter();
 
     }
+    
+    public void combatSystem(){
+        
+        
+        
+        
+    }
+    
+    
 
     public void inputAnalyzer(String input) {
 
@@ -263,6 +272,7 @@ public class GameControl {
                 move(input);
 
             }
+            
         }
 
     }
