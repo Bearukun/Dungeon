@@ -31,6 +31,7 @@ public class Monster {
     }
 
     //Getters and setters, nothing to see here - move along..!
+
     public String getName() {
         return name;
     }
@@ -70,5 +71,5 @@ public class Monster {
     public void setMonsterInterface(MonsterInterface monsterInterface) {
         this.monsterInterface = monsterInterface;
     }
-
+ 
 }

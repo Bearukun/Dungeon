@@ -252,11 +252,15 @@ public class GameControl {
             default:
                 break;
         }
-
+        
+        //Checking if the room isn't empty
         if (!currentRoom.getMonsters().isEmpty()) {
 
             inBattle = true;
-            print = "As you enter " + currentRoom.getRoomName() + ", you encounter " + currentRoom.getMonsters().get(0).getName() + " - " + currentRoom.getMonsters().get(0).getDescription();
+            player.setHp(player.getHp()-currentRoom.getMonsters().get(0).getMonsterInterface().getDamage());
+            print = "As you enter " + currentRoom.getRoomName() + ", you encounter " + currentRoom.getMonsters().get(0).getName() + " - " + currentRoom.getMonsters().get(0).getDescription()+
+                    currentRoom.getMonsters().get(0).getName()+" attacks you and gives you " + currentRoom.getMonsters().get(0).getMonsterInterface().getDamage() + " damage!" +
+                    "\nYou now have " + player.getHp() + "HP left..!";
 
         } else {
 
