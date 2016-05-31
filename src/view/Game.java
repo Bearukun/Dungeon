@@ -36,6 +36,7 @@ public class Game {
             System.out.println("Where would you like to move to?");
             String input = sca.next();
             gc.inputAnalyzer(input);
+            
         }
     }
 

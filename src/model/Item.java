@@ -1,33 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
-/**
- *
- * @author Ceo
- */
+import interfaces.ItemInterface;
+
 public class Item {
     
     private String name, roomText, inspectText;
     private int value;
-    private boolean isKeyItem, isEquiptAble, isConsumable;
+    private ItemInterface itemInterface;
 
-    public Item(String name, String roomText, String inspectText, int value, boolean isKeyItem, boolean isEquiptAble, boolean isConsumable) {
+    public Item(String name, String roomText, String inspectText, int value, ItemInterface itemType) {
         this.name = name;
         this.roomText = roomText;
         this.inspectText = inspectText;
         this.value = value;
-        this.isKeyItem = isKeyItem;
-        this.isEquiptAble = isEquiptAble;
-        this.isConsumable = isConsumable;
+        this.itemInterface = itemType;
     }
-
-    
-
-   
 
     public String getName() {
         return name;
@@ -61,35 +48,15 @@ public class Item {
         this.value = value;
     }
 
-    public boolean isIsKeyItem() {
-        return isKeyItem;
+    public ItemInterface getItemInterface() {
+        return itemInterface;
     }
 
-    public void setIsKeyItem(boolean isKeyItem) {
-        this.isKeyItem = isKeyItem;
+    public void setItemInterface(ItemInterface itemInterface) {
+        this.itemInterface = itemInterface;
     }
+   
 
-    public boolean isIsEquiptAble() {
-        return isEquiptAble;
-    }
-
-    public void setIsEquiptAble(boolean isEquiptAble) {
-        this.isEquiptAble = isEquiptAble;
-    }
-
-    public boolean isIsConsumable() {
-        return isConsumable;
-    }
-
-    public void setIsConsumable(boolean isConsumable) {
-        this.isConsumable = isConsumable;
-    }
-    
-    
-    
-    
     
     
 }
-
-

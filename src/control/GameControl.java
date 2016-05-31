@@ -30,6 +30,7 @@ public class GameControl {
      */
     public GameControl() {
         createRooms();
+        spawnMonsters();
        
     }
 
@@ -197,6 +198,7 @@ public class GameControl {
     private void spawnMonsters(){
         
         Monster mon1 = new Monster("Big boss", "A baddass motherfucker", 0, new Boss(50, 5, 900));
+        System.out.println(mon1.getMonsterInterface().getTaunt());
         
     }
 
