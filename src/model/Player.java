@@ -7,15 +7,15 @@ import model.itemType.Weapon;
 public class Player implements PlayerInterface {
 
     private String name;
-    private int hp, baseDamage, damage, level, armor, initialHp;
+    private int hp, baseDamage, damage, level, armor, tempHp;
     private ArrayList<Item> inventory = new ArrayList();
     private ArrayList<Item> equipment = new ArrayList();
 
     public Player(String name) {
         this.name = name;
 
-        hp = 100;
-        initialHp = hp;
+        hp = 30;
+        tempHp = hp;
         level = 1;
         baseDamage = 6;
         damage = baseDamage;
@@ -51,6 +51,15 @@ public class Player implements PlayerInterface {
 
         damage = baseDamage + weaponDamage;
 
+    }
+
+    @Override
+    public void levelUp() {
+        
+        level++;
+        hp = tempHp + 10;
+        tempHp = hp;
+        
     }
 
     @Override

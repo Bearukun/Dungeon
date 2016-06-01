@@ -81,7 +81,7 @@ public class GameControl {
         room2.east = room6;
         room2.south = null;
         room2.north = null;
-        room2.addMonster("Skeleton King", "the mad king of Tristram, bound once again to the mortal realm", 0, new Boss(50, 5, 900, textGen.generateTaunt("boss")));
+        room2.addMonster("Skeleton King", "the mad king of Tristram, bound once again to the mortal realm", 0, new Boss(20, 2, 900, textGen.generateTaunt("boss")));
 
         //Room 3
         room3.east = null;
@@ -296,7 +296,8 @@ public class GameControl {
 
             if (currentRoom.getMonster().getMonsterInterface().getHp() <= 0) {
 
-                printer("You have slain " + currentRoom.getMonster().getName() + "!");
+                printer("You have slain " + currentRoom.getMonster().getName() + "!\nYou have gained a level, your health has been incrased and fully healed.");
+                player.levelUp();
                 currentRoom.getMonster().setIsAlive(false);
                 inBattle = false;
                 move("");

@@ -5,6 +5,8 @@ import model.Item;
 
 public interface PlayerInterface {
     
+    public void levelUp();
+    
     public String getStats();
     
     public void calculateStats();
