@@ -281,6 +281,10 @@ public class GameControl {
 
     }
 
+    /**
+     * This is the combat system
+     * @param command  Takes a string with the command.
+     */
     public void combatSystem(String command) {
 
         if (command.equals("attack")) {
@@ -321,10 +325,18 @@ public class GameControl {
 
         if (input.equalsIgnoreCase("Help") && !inBattle) {
 
-            String commands = "Movement: north/n, south/s, east/e or west/w\n\tSyntax: go 'heading'";
+            String commands = "Movement: Used to move north/n, south/s, east/e or west/w.\n\tSyntax: go 'heading'\n"
+                    + "Show stats: Used to show your stats\n\t.Syntax: stats or show stats'\n";
             printer(commands);
 
         }
+        
+        if (input.equalsIgnoreCase("stats") || input.equalsIgnoreCase("show stats")) {
+                
+            printer(player.getStats());
+            
+        }
+        
 
         if (!inBattle) {
             if (input.equalsIgnoreCase("go west") || input.equalsIgnoreCase("go w")) {

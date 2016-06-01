@@ -30,6 +30,16 @@ public class ArmorSet implements ItemInterface{
         this.armorMultiplier = armorMultiplier;
     }
 
+    @Override
+    public boolean isAWeapon() {
+        return false;
+    }
+
+    @Override
+    public int getDamageModifier() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
 
 

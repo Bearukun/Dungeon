@@ -5,6 +5,10 @@ import model.Item;
 
 public interface PlayerInterface {
     
+    public String getStats();
+    
+    public void calculateStats();
+    
     public String getName();
     
     public int getHp();

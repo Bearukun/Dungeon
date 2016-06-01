@@ -17,6 +17,11 @@ public class Weapon implements ItemInterface{
     public void setDamageModifier(int damageModifier) {
         this.damageModifier = damageModifier;
     }
+
+    @Override
+    public boolean isAWeapon() {
+        return true;
+    }
     
     
     
