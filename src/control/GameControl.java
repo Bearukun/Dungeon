@@ -385,6 +385,10 @@ public class GameControl {
 
     }
 
+    /**
+     * Print method, can be useful to implement some GUI with an text window.
+     * @param toPrinter Takes a String to print.
+     */
     public void printer(String toPrinter) {
 
         System.out.println(toPrinter);
