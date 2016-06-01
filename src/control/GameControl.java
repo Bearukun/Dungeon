@@ -81,7 +81,7 @@ public class GameControl {
         room2.east = room6;
         room2.south = null;
         room2.north = null;
-        room2.addMonster("Big boss", "a baddass motherfucker", 0, new Boss(50, 5, 900, textGen.generateTaunt("boss")));
+        room2.addMonster("Skeleton King", "the mad king of Tristram, bound once again to the mortal realm", 0, new Boss(50, 5, 900, textGen.generateTaunt("boss")));
 
         //Room 3
         room3.east = null;
@@ -268,7 +268,7 @@ public class GameControl {
             inBattle = true;
             player.setHp(player.getHp() - currentRoom.getMonster().getMonsterInterface().getDamage());
             print = "As you enter the " + currentRoom.getRoomName() + ", you encounter " + currentRoom.getMonster().getName() + " - " + currentRoom.getMonster().getDescription()+".\n"
-                    + currentRoom.getMonster().getName() + " attacks you and says "+ currentRoom.getMonster().getMonsterInterface().getTaunt() + "\nYou recive " + currentRoom.getMonster().getMonsterInterface().getDamage() + " damage!"
+                    + currentRoom.getMonster().getName() + " attacks you "+ currentRoom.getMonster().getMonsterInterface().getTaunt() + "\nYou recive " + currentRoom.getMonster().getMonsterInterface().getDamage() + " damage!"
                     + " - You now have " + player.getHp() + "HP left.";
 
         } else {
