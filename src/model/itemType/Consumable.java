@@ -4,19 +4,20 @@ import interfaces.ItemInterface;
 
 public class Consumable implements ItemInterface{
     
-    private double healthModifier;
-    private boolean isConsumable;
+    private int healthModifier;
+    private boolean isConsumable, isMaximumHealing;
 
-    public Consumable(double healthModifier, boolean isConsumable) {
+    public Consumable(int healthModifier, boolean isConsumable, boolean isMaximumHealing) {
         this.healthModifier = healthModifier;
         this.isConsumable = isConsumable;
+        this.isMaximumHealing = isMaximumHealing;
     }
 
-    public double getHealthModifier() {
+    public int getHealthModifier() {
         return healthModifier;
     }
 
-    public void setHealthModifier(double healthModifier) {
+    public void setHealthModifier(int healthModifier) {
         this.healthModifier = healthModifier;
     }
 
@@ -27,7 +28,16 @@ public class Consumable implements ItemInterface{
     public void setIsConsumable(boolean isConsumable) {
         this.isConsumable = isConsumable;
     }
-    
+
+    public boolean isIsMaximumHealing() {
+        return isMaximumHealing;
+    }
+
+    public void setIsMaximumHealing(boolean isMaximumHealing) {
+        this.isMaximumHealing = isMaximumHealing;
+    }
+
+   
     
     
 }

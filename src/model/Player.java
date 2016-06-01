@@ -12,14 +12,15 @@ import model.itemType.Weapon;
 public class Player implements PlayerInterface {
 
     private String name;
-    private int hp, damage, level, armor;
+    private int hp, damage, level, armor, initialHp;
     private ArrayList<Item> inventory = new ArrayList();
     private ArrayList<Item> equipment = new ArrayList();
 
     public Player(String name) {
         this.name = name;
     
-        hp = 10;
+        hp = 100;
+        initialHp = hp;
         level = 1;
         damage = 6;
         

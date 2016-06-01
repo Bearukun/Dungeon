@@ -12,7 +12,7 @@ public class Room {
     //Initializing and instanciating variables. 
     private String roomName, description;
     private ArrayList<Item> items = new ArrayList();
-    private TextGenerator textGen = new TextGenerator();
+    //private TextGenerator textGen = new TextGenerator();
     private Monster monster;
 
     public Room north, south, west, east;
@@ -50,12 +50,12 @@ public class Room {
      * Method used to look up room items.
      * @return Returns a string with available items. 
      */
-    public String itemLookup() {
+    public String itemLookup(String itemLookupText) {
 
         String returnString = "";
 
         if (!items.isEmpty()) {
-            returnString = textGen.generateItemLookupText();
+            returnString = itemLookupText;
 
             if (items.size() == 1) {
 
@@ -149,9 +149,9 @@ public class Room {
         this.roomName = roomName;
     }
 
-    public TextGenerator getTextGen() {
-        return textGen;
-    }
+//    public TextGenerator getTextGen() {
+//        return textGen;
+//    }
 
     public Monster getMonster() {
         return monster;

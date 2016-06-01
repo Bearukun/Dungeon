@@ -9,6 +9,7 @@ import model.Player;
 import model.Room;
 import model.monsterType.Boss;
 import model.Item;
+import model.TextGenerator;
 import model.itemType.Consumable;
 
 /**
@@ -25,6 +26,7 @@ public class GameControl {
             room20, currentRoom, previousRoom;
     Item item;
     Player player;
+    private TextGenerator textGen;
 
     private boolean gameActive = true;
     private boolean hasDied = false;
@@ -34,10 +36,11 @@ public class GameControl {
     /**
      * Constructor
      */
-    public GameControl() {
-
+    public GameControl(String playerName) {
+        
+        createPlayer(playerName);
         createRooms();
-
+        move("");
     }
 
     /**
@@ -78,15 +81,15 @@ public class GameControl {
         room2.east = room6;
         room2.south = null;
         room2.north = null;
-        room2.addMonster("Big boss", "a baddass motherfucker", 0, new Boss(50, 5, 900, room2.getTextGen().generateTaunt("Boss")));
+        room2.addMonster("Big boss", "a baddass motherfucker", 0, new Boss(50, 5, 900, textGen.generateTaunt("boss")));
 
         //Room 3
         room3.east = null;
         room3.west = null;
         room3.south = room1;
         room3.north = room7;
-        room3.addItem("Mystic Potion", "a mysterious looking potion", "You don't know what effect it will have on you", 900, new Consumable(50, true));
-        room3.addItem("Odd-looking vial", "an odd-looking vial", "You don't know what effect it will have on you", 300, new Consumable(-20, true));
+        room3.addItem("Mystic Potion", "a mysterious looking potion", "You don't know what effect it will have on you", 900, new Consumable(50, true, false));
+        room3.addItem("Odd-looking vial", "an odd-looking vial", "You don't know what effect it will have on you", 300, new Consumable(-20, true, false));
 
         //Room4
         room4.east = room1;
@@ -203,7 +206,8 @@ public class GameControl {
     public void createPlayer(String name) {
 
         player = new Player(name);
-        move("");
+        textGen = new TextGenerator(name);
+        
     }
 
     /**
@@ -258,18 +262,18 @@ public class GameControl {
                 break;
         }
 
-        //Checking if the room isn't empty
-        if (currentRoom.getMonster() != null) {
+        //Checking if the room has a boss in it
+        if (currentRoom.getMonster() != null && currentRoom.getMonster().isIsAlive()) {
 
             inBattle = true;
             player.setHp(player.getHp() - currentRoom.getMonster().getMonsterInterface().getDamage());
-            print = "As you enter " + currentRoom.getRoomName() + ", you encounter " + currentRoom.getMonster().getName() + " - " + currentRoom.getMonster().getDescription()+". "
-                    + currentRoom.getMonster().getName() + " attacks you and gives you " + currentRoom.getMonster().getMonsterInterface().getDamage() + " damage!"
-                    + "\nYou now have " + player.getHp() + "HP left..!";
+            print = "As you enter the " + currentRoom.getRoomName() + ", you encounter " + currentRoom.getMonster().getName() + " - " + currentRoom.getMonster().getDescription()+".\n"
+                    + currentRoom.getMonster().getName() + " attacks you and says "+ currentRoom.getMonster().getMonsterInterface().getTaunt() + "\nYou recive " + currentRoom.getMonster().getMonsterInterface().getDamage() + " damage!"
+                    + " - You now have " + player.getHp() + "HP left.";
 
         } else {
 
-            print = "You are now standing in the " + currentRoom.getRoomName() + ". " + currentRoom.getDescription() + "\n" + currentRoom.itemLookup();
+            print = "You are now standing in the " + currentRoom.getRoomName() + ". " + currentRoom.getDescription() + "\n" + currentRoom.itemLookup(textGen.generateItemLookupText());
 
         }
 
@@ -289,6 +293,7 @@ public class GameControl {
             if (currentRoom.getMonster().getMonsterInterface().getHp() <= 0) {
 
                 printer("You have slain " + currentRoom.getMonster().getName() + "!");
+                currentRoom.getMonster().setIsAlive(false);
                 inBattle = false;
                 move("");
             }
@@ -300,7 +305,7 @@ public class GameControl {
                 
             }
 
-        } else if (command.equals("heal")) {
+        } else if (command.equals("use")) {
 
         } else if (command.equals("flee")) {
 
@@ -341,8 +346,8 @@ public class GameControl {
             String commands = "While in a battle, you can't move further in the dungeon..!"
                     + "\nAttack: Attacks the enemy in the current room"
                     + "\n\tSyntax: attack"
-                    + "\nHeal: Uses a potion in your inventory, if you have any."
-                    + "\n\tSyntax: heal 'potion name"
+                    + "\nUse: Use an item in your inventory, if you have any."
+                    + "\n\tSyntax: use 'itmename"
                     + "\nFlee: Flees to the previous room."
                     + "\n\tSyntax: flee";
             printer(commands);
@@ -355,9 +360,9 @@ public class GameControl {
 
                 combatSystem("attack");
 
-            } else if (input.equalsIgnoreCase("Heal")) {
+            } else if (input.equalsIgnoreCase("use")) {
 
-                combatSystem("heal");
+                combatSystem("use");
             } else if (input.equalsIgnoreCase("Flee")) {
 
                 combatSystem("flee");

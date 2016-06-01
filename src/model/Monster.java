@@ -11,6 +11,7 @@ public class Monster {
     //Initializing and instanciating variables. 
     private String name, description;
     private int id;
+    private boolean isAlive;
     private ArrayList<Item> inventory = new ArrayList();
     private MonsterInterface monsterInterface;
 
@@ -27,11 +28,11 @@ public class Monster {
         this.description = description;
         this.id = id;
         this.monsterInterface = monsterType;
+        isAlive = true;
 
     }
 
     //Getters and setters, nothing to see here - move along..!
-
     public String getName() {
         return name;
     }
@@ -70,6 +71,14 @@ public class Monster {
 
     public void setMonsterInterface(MonsterInterface monsterInterface) {
         this.monsterInterface = monsterInterface;
+    }
+
+    public boolean isIsAlive() {
+        return isAlive;
+    }
+
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
     }
  
 }

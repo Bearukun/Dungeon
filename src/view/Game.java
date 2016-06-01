@@ -25,11 +25,9 @@ public class Game {
      */
     private void NewGame() {
 
-        gc = new GameControl();
-
         System.out.println("What's your name?");
-        String name = sca.next();
-        gc.createPlayer(name);
+        gc = new GameControl(sca.next());
+        
         System.out.println("Type 'help' to show a list of available commands.");
 
         while (gc.isGameActive() == true) {
