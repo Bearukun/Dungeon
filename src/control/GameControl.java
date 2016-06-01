@@ -294,9 +294,9 @@ public class GameControl {
             printer("You hit " + currentRoom.getMonster().getName() + " for " + player.getDamage() + "! " + currentRoom.getMonster().getMonsterInterface().getHp() + "HP left."
                     + "\n" + currentRoom.getMonster().getName() + " attacks you for " + currentRoom.getMonster().getMonsterInterface().getDamage() + "! You have " + player.getHp() + "HP left!");
 
-            if (currentRoom.getMonster().getMonsterInterface().getHp() <= 0) {
+            if (currentRoom.getMonster().getMonsterInterface().getHp() <= 0 && player.getHp() > 0) {
 
-                printer("You have slain " + currentRoom.getMonster().getName() + "!\nYou have gained a level, your health has been incrased and fully healed.");
+                printer(currentRoom.getMonster().getName() + " has been slayed!\nYou have gained a level, your health has been incrased and fully healed.");
                 player.levelUp();
                 currentRoom.getMonster().setIsAlive(false);
                 inBattle = false;
