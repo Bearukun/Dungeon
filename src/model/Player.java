@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import interfaces.PlayerInterface;
@@ -26,18 +21,17 @@ public class Player implements PlayerInterface {
         damage = baseDamage;
 
         equipment.add(new Item("Short Sword", "", "This is a short sword", 1, new Weapon(6)));
-        
-        
+
         calculateStats();
 
     }
-    
+
     @Override
     public String getStats() {
-        return "You have "+ hp +"HP, your level is "+ level+" and you give "+ damage+"HP in damage.";
+
+        return "You have " + hp + "HP, your level is " + level + " and you give " + damage + "HP in damage.";
+
     }
-    
-    
 
     @Override
     public void calculateStats() {
@@ -48,13 +42,13 @@ public class Player implements PlayerInterface {
         for (Item item : equipment) {
 
             if (item.getItemInterface().isAWeapon()) {
-                
+
                 weaponDamage += item.getItemInterface().getDamageModifier();
-            
+
             }
 
         }
-        
+
         damage = baseDamage + weaponDamage;
 
     }
@@ -121,7 +115,5 @@ public class Player implements PlayerInterface {
     public void setEquipment(ArrayList<Item> equipment) {
         this.equipment = equipment;
     }
-
- 
 
 }
