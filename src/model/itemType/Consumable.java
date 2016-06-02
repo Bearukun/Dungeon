@@ -14,7 +14,18 @@ public class Consumable implements ItemInterface{
     }
 
     public int getHealthModifier() {
-        return healthModifier;
+        
+        if(isMaximumHealing){
+            
+            return 1337;
+            
+        }else{
+            
+            return healthModifier;
+        
+        }
+        
+        
     }
 
     public void setHealthModifier(int healthModifier) {
@@ -45,6 +56,11 @@ public class Consumable implements ItemInterface{
     @Override
     public int getDamageModifier() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isConsumable() {
+        return true;
     }
 
    

@@ -9,6 +9,10 @@ public interface PlayerInterface {
     
     public String getStats();
     
+    public String useItem(String itemName);
+   
+    public void heal(int amount);
+       
     public void calculateStats();
     
     public String getName();
@@ -21,7 +25,7 @@ public interface PlayerInterface {
     
     public int getArmor();
     
-    public ArrayList<Item> getInventory();
+    public String getInventory();
     
     public ArrayList<Item> getEquipment();
 

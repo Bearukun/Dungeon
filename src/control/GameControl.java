@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import model.Player;
 import model.Room;
 import model.monsterType.Boss;
@@ -37,7 +38,7 @@ public class GameControl {
      * Constructor
      */
     public GameControl(String playerName) {
-        
+
         createPlayer(playerName);
         createRooms();
         move("");
@@ -207,7 +208,7 @@ public class GameControl {
 
         player = new Player(name);
         textGen = new TextGenerator(name);
-        
+
     }
 
     /**
@@ -267,8 +268,8 @@ public class GameControl {
 
             inBattle = true;
             player.setHp(player.getHp() - currentRoom.getMonster().getMonsterInterface().getDamage());
-            print = "As you enter the " + currentRoom.getRoomName() + ", you encounter " + currentRoom.getMonster().getName() + " - " + currentRoom.getMonster().getDescription()+".\n"
-                    + currentRoom.getMonster().getName() + " attacks you "+ currentRoom.getMonster().getMonsterInterface().getTaunt() + "\nYou recive " + currentRoom.getMonster().getMonsterInterface().getDamage() + " damage!"
+            print = "As you enter the " + currentRoom.getRoomName() + ", you encounter " + currentRoom.getMonster().getName() + " - " + currentRoom.getMonster().getDescription() + ".\n"
+                    + currentRoom.getMonster().getName() + " attacks you " + currentRoom.getMonster().getMonsterInterface().getTaunt() + "\nYou recive " + currentRoom.getMonster().getMonsterInterface().getDamage() + " damage!"
                     + " - You now have " + player.getHp() + "HP left.";
 
         } else {
@@ -283,7 +284,8 @@ public class GameControl {
 
     /**
      * This is the combat system
-     * @param command  Takes a string with the command.
+     *
+     * @param command Takes a string with the command.
      */
     public void combatSystem(String command) {
 
@@ -302,12 +304,12 @@ public class GameControl {
                 inBattle = false;
                 move("");
             }
-            if(player.getHp() <= 0){
-                
+            if (player.getHp() <= 0) {
+
                 printer("You have been slayed, game over!");
                 hasDied = true;
                 gameActive = false;
-                
+
             }
 
         } else if (command.equals("use")) {
@@ -323,21 +325,21 @@ public class GameControl {
     }
 
     public void inputAnalyzer(String input) {
+       
+        //This is used for the use command.
+        String[] splitString = input.split(" ");
+              
 
         if (input.equalsIgnoreCase("Help") && !inBattle) {
 
             String commands = "Movement: Used to move north/n, south/s, east/e or west/w.\n\tSyntax: go 'heading'\n"
-                    + "Show stats: Used to show your stats\n\t.Syntax: stats or show stats'\n";
+                    + "Statistics: Used to show your stats.\n\t.Syntax: 'stats' or 'show stats'\n"
+                    + "Inventory: Show the items you have in your inventory.\n\t.Syntax: 'inventory' or 'inv'\n"
+                    + "Use: Use a consumable, such as a potion.\n\t.Syntax: 'use #itemName#'\n"
+                    + "Quit the game: If you want to leave the game, remember to save you progress..!\n\t.Syntax: 'quit'\n";
             printer(commands);
 
         }
-        
-        if (input.equalsIgnoreCase("stats") || input.equalsIgnoreCase("show stats")) {
-                
-            printer(player.getStats());
-            
-        }
-        
 
         if (!inBattle) {
             if (input.equalsIgnoreCase("go west") || input.equalsIgnoreCase("go w")) {
@@ -383,10 +385,28 @@ public class GameControl {
 
         }
 
+        //Input that can be used in or out of battle.
+        if (input.equalsIgnoreCase("stats") || input.equalsIgnoreCase("show stats")) {
+
+            printer(player.getStats());
+
+        }
+        if (input.equalsIgnoreCase("inventory") || input.equalsIgnoreCase("inv")) {
+
+            printer(player.getInventory());
+
+        }
+        if (splitString[0].equalsIgnoreCase("use")) {
+
+            printer(player.useItem(input.substring(input.indexOf(' ')+1)));
+
+        }
+
     }
 
     /**
      * Print method, can be useful to implement some GUI with an text window.
+     *
      * @param toPrinter Takes a String to print.
      */
     public void printer(String toPrinter) {
@@ -453,7 +473,6 @@ public class GameControl {
 
     }
 
-    
     public boolean isGameActive() {
         return gameActive;
     }
@@ -462,6 +481,4 @@ public class GameControl {
         return hasDied;
     }
 
-    
-    
 }

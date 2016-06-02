@@ -37,6 +37,16 @@ public class Key implements ItemInterface{
     public int getDamageModifier() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean isConsumable() {
+        return false;
+    }
+
+    @Override
+    public int getHealthModifier() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     
