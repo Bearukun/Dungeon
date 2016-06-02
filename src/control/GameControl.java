@@ -361,6 +361,8 @@ public class GameControl {
             String commands = "While in a battle, you can't move further in the dungeon..!"
                     + "\nAttack: Attacks the enemy in the current room"
                     + "\n\tSyntax: attack"
+                    + "\nInventory: Show the items you have in your inventory."
+                    + "\n\tSyntax: 'inventory' or 'inv'"
                     + "\nUse: Use an item in your inventory, if you have any."
                     + "\n\tSyntax: use 'itmename"
                     + "\nFlee: Flees to the previous room."
