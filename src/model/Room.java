@@ -60,6 +60,12 @@ public class Room  implements Serializable{
      */
     public String itemLookup(String itemLookupText) {
 
+        if(items == null){
+            
+            return "";
+            
+        }
+        
         String returnString = "";
 
         if (!items.isEmpty()) {
