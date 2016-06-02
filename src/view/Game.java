@@ -44,7 +44,7 @@ public class Game {
 "\n\n" +
 "After having spent the past 5 years in the Valley of the Kings, you and your expedition have found nothing but broken pots and unfinished masonry.\n" +
 "Your hopes of finding an undiscovered tomb like the one that Howard Carter found almost 30 years ago is fading away, just as your financial support\nfrom England and the museum is drying up as the sands that surrounds you. Your workers and people around you are demoralized for not having found anything of significant value"
-                        + "\nand more and more of local hard working labors that you’ve hired form around the country are leaving your camp as the days go by to seek their fortune else were.\n" +
+                        + "\nand more and more of local hard working labors that you’ve hired form around the country are leaving your camp as the days go by, to seek their fortune else were.\n" +
 "\n" +
 "You are beginning to wonder what will force you and your expedition out of the valley: The summer climate of Egypt, which pushes the temperature down in the valley to above 50 Celsius,\n"
                         + "or if the museum will pull their financial support and not commit to another excavation season.\n" +
@@ -58,11 +58,14 @@ public class Game {
 "\n" +
 "The valley of the Kings was founded because the Pharos of ancient Egypt usual burial sites, the Pyramids, were ravaged, desecrated and robbed by tomb robbers even 4000 years ago,"
                         + "\ndisturbing the Pharos grave peace and their journey to an eternal afterlife. "
-                        + "\nThe pyramids, such as the ones at the Giza plateau near Cairo, took over 30 years to build and still stands as a proud monument and engineering achievement of the ancient civilization."
+                        + "\nThe pyramids, such as the ones at the Giza plateau near Cairo, took over 30 years to build, and while they still stands as a proud monument, tomb"
+                        + " and engineering achievement of the ancient civilization to this day,"
+                        + "\ntheir size and scale also drew the attention of Tomb robbers, which forced the succeeding Pharo's to come up with a solution that would ensure that their tombs wouldn't be disturbed or plundered."
                         + "\nIn the valley of kings though, no pyramids were ever build. Instead, the tombs of the pharos were carved into the rock at the bottom of the valley and some tombs could be over 100 meters long,"
                         + "\nmaking twist and turns down towards the main burial chamber itself.\n" +
 "\n" +
-"\nAll tombs discovered throughout the past hundred years where found empty of treasure and even the pharos mummy themselves… except for one: Tutankhamen Tomb, found by Howard Carter back in 1922.\n" +
+"\nAll tombs discovered throughout the past hundred years where found empty of treasure and even the pharos mummy themselves… except for one: Tutankhamen Tomb, found by Howard Carter back in 1922\n"
+                        + ", and a find that it still considered to be amongst the biggest in the history of archology" +
 "\n" +
 "\nWhile reminiscing of the valleys history and purpose, a telegram is handed to you.\n" +
 "\n" +
@@ -84,14 +87,14 @@ public class Game {
                         + "\nthe storm seems to have moved sand from the valley itself.\n" +
 "Thinking your expedition might have headed into the valley, you grab your gear and head for the valley.\n" +
 "\n" +
-"Getting closer and closer to the heart of the valley, you notice that more and more sands has been removed, possible due to the sandstorm.\n" +
+"Getting closer and closer to the heart of the valley, you notice that more and more sand has been removed, possible due to the sandstorm.\n" +
 "\n" +
 "Then, upon arriving that the heart of the valley, you see something you never thought possible: A giant Pyramid now sits in the middle of the Valley, having been un-buried by the sandstorm. \n" +
 "While there is no sight of your expedition, you approach the pyramid and finds a sealed entrance doorway.\n" +
 "Standing in front of the entrance, you notice the doorway is sealed with a hieroglyphic inscription:\n" +
 "“Tomb of Tal Rasha”\n" +
 "\n" +
-"Your thoughts are speeding inside your brain with all kinds of questions, since there has never been any record of a Pharo named “Tal Rasha” in Egyptian history."
+"Your thoughts are speeding inside your brain with all kinds of questions, since there has never been any record of a Pharo named “Tal Rasha” in Egyptian history, nor of any pyramid being build in the valley."
                         + "\nBut your eager to find out what lies inside the pyramid gets the better of you and with your tools, you carve a hole big enough to crawl inside the pyramid.\n" +
 "Upon entering the pyramid, you light your lighter and spot a convenient placed torch on the left wall just a few meters in front of you. "
                         + "\nYou walk towards the torch and lights it up, but as pull it the torch down from its resting place, you hear a giant slab of rock coming down from the ceiling behind you, blocking the way you came in from.\n" +
@@ -100,7 +103,7 @@ public class Game {
 "Your are now trapped inside this ancient and strange pyramid.\n" +
 "It is now up to you to discover its secrets and find a way out!");
                 System.out.println("\nYou suddenly feel a rush a air coming from the adjacent rooms and for one second,\n"
-                        + "you believed to have someone (or something) whispereing: \"Who are you\"?\n\n ");
+                        + "you believed to have heard someone (or something) whispereing: \"Who are you\"?\n\n ");
                 System.out.println("\n\nYou answer the whisper with a softspoken reply:");
                 gc = new GameControl(sca.next());
 
