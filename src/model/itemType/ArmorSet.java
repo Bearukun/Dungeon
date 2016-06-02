@@ -4,12 +4,12 @@ import interfaces.ItemInterface;
 
 public class ArmorSet implements ItemInterface{
     
-    private double healthMultiplier;
-    private double armorMultiplier;
+    private int healthMultiplier;
+    private int armorRating;
 
-    public ArmorSet(double healthMultiplier, double armorMultiplier) {
+    public ArmorSet(int healthMultiplier, int armorMultiplier) {
         this.healthMultiplier = healthMultiplier;
-        this.armorMultiplier = armorMultiplier;
+        this.armorRating = armorMultiplier;
     }
     
     
@@ -18,16 +18,16 @@ public class ArmorSet implements ItemInterface{
         return healthMultiplier;
     }
 
-    public void setHealthMultiplier(double healthMultiplier) {
+    public void setHealthMultiplier(int healthMultiplier) {
         this.healthMultiplier = healthMultiplier;
     }
 
     public double getArmorMultiplier() {
-        return armorMultiplier;
+        return armorRating;
     }
 
-    public void setArmorMultiplier(double armorMultiplier) {
-        this.armorMultiplier = armorMultiplier;
+    public void setArmorMultiplier(int armorMultiplier) {
+        this.armorRating = armorMultiplier;
     }
 
     @Override
@@ -48,6 +48,21 @@ public class ArmorSet implements ItemInterface{
     @Override
     public int getHealthModifier() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isEquippable() {
+        return true;
+    }
+
+    @Override
+    public boolean isArmor() {
+        return true;
+    }
+
+    @Override
+    public int getArmorRating() {
+        return armorRating;
     }
 
 

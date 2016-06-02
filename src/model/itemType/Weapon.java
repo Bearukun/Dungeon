@@ -32,6 +32,21 @@ public class Weapon implements ItemInterface{
     public int getHealthModifier() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean isEquippable() {
+        return true;
+    }
+
+    @Override
+    public boolean isArmor() {
+        return false;
+    }
+
+    @Override
+    public int getArmorRating() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

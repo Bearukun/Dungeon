@@ -28,6 +28,10 @@ public interface PlayerInterface {
     public String getInventory();
     
     public ArrayList<Item> getEquipment();
+    
+    public String equippedItems();
+    
+    public String equipItem(String itemName);
 
 
 }

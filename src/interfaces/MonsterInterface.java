@@ -17,4 +17,6 @@ public interface MonsterInterface {
     
     public ArrayList<Item> getInventory();
     
+   
+    
 }

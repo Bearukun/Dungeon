@@ -34,7 +34,7 @@ public class Room {
 
     }
 
-    public void addItem(String name, String roomText, String inspectText, int value, ItemInterface itemType) {
+    public void addRoomItem(String name, String roomText, String inspectText, int value, ItemInterface itemType) {
 
         items.add(new Item(name, roomText, inspectText, value, itemType));
 
@@ -44,6 +44,11 @@ public class Room {
 
         monster = new Monster(name, description, id, monsterType);
 
+    }
+    
+    public void addItemToMonster(String name, String roomText, String inspectText, int value, ItemInterface itemType){
+        
+        monster.addItem(name, roomText, inspectText, value, itemType);
     }
 
     /**
@@ -86,6 +91,13 @@ public class Room {
         return returnString;
 
     }
+    
+    public void dropMonsterItems(){
+        
+       items.addAll(monster.getInventory());
+       monster.setInventory(null);
+    }
+    
 
     @Override
     public String toString() {

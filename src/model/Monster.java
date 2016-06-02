@@ -1,5 +1,6 @@
 package model;
 
+import interfaces.ItemInterface;
 import java.util.ArrayList;
 import interfaces.MonsterInterface;
 
@@ -31,6 +32,16 @@ public class Monster {
         isAlive = true;
 
     }
+    
+    public void addItem(String name, String roomText, String inspectText, int value, ItemInterface itemType){
+        inventory.add(new Item(name, roomText, inspectText, value, itemType));
+    }
+    
+//    public String passInventory(){
+//        return 
+//    }
+    
+    
 
     //Getters and setters, nothing to see here - move along..!
     public String getName() {

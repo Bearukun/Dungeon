@@ -63,6 +63,21 @@ public class Consumable implements ItemInterface{
         return true;
     }
 
+    @Override
+    public boolean isEquippable() {
+        return false;
+    }
+
+    @Override
+    public boolean isArmor() {
+        return false;
+    }
+
+    @Override
+    public int getArmorRating() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
    
     
     

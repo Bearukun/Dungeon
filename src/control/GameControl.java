@@ -11,7 +11,9 @@ import model.Room;
 import model.monsterType.Boss;
 import model.Item;
 import model.TextGenerator;
+import model.itemType.ArmorSet;
 import model.itemType.Consumable;
+import model.itemType.Weapon;
 
 /**
  * GameControl class
@@ -83,14 +85,17 @@ public class GameControl {
         room2.south = null;
         room2.north = null;
         room2.addMonster("Skeleton King", "the mad king of Tristram, bound once again to the mortal realm", 0, new Boss(20, 2, 900, textGen.generateTaunt("boss")));
+        room2.addItemToMonster("Mace of the Skeleton King", "a mace lies on the ground", "A powerfull mace that belonged to the Skeleton King", 200, new Weapon(20));
+        room2.addItemToMonster("Staff of Ra'", "a staff lies on a table","A golden staff with the insciption \"Staff of Ra'\"", 100000, new Weapon(1000));
+        room2.addItemToMonster("Tal'Rashas", "a bunch of robes lies on the ground", "This is the magical impowered amor of the mage Tal'Rasha", 20, new ArmorSet(5, 10));
 
         //Room 3
         room3.east = null;
         room3.west = null;
         room3.south = room1;
         room3.north = room7;
-        room3.addItem("Mystic Potion", "a mysterious looking potion", "You don't know what effect it will have on you", 900, new Consumable(50, true, false));
-        room3.addItem("Odd-looking vial", "an odd-looking vial", "You don't know what effect it will have on you", 300, new Consumable(-20, true, false));
+        room3.addRoomItem("Mystic Potion", "a mysterious looking potion", "You don't know what effect it will have on you", 900, new Consumable(50, true, false));
+        room3.addRoomItem("Odd-looking vial", "an odd-looking vial", "You don't know what effect it will have on you", 300, new Consumable(-20, true, false));
 
         //Room4
         room4.east = room1;
@@ -289,6 +294,7 @@ public class GameControl {
      */
     public void combatSystem(String command) {
 
+        
         if (command.equals("attack")) {
 
             currentRoom.getMonster().getMonsterInterface().setHp(currentRoom.getMonster().getMonsterInterface().getHp() - player.getDamage());
@@ -302,7 +308,12 @@ public class GameControl {
                 player.levelUp();
                 currentRoom.getMonster().setIsAlive(false);
                 inBattle = false;
+                
+                currentRoom.dropMonsterItems();
+                
+//                System.out.println(currentRoom.getMonster().getInventory().toString());
                 move("");
+                
             }
             if (player.getHp() <= 0) {
 
@@ -336,6 +347,7 @@ public class GameControl {
                     + "Statistics: Used to show your stats.\n\t.Syntax: 'stats' or 'show stats'\n"
                     + "Inventory: Show the items you have in your inventory.\n\t.Syntax: 'inventory' or 'inv'\n"
                     + "Use: Use a consumable, such as a potion.\n\t.Syntax: 'use #itemName#'\n"
+                    + "Equip: Equip an item from your inventory (Weapon and Armor) \n\t.Syntax: 'Equip #itemName#'\n"
                     + "Quit the game: If you want to leave the game, remember to save you progress..!\n\t.Syntax: 'quit'\n";
             printer(commands);
 
@@ -352,6 +364,14 @@ public class GameControl {
             } else if (input.equalsIgnoreCase("go south") || input.equalsIgnoreCase("go s")) {
                 move("south");
 
+            } else if (input.equalsIgnoreCase("Take all") || input.equalsIgnoreCase("all") || input.equalsIgnoreCase("pickup") || input.equalsIgnoreCase("take") ){
+                printer(player.addItemToInventory(currentRoom.getItems()));
+                currentRoom.setItems(null);
+               
+            } else if (splitString[0].equalsIgnoreCase("Equip")){
+                
+                printer(player.equipItem(input.substring(input.indexOf(' ')+1)));
+                
             }
 
         }

@@ -33,8 +33,27 @@ public class Player implements PlayerInterface {
     @Override
     public String getStats() {
 
-        return "You have " + hp + "HP, your level is " + level + ", you give " + damage + "HP in damage and your armorrating is " + armor + ".";
+        return "You have " + hp + "HP, your level is " + level + ", you give " + damage + "HP in damage and your armorrating is " + armor + ".\n"
+                + "Current equipped: " + equippedItems();
 
+    }
+    
+    public String addItemToInventory(ArrayList<Item> roomItems){
+        inventory.addAll(roomItems);
+        String returnString = "";
+        
+        if (roomItems.size() <= 1) {
+            
+            return "The following item has been added to your inventory: " + roomItems.get(0).getName();
+            
+        } else {
+            returnString += "The following items has been added to your inventory:\n";
+            for (int i = 0; i < roomItems.size(); i++) {
+                returnString += roomItems.get(i).getName() + "\n";
+                
+            }
+        return returnString;
+    }
     }
 
     @Override
@@ -193,5 +212,58 @@ public class Player implements PlayerInterface {
         }
 
     }
+
+    @Override
+    public String equippedItems() {
+       String returnString = "";
+       
+        for (int i = 0; i < equipment.size(); i++) {
+            if(equipment.get(i).getItemInterface().isAWeapon()){
+                returnString += equipment.get(i).getName() + "\n\tDamage: " + equipment.get(i).getItemInterface().getDamageModifier(); 
+                
+            } else if (equipment.get(i).getItemInterface().isArmor()){
+                returnString += equipment.get(i).getName() + 
+                        "\n\tBonus Health: " + equipment.get(i).getItemInterface().getHealthModifier() +
+                        "\n\tArmor Rating: "+equipment.get(i).getItemInterface().getArmorRating(); 
+            }
+            
+        }
+        
+        return returnString;
+    }
+
+    @Override
+    public String equipItem(String itemName) {
+        String returnString = "";
+        for (int i = 0; i < inventory.size(); i++) {
+            if(inventory.get(i).getName().equalsIgnoreCase(itemName)){
+                for (Item item : equipment) {
+                    if (item.getItemInterface().isAWeapon()) {
+                        inventory.add(new Item(item.getName(), item.getRoomText(), item.getInspectText(), item.getValue(), item.getItemInterface()));
+                        inventory.remove(item);
+                        
+                       
+                        
+                    }else if (item.getItemInterface().isArmor()) {
+                        inventory.add(new Item(item.getName(), item.getRoomText(), item.getInspectText(), item.getValue(), item.getItemInterface()));
+                        inventory.remove(item);
+                        
+                    }
+                    
+                    
+                } 
+                
+                equipment.add(new Item(inventory.get(i).getName(), inventory.get(i).getRoomText(), inventory.get(i).getInspectText(), inventory.get(i).getValue(), inventory.get(i).getItemInterface()));
+                inventory.remove(inventory.get(i));
+                calculateStats();
+                return "Item equipped!";
+            }
+            
+        }
+        
+        return "Item not found";
+    }
+    
+    
 
 }
