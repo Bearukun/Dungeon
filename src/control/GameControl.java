@@ -343,7 +343,7 @@ public class GameControl {
 
         if (input.equalsIgnoreCase("Help") && !inBattle) {
 
-            String commands = "Movement: Used to move north/n, south/s, east/e or west/w.\n\tSyntax: go 'heading'\n"
+            String commands = "Movement: Used to move north/n, south/s, east/e or west/w.\n\tSyntax: go 'heading' or 'heading'\n"
                     + "Statistics: Used to show your stats.\n\t.Syntax: 'stats' or 'show stats'\n"
                     + "Inventory: Show the items you have in your inventory.\n\t.Syntax: 'inventory' or 'inv'\n"
                     + "Use: Use a consumable, such as a potion.\n\t.Syntax: 'use #itemName#'\n"
@@ -354,14 +354,14 @@ public class GameControl {
         }
 
         if (!inBattle) {
-            if (input.equalsIgnoreCase("go west") || input.equalsIgnoreCase("go w")) {
+            if (input.equalsIgnoreCase("go west") || input.equalsIgnoreCase("west")) {
                 move("west");
 
-            } else if (input.equalsIgnoreCase("go east") || input.equalsIgnoreCase("go e")) {
+            } else if (input.equalsIgnoreCase("go east") || input.equalsIgnoreCase("east")) {
                 move("east");
-            } else if (input.equalsIgnoreCase("go north") || input.equalsIgnoreCase("go n")) {
+            } else if (input.equalsIgnoreCase("go north") || input.equalsIgnoreCase("norht")) {
                 move("north");
-            } else if (input.equalsIgnoreCase("go south") || input.equalsIgnoreCase("go s")) {
+            } else if (input.equalsIgnoreCase("go south") || input.equalsIgnoreCase("south")) {
                 move("south");
 
             } else if (input.equalsIgnoreCase("Take all") || input.equalsIgnoreCase("all") || input.equalsIgnoreCase("pickup") || input.equalsIgnoreCase("take") ){
