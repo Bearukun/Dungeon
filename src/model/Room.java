@@ -2,6 +2,7 @@ package model;
 
 import interfaces.ItemInterface;
 import interfaces.MonsterInterface;
+import interfaces.RoomTypeInterface;
 import java.util.ArrayList;
 
 /**
@@ -12,8 +13,8 @@ public class Room {
     //Initializing and instanciating variables. 
     private String roomName, description;
     private ArrayList<Item> items = new ArrayList();
-    //private TextGenerator textGen = new TextGenerator();
     private Monster monster;
+    private RoomTypeInterface roomTypeInterface;
 
     public Room north, south, west, east;
 
@@ -23,7 +24,7 @@ public class Room {
      * @param roomname Name for the room.
      * @param description Description for the room.
      */
-    public Room(String roomname, String description) {
+    public Room(String roomname, String description, RoomTypeInterface roomTypeInterface) {
 
         this.roomName = roomname;
         this.description = description;
@@ -31,6 +32,7 @@ public class Room {
         this.south = null;
         this.west = null;
         this.east = null;
+        this.roomTypeInterface = roomTypeInterface;
 
     }
 
@@ -173,4 +175,13 @@ public class Room {
         this.monster = monster;
     }
 
+    public RoomTypeInterface getRoomTypeInterface() {
+        return roomTypeInterface;
+    }
+
+    public void setRoomTypeInterface(RoomTypeInterface roomTypeInterface) {
+        this.roomTypeInterface = roomTypeInterface;
+    }
+
+    
 }

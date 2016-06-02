@@ -14,6 +14,12 @@ public interface ItemInterface {
     
     public boolean isArmor();
     
+    public boolean isKey();
+    
+    public String getKeyId();
+    
+    public void setKeyId(String roomName);
+    
     public int getArmorRating();
 
     

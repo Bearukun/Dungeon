@@ -13,7 +13,10 @@ import model.Item;
 import model.TextGenerator;
 import model.itemType.ArmorSet;
 import model.itemType.Consumable;
+import model.itemType.Key;
 import model.itemType.Weapon;
+import model.roomType.Locked;
+import model.roomType.Unlocked;
 
 /**
  * GameControl class
@@ -52,26 +55,26 @@ public class GameControl {
     private void createRooms() {
 
         //Initalising and instantiating new rooms. 
-        room1 = new Room("Entrance", "It's very dark and you feel a very unwelcoming aura around you.");
-        room2 = new Room("Tomb", "You see many bones laying around as if this have been some sort of mass burial.");
-        room3 = new Room("Pit", "It seems like this is some sort of ancient Sacrefice site, it still reeks of corpses.");
-        room4 = new Room("Dungeon", "S/M Dungeon ");
-        room5 = new Room("Fast Food joint", "McDonalds");
-        room6 = new Room("Fast Food joint", "Burger King");
-        room7 = new Room("Ano Lando", "Kingdom from Dark Souls 1 & 2");
-        room8 = new Room("Azeroth", "Land of Warcraft");
-        room9 = new Room("Apple", "The space ship in Cuppertino");
-        room10 = new Room("Kitchen", "There is food here!");
-        room11 = new Room("Pet Shop", "There is no dead parrots here!");
-        room12 = new Room("Microsoft", "The other tech company in Seattle");
-        room13 = new Room("Sanctuary", "Land of Diablo");
-        room14 = new Room("Capulo Sector", "StarCraft univers");
-        room15 = new Room("Mother Base", "Home of the Diamond Dogs");
-        room16 = new Room("Boston", "Home of Crane, Pool & Smitch");
-        room17 = new Room("Mushroom Kingdom", "Te land of Super Mario");
-        room18 = new Room("Yharnam", "Land of the Pale Blood Moon");
-        room19 = new Room("Middle-Earth", "Land of JRR Tolkien");
-        room20 = new Room("Exploding Kitten Room", "A room full of exploding kittens");
+        room1 = new Room("Entrance", "It's very dark and you feel a very unwelcoming aura around you.", new Unlocked());
+        room2 = new Room("Tomb", "You see many bones laying around as if this have been some sort of mass burial.", new Unlocked());
+        room3 = new Room("Pit", "It seems like this is some sort of ancient Sacrefice site, it still reeks of corpses.", new Unlocked());
+        room4 = new Room("Dungeon", "S/M Dungeon ", new Locked("Dungeon", true));
+        room5 = new Room("Fast Food joint", "McDonalds", new Unlocked());
+        room6 = new Room("Fast Food joint", "Burger King", new Unlocked());
+        room7 = new Room("Ano Lando", "Kingdom from Dark Souls 1 & 2", new Unlocked());
+        room8 = new Room("Azeroth", "Land of Warcraft", new Unlocked());
+        room9 = new Room("Apple", "The space ship in Cuppertino", new Unlocked());
+        room10 = new Room("Kitchen", "There is food here!", new Unlocked());
+        room11 = new Room("Pet Shop", "There is no dead parrots here!", new Unlocked());
+        room12 = new Room("Microsoft", "The other tech company in Seattle", new Unlocked());
+        room13 = new Room("Sanctuary", "Land of Diablo", new Unlocked());
+        room14 = new Room("Capulo Sector", "StarCraft univers", new Unlocked());
+        room15 = new Room("Mother Base", "Home of the Diamond Dogs", new Unlocked());
+        room16 = new Room("Boston", "Home of Crane, Pool & Smitch", new Unlocked());
+        room17 = new Room("Mushroom Kingdom", "Te land of Super Mario", new Unlocked());
+        room18 = new Room("Yharnam", "Land of the Pale Blood Moon", new Unlocked());
+        room19 = new Room("Middle-Earth", "Land of JRR Tolkien", new Unlocked());
+        room20 = new Room("Exploding Kitten Room", "A room full of exploding kittens", new Unlocked());
 
         //Room 1
         room1.east = room2;
@@ -86,8 +89,9 @@ public class GameControl {
         room2.north = null;
         room2.addMonster("Skeleton King", "the mad king of Tristram, bound once again to the mortal realm", 0, new Boss(20, 2, 900, textGen.generateTaunt("boss")));
         room2.addItemToMonster("Mace of the Skeleton King", "a mace lies on the ground", "A powerfull mace that belonged to the Skeleton King", 200, new Weapon(20));
-        room2.addItemToMonster("Staff of Ra'", "a staff lies on a table","A golden staff with the insciption \"Staff of Ra'\"", 100000, new Weapon(1000));
+        room2.addItemToMonster("Staff of Ra'", "a staff lies on a table", "A golden staff with the insciption \"Staff of Ra'\"", 100000, new Weapon(1000));
         room2.addItemToMonster("Tal'Rashas", "a bunch of robes lies on the ground", "This is the magical impowered amor of the mage Tal'Rasha", 20, new ArmorSet(5, 10));
+        room2.addItemToMonster("Rusty key", "an old key with the inscription \"Go weeeeest\"", "This key unlocks the room west of the entrance.", 0, new Key(true, "Dungeon"));
 
         //Room 3
         room3.east = null;
@@ -229,6 +233,22 @@ public class GameControl {
             case "west":
                 if (currentRoom.west == null) {
                     print = "\n***You hit a wall***\n";
+                } else if (currentRoom.west.getRoomTypeInterface().isLocked()) {
+
+                    if (!player.hasKey(currentRoom.getRoomName())) {
+
+                        print = "The way to the " + currentRoom.west.getRoomName() + " is locked. Find the key!";
+
+                    } else if (player.hasKey(currentRoom.getRoomName())) {
+
+                        print = "You have unlocked the way to " + currentRoom.west.getRoomName() + "\n" +
+                                "You are now standing in the " + currentRoom.getRoomName() + ". " + currentRoom.getDescription() + "\n" + currentRoom.itemLookup(textGen.generateItemLookupText());
+                        currentRoom.west.getRoomTypeInterface().unlockRoom();
+                        previousRoom = currentRoom;
+                        currentRoom = currentRoom.west;
+
+                    }
+
                 } else {
 
                     previousRoom = currentRoom;
@@ -277,8 +297,8 @@ public class GameControl {
                     + currentRoom.getMonster().getName() + " attacks you " + currentRoom.getMonster().getMonsterInterface().getTaunt() + "\nYou recive " + currentRoom.getMonster().getMonsterInterface().getDamage() + " damage!"
                     + " - You now have " + player.getHp() + "HP left.";
 
-        } else {
-
+        } else if (print.equals("")) {
+            
             print = "You are now standing in the " + currentRoom.getRoomName() + ". " + currentRoom.getDescription() + "\n" + currentRoom.itemLookup(textGen.generateItemLookupText());
 
         }
@@ -294,7 +314,6 @@ public class GameControl {
      */
     public void combatSystem(String command) {
 
-        
         if (command.equals("attack")) {
 
             currentRoom.getMonster().getMonsterInterface().setHp(currentRoom.getMonster().getMonsterInterface().getHp() - player.getDamage());
@@ -308,12 +327,12 @@ public class GameControl {
                 player.levelUp();
                 currentRoom.getMonster().setIsAlive(false);
                 inBattle = false;
-                
+
                 currentRoom.dropMonsterItems();
-                
+
 //                System.out.println(currentRoom.getMonster().getInventory().toString());
                 move("");
-                
+
             }
             if (player.getHp() <= 0) {
 
@@ -336,16 +355,16 @@ public class GameControl {
     }
 
     public void inputAnalyzer(String input) {
-       
+
         //This is used for the use command.
         String[] splitString = input.split(" ");
-              
 
         if (input.equalsIgnoreCase("Help") && !inBattle) {
 
             String commands = "Movement: Used to move north/n, south/s, east/e or west/w.\n\tSyntax: go 'heading' or 'heading'\n"
                     + "Statistics: Used to show your stats.\n\t.Syntax: 'stats' or 'show stats'\n"
                     + "Inventory: Show the items you have in your inventory.\n\t.Syntax: 'inventory' or 'inv'\n"
+                    + "Loot items: Loots every item available in the room.\n\t.Syntax: 'take all', 'all', pickup or 'take'\n"
                     + "Use: Use a consumable, such as a potion.\n\t.Syntax: 'use #itemName#'\n"
                     + "Equip: Equip an item from your inventory (Weapon and Armor) \n\t.Syntax: 'Equip #itemName#'\n"
                     + "Quit the game: If you want to leave the game, remember to save you progress..!\n\t.Syntax: 'quit'\n";
@@ -364,14 +383,14 @@ public class GameControl {
             } else if (input.equalsIgnoreCase("go south") || input.equalsIgnoreCase("south")) {
                 move("south");
 
-            } else if (input.equalsIgnoreCase("Take all") || input.equalsIgnoreCase("all") || input.equalsIgnoreCase("pickup") || input.equalsIgnoreCase("take") ){
+            } else if (input.equalsIgnoreCase("Take all") || input.equalsIgnoreCase("all") || input.equalsIgnoreCase("pickup") || input.equalsIgnoreCase("take")) {
                 printer(player.addItemToInventory(currentRoom.getItems()));
                 currentRoom.setItems(null);
-               
-            } else if (splitString[0].equalsIgnoreCase("Equip")){
-                
-                printer(player.equipItem(input.substring(input.indexOf(' ')+1)));
-                
+
+            } else if (splitString[0].equalsIgnoreCase("Equip")) {
+
+                printer(player.equipItem(input.substring(input.indexOf(' ') + 1)));
+
             }
 
         }
@@ -420,7 +439,7 @@ public class GameControl {
         }
         if (splitString[0].equalsIgnoreCase("use")) {
 
-            printer(player.useItem(input.substring(input.indexOf(' ')+1)));
+            printer(player.useItem(input.substring(input.indexOf(' ') + 1)));
 
         }
 

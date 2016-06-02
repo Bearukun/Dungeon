@@ -261,4 +261,23 @@ public class Player implements PlayerInterface {
         return "Item not found";
     }
 
+    @Override
+    public boolean hasKey(String roomName) {
+        
+        for (Item item : inventory) {
+            
+            if(item.getItemInterface().isKey()){
+                
+                item.getItemInterface().getKeyId().equalsIgnoreCase(roomName);
+                
+                return true;
+                
+            }
+            
+        }
+        
+        return false;
+        
+    }
+
 }

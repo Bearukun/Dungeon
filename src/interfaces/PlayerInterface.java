@@ -32,6 +32,8 @@ public interface PlayerInterface {
     public String equippedItems();
     
     public String equipItem(String itemName);
+    
+    public boolean hasKey(String roomName);
 
 
 }

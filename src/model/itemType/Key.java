@@ -5,9 +5,9 @@ import interfaces.ItemInterface;
 public class Key implements ItemInterface{
     
     private boolean isQuestItem;
-    private int keyId;
+    private String keyId;
 
-    public Key(boolean isQuestItem, int keyId) {
+    public Key(boolean isQuestItem, String keyId) {
         this.isQuestItem = isQuestItem;
         this.keyId = keyId;
     }
@@ -20,13 +20,9 @@ public class Key implements ItemInterface{
         this.isQuestItem = isQuestItem;
     }
 
-    public int getKeyId() {
-        return keyId;
-    }
+ 
 
-    public void setKeyId(int keyId) {
-        this.keyId = keyId;
-    }
+
 
     @Override
     public boolean isAWeapon() {
@@ -61,6 +57,21 @@ public class Key implements ItemInterface{
     @Override
     public int getArmorRating() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isKey() {
+        return true;
+    }
+
+    @Override
+    public String getKeyId() {
+        return keyId;
+    }
+
+    @Override
+    public void setKeyId(String roomId) {
+        keyId = roomId;
     }
     
     
