@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class TextGenerator {
+public class TextGenerator  implements Serializable{
 
     //Declaring, initializing and instanciating variables. 
     ArrayList<String> itemLookupText = new ArrayList();

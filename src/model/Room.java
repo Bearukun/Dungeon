@@ -3,12 +3,13 @@ package model;
 import interfaces.ItemInterface;
 import interfaces.MonsterInterface;
 import interfaces.RoomTypeInterface;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Room class
  */
-public class Room {
+public class Room  implements Serializable{
 
     //Initializing and instanciating variables. 
     private String roomName, description;

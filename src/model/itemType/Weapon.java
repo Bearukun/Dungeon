@@ -1,8 +1,9 @@
 package model.itemType;
 
 import interfaces.ItemInterface;
+import java.io.Serializable;
 
-public class Weapon implements ItemInterface{
+public class Weapon implements ItemInterface, Serializable{
     
     private int damageModifier;
 

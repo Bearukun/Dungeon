@@ -1,8 +1,9 @@
 package model.itemType;
 
 import interfaces.ItemInterface;
+import java.io.Serializable;
 
-public class ArmorSet implements ItemInterface{
+public class ArmorSet implements ItemInterface, Serializable{
     
     private int healthMultiplier;
     private int armorRating;

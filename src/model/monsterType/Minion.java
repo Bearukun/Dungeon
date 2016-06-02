@@ -2,10 +2,11 @@ package model.monsterType;
 
 import model.TextGenerator;
 import interfaces.MonsterInterface;
+import java.io.Serializable;
 import java.util.ArrayList;
 import model.Item;
 
-public class Minion implements MonsterInterface {
+public class Minion implements MonsterInterface , Serializable{
     
     private int hp, damage, level;
     private String taunt;

@@ -1,8 +1,9 @@
 package model.roomType;
 
 import interfaces.RoomTypeInterface;
+import java.io.Serializable;
 
-public class Unlocked implements RoomTypeInterface{
+public class Unlocked implements RoomTypeInterface, Serializable{
 
     public Unlocked() {
     }

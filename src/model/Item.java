@@ -1,8 +1,9 @@
 package model;
 
 import interfaces.ItemInterface;
+import java.io.Serializable;
 
-public class Item {
+public class Item implements Serializable{
     
     private String name, roomText, inspectText;
     private int value;

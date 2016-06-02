@@ -3,11 +3,12 @@ package model;
 import interfaces.ItemInterface;
 import java.util.ArrayList;
 import interfaces.MonsterInterface;
+import java.io.Serializable;
 
 /**
  * Monster class
  */
-public class Monster {
+public class Monster implements Serializable{
 
     //Initializing and instanciating variables. 
     private String name, description;

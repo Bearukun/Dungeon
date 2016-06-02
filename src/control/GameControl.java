@@ -1,11 +1,6 @@
 package control;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.io.Serializable;
 import model.Player;
 import model.Room;
 import model.monsterType.Boss;
@@ -21,10 +16,10 @@ import model.roomType.Unlocked;
 /**
  * GameControl class
  */
-public class GameControl {
+public class GameControl implements Serializable{
 
     //Declaring, initializing and instanciating variables. 
-    ArrayList<String> highScore = new ArrayList();
+    int highScore;
 
     //Declaring objects. 
     Room room1, room2, room3, room4, room5, room6, room7, room8, room9, room10,
@@ -46,6 +41,7 @@ public class GameControl {
 
         createPlayer(playerName);
         createRooms();
+        highScore = 0;
         move("");
     }
 
@@ -330,7 +326,6 @@ public class GameControl {
 
                 currentRoom.dropMonsterItems();
 
-//                System.out.println(currentRoom.getMonster().getInventory().toString());
                 move("");
 
             }
@@ -367,6 +362,8 @@ public class GameControl {
                     + "Loot items: Loots every item available in the room.\n\t.Syntax: 'take all', 'all', pickup or 'take'\n"
                     + "Use: Use a consumable, such as a potion.\n\t.Syntax: 'use #itemName#'\n"
                     + "Equip: Equip an item from your inventory (Weapon and Armor) \n\t.Syntax: 'Equip #itemName#'\n"
+                    + "Save: Save current state of game. \n\t.Syntax: 'save'\n"
+                    + "Load: Loads saved state of game. \n\t.Syntax: 'save'\n"
                     + "Quit the game: If you want to leave the game, remember to save you progress..!\n\t.Syntax: 'quit'\n";
             printer(commands);
 
@@ -456,63 +453,6 @@ public class GameControl {
 
     }
 
-    /**
-     * Save method, used to save the current state of game variables. #NOTE#
-     * Currently only saving highScore
-     */
-    public void save() {
-
-        //Catch errors in I/O if necessary.
-        try {
-
-            // Open a file to write to, named SavedObj.sav.
-            FileOutputStream saveFile = new FileOutputStream("saveFile.sav");
-
-            // Create an ObjectOutputStream to put objects into save file.
-            ObjectOutputStream save = new ObjectOutputStream(saveFile);
-
-            //Write objects in the ObjectOutputStream.
-            save.writeObject(highScore);
-
-            //Closes the stream.
-            save.close();
-
-        } catch (Exception exc) {
-
-            //If there was an error, print the info.
-            exc.printStackTrace();
-
-        }
-    }
-
-    /**
-     * Load method, used to read the data in saveFile and load it into the game
-     * variables. #NOTE# Currently only loading highScore
-     */
-    public void load() {
-
-        //Catch errors in I/O if necessary.
-        try {
-
-            //Open file to read from, named SavedObj.sav.
-            FileInputStream saveFile = new FileInputStream("saveFile.sav");
-
-            //Create an ObjectInputStream to get objects from save file.
-            ObjectInputStream save = new ObjectInputStream(saveFile);
-
-            highScore = (ArrayList<String>) save.readObject();
-
-            //Closes the input stream.
-            save.close();
-
-        } catch (Exception exc) {
-
-            //If there was an error, print the info.
-            exc.printStackTrace();
-
-        }
-
-    }
 
     public boolean isGameActive() {
         return gameActive;

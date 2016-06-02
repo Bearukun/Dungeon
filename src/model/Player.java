@@ -1,11 +1,12 @@
 package model;
 
 import interfaces.PlayerInterface;
+import java.io.Serializable;
 import java.util.ArrayList;
 import model.itemType.Consumable;
 import model.itemType.Weapon;
 
-public class Player implements PlayerInterface {
+public class Player implements PlayerInterface, Serializable{
 
     private String name;
     private int hp, tempHp, startingDamage, damage, level, armor, startingArmor;

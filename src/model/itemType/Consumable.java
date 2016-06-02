@@ -1,8 +1,9 @@
 package model.itemType;
 
 import interfaces.ItemInterface;
+import java.io.Serializable;
 
-public class Consumable implements ItemInterface{
+public class Consumable implements ItemInterface, Serializable{
     
     private int healthModifier;
     private boolean isConsumable, isMaximumHealing;

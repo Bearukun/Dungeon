@@ -1,8 +1,9 @@
 package model.roomType;
 
 import interfaces.RoomTypeInterface;
+import java.io.Serializable;
 
-public class Locked implements RoomTypeInterface{
+public class Locked implements RoomTypeInterface, Serializable{
 
     String unlockCode;
     boolean isLocked;

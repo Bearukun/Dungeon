@@ -1,8 +1,9 @@
 package model.itemType;
 
 import interfaces.ItemInterface;
+import java.io.Serializable;
 
-public class Key implements ItemInterface{
+public class Key implements ItemInterface, Serializable{
     
     private boolean isQuestItem;
     private String keyId;

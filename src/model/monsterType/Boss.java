@@ -2,10 +2,11 @@ package model.monsterType;
 
 import model.TextGenerator;
 import interfaces.MonsterInterface;
+import java.io.Serializable;
 import java.util.ArrayList;
 import model.Item;
 
-public class Boss implements MonsterInterface{
+public class Boss implements MonsterInterface, Serializable{
     
     
     private int hp, damage, level;
