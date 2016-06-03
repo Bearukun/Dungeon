@@ -50,6 +50,11 @@ public class Room implements Serializable {
 
     }
 
+    public void addItemToChest(String name, String roomText, String inspectText, int value, ItemInterface itemType) {
+
+        chest.addItem(name, roomText, inspectText, value, itemType);
+    }
+
     public void addMonster(String name, String description, int id, MonsterInterface monsterType) {
 
         monster = new Monster(name, description, id, monsterType);

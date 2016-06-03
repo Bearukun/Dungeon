@@ -97,6 +97,7 @@ public class GameControl implements Serializable {
         room3.addRoomItem("Mystic Potion", "a mysterious looking potion", "You don't know what effect it will have on you", 900, new Consumable(50, true, false));
         room3.addRoomItem("Odd-looking vial", "an odd-looking vial", "You don't know what effect it will have on you", 300, new Consumable(-20, true, false));
         room3.addChest("in the corner of the room", false, new Locked("Vase", true));
+        room3.addItemToChest("Broad Sword", "a shiny broad sword", "forged by the flames of hell", 45, new Weapon(10));
 
         //Room4
         room4.east = room1;

@@ -21,6 +21,8 @@ public class Chest implements ChestInterface{
     public void addItem(String name, String roomText, String inspectText, int value, ItemInterface itemType){
         inventory.add(new Item(name, roomText, inspectText, value, itemType));
     }
+    
+    
 
     @Override
     public boolean isEndGameChest() {

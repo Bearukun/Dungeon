@@ -38,11 +38,7 @@ public class Monster implements Serializable{
         inventory.add(new Item(name, roomText, inspectText, value, itemType));
     }
     
-//    public String passInventory(){
-//        return 
-//    }
-    
-    
+ 
 
     //Getters and setters, nothing to see here - move along..!
     public String getName() {
