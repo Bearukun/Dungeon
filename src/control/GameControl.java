@@ -237,11 +237,12 @@ public class GameControl implements Serializable{
 
                     } else if (player.hasKey(currentRoom.getRoomName())) {
 
-                        print = "You have unlocked the way to " + currentRoom.west.getRoomName() + "\n" +
-                                "You are now standing in the " + currentRoom.getRoomName() + ". " + currentRoom.getDescription() + "\n" + currentRoom.itemLookup(textGen.generateItemLookupText());
                         currentRoom.west.getRoomTypeInterface().unlockRoom();
                         previousRoom = currentRoom;
                         currentRoom = currentRoom.west;
+                        print = "You have unlocked the way to " + currentRoom.getRoomName() + "\n" +
+                                "You are now standing in the " + currentRoom.getRoomName() + ". " + currentRoom.getDescription() + "\n" + currentRoom.itemLookup(textGen.generateItemLookupText());
+                       
 
                     }
 
