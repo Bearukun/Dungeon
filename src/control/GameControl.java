@@ -379,8 +379,9 @@ public class GameControl implements Serializable {
 
             }
             if (player.getHp() <= 0) {
-
-                printer("You have been slayed, game over!\nYou ended the game with:\n\n" + player.getTempHp() + " hitpoints.\n" + player.getInventory() + "\nYour ending level was: " + player.getLevel() + "\nYour maximum armor was: " + player.getArmor() + "\n\nYou had this weapon and armor equiped: " + player.equippedItems());
+                
+                player.calculateHighscore();
+                printer("\n\nYou have been slayed by "+ currentRoom.getMonster().getName() + ", game over!\n"+"Your score: " + player.calculateHighscore() + "\nYou ended the game with a max health of " + player.getTempHp() + " hitpoints." + " Your level was " + player.getLevel() + ", and your armor-rating was " + player.getArmor()+ ".\n\nYou have the following in your inventory:\n" + player.getInventory() + "\nYou had the following items equipped:\n" + player.equippedItems());
                 hasDied = true;
                 gameActive = false;
 
@@ -509,7 +510,7 @@ public class GameControl implements Serializable {
         }
         if (input.equalsIgnoreCase("inventory") || input.equalsIgnoreCase("inv")) {
 
-            printer(player.getInventory());
+            printer("You have the following items in your inventory: " +player.getInventory());
 
         }
         if (splitString[0].equalsIgnoreCase("use")) {

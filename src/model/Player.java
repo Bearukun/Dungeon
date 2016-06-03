@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import model.itemType.Consumable;
 import model.itemType.Weapon;
 
-public class Player implements PlayerInterface, Serializable{
+public class Player implements PlayerInterface, Serializable {
 
     private String name;
     private int hp, tempHp, startingDamage, damage, level, armor, startingArmor;
@@ -16,7 +16,7 @@ public class Player implements PlayerInterface, Serializable{
     public Player(String name) {
         this.name = name;
 
-        hp = 30;
+        hp = 3;
         tempHp = hp;
         level = 1;
         startingDamage = 6;
@@ -37,6 +37,28 @@ public class Player implements PlayerInterface, Serializable{
         return "You have " + hp + "HP, your level is " + level + ", you give " + damage + "HP in damage and your armorrating is " + armor + ".\n"
                 + "Current equipped: " + equippedItems();
 
+    }
+
+    @Override
+    public int calculateHighscore() {
+        
+        int highScore = 0;
+        
+        //Calculate values from items in inventory.
+        for (Item item : inventory) {
+            
+            highScore +=  item.getValue();
+            
+        }
+        
+        //Calculate values from items in equipment.
+        for (Item item : equipment) {
+            
+            highScore +=  item.getValue();
+            
+        }
+        
+        return highScore;
     }
 
     public String addItemToInventory(ArrayList<Item> items) {
@@ -87,54 +109,9 @@ public class Player implements PlayerInterface, Serializable{
     }
 
     @Override
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public int getHp() {
-        return hp;
-    }
-
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    @Override
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
-    @Override
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    @Override
-    public int getArmor() {
-        return armor;
-    }
-
-    public void setArmor(int armor) {
-        this.armor = armor;
-    }
-
-    @Override
     public String getInventory() {
 
-        String returnString = "You have the following items in your inventory:\n";
+        String returnString = "";
 
         for (Item item : inventory) {
 
@@ -172,8 +149,8 @@ public class Player implements PlayerInterface, Serializable{
 
             if (inventory.get(i).getName().equalsIgnoreCase(itemName)) {
 
-                if(inventory.get(i).getItemInterface().isConsumable()){
-                    
+                if (inventory.get(i).getItemInterface().isConsumable()) {
+
                     heal(inventory.get(i).getItemInterface().getHealthModifier());
 
                     returnString = inventory.get(i).getName() + " has been used, you now have " + hp + ".";
@@ -181,17 +158,14 @@ public class Player implements PlayerInterface, Serializable{
                     inventory.remove(i);
 
                     break;
-                    
-                }else if(inventory.get(i).getItemInterface().isKey()){
-                    
+
+                } else if (inventory.get(i).getItemInterface().isKey()) {
+
                     returnString = "opened";
 
-                    
                     break;
-                    
-                    
+
                 }
-                
 
             }
 
@@ -244,13 +218,8 @@ public class Player implements PlayerInterface, Serializable{
         return returnString;
     }
 
-    public int getTempHp() {
-        return tempHp;
-    }
-
     @Override
     public String equipItem(String itemName) {
-        String returnString = "";
         for (int i = 0; i < inventory.size(); i++) {
             if (inventory.get(i).getName().equalsIgnoreCase(itemName)) {
 
@@ -281,21 +250,70 @@ public class Player implements PlayerInterface, Serializable{
 
     @Override
     public boolean hasKey(String keyCode) {
-        
+
         for (Item item : inventory) {
-            
-            if(item.getItemInterface().isKey()){
-                
+
+            if (item.getItemInterface().isKey()) {
+
                 item.getItemInterface().getKeyId().equalsIgnoreCase(keyCode);
-                
+
                 return true;
-                
+
             }
-            
+
         }
-        
+
         return false;
-        
+
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    @Override
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    @Override
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    @Override
+    public int getArmor() {
+        return armor;
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
+
+    public int getTempHp() {
+        return tempHp;
     }
 
 }
