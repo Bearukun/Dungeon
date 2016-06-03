@@ -5,13 +5,13 @@ import java.io.Serializable;
 
 public class Weapon implements ItemInterface, Serializable{
     
-    private double damageModifier;
+    private int damageModifier;
 
     public Weapon(int damageModifier) {
         this.damageModifier = damageModifier;
     }
 
-    public double getDamageModifier() {
+    public int getDamageModifier() {
         return damageModifier;
     }
 
@@ -30,7 +30,7 @@ public class Weapon implements ItemInterface, Serializable{
     }
 
     @Override
-    public double getHealthModifier() {
+    public int getHealthModifier() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -45,7 +45,7 @@ public class Weapon implements ItemInterface, Serializable{
     }
 
     @Override
-    public double getArmorRating() {
+    public int getArmorRating() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

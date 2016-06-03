@@ -14,7 +14,7 @@ public class Consumable implements ItemInterface, Serializable{
         this.isMaximumHealing = isMaximumHealing;
     }
 
-    public double getHealthModifier() {
+    public int getHealthModifier() {
         
         if(isMaximumHealing){
             
@@ -55,7 +55,7 @@ public class Consumable implements ItemInterface, Serializable{
     }
 
     @Override
-    public double getDamageModifier() {
+    public int getDamageModifier() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -75,7 +75,7 @@ public class Consumable implements ItemInterface, Serializable{
     }
 
     @Override
-    public double getArmorRating() {
+    public int getArmorRating() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
