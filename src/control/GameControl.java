@@ -291,10 +291,12 @@ public class GameControl implements Serializable {
 
     }
 
+    /**
+     * Method used to unlock the rooms around you.
+     */
     public void unlockRoom() {
         
         if(currentRoom.west.getRoomTypeInterface().isLocked()){
-            
             
             if (player.hasKey(currentRoom.west.getRoomName())) {
 
@@ -303,6 +305,32 @@ public class GameControl implements Serializable {
                 printer("You have unlocked the way to " + currentRoom.west.getRoomName() + ", that is located west of you.\n");
             }
             
+        }else if(currentRoom.east.getRoomTypeInterface().isLocked()){
+            
+            if (player.hasKey(currentRoom.east.getRoomName())) {
+
+                currentRoom.east.getRoomTypeInterface().unlockRoom();
+                
+                printer("You have unlocked the way to " + currentRoom.east.getRoomName() + ", that is located east of you.\n");
+            }
+            
+        }else if(currentRoom.north.getRoomTypeInterface().isLocked()){
+            
+            if (player.hasKey(currentRoom.north.getRoomName())) {
+
+                currentRoom.north.getRoomTypeInterface().unlockRoom();
+                
+                printer("You have unlocked the way to " + currentRoom.north.getRoomName() + ", that is located north of you.\n");
+            }
+            
+        }else if(currentRoom.south.getRoomTypeInterface().isLocked()){
+            
+            if (player.hasKey(currentRoom.south.getRoomName())) {
+
+                currentRoom.south.getRoomTypeInterface().unlockRoom();
+                
+                printer("You have unlocked the way to " + currentRoom.south.getRoomName() + ", that is located south of you.\n");
+            }
             
         }
         
