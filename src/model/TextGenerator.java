@@ -21,14 +21,14 @@ public class TextGenerator  implements Serializable{
         this.playerName = playerName;
 
         itemLookupText.add("You see ");
-        itemLookupText.add("You stumple upon a corpse, in his bags you see ");
+        itemLookupText.add("You stumble upon a corpse, in his bags you see ");
         itemLookupText.add("You notice ");
         itemLookupText.add("You see an old chest, in it you see ");
         itemLookupText.add("Behind a crooked pillar you see ");
         itemLookupText.add("As you take a step into the room, the floor under you gives in and a large crack shows ");
         
         bossTauntText.add("and shouts \"Naughty Secrets! I'll rip the secrets from your flesh " + playerName + "!\"");
-        bossTauntText.add("and says \"We gonna bury you here "+ playerName +"...\"");
+        bossTauntText.add("and says \"We're gonna bury you here "+ playerName +"...\"");
         bossTauntText.add("and yells \"Interloper! Mortal who dare to interfere with my sport will pay.\"");
         bossTauntText.add("and says \"Who knows what secrets hide in the dark? Ah, yes. I do.\"");
         bossTauntText.add("and yells \"I am a god..!\"");
