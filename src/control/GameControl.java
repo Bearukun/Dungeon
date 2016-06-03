@@ -440,24 +440,18 @@ public class GameControl implements Serializable {
 
                     if (currentRoom.getChest().getLockTypeInterface().isLocked()) {
 
-                        if(player.hasKey(currentRoom.getChest().getLockTypeInterface().getCode())){
-                            
-                             printer("You unlock the chest...\n"+player.addItemToInventory(currentRoom.getChest().getInventory()));
-                            currentRoom.setChest(null);
-                            
-                            
-                        }else{
-                            
-                            printer("You do not have the key for this chest");
-                            
-                        }
-                        
-                        
+                        if (player.hasKey(currentRoom.getChest().getLockTypeInterface().getCode())) {
 
-                    }
-                    
-                    
-                    else {
+                            printer("You unlock the chest...\n" + player.addItemToInventory(currentRoom.getChest().getInventory()));
+                            currentRoom.setChest(null);
+
+                        } else {
+
+                            printer("You do not have the key for this chest");
+
+                        }
+
+                    } else {
 
                         printer(player.addItemToInventory(currentRoom.getChest().getInventory()));
                         currentRoom.setChest(null);
