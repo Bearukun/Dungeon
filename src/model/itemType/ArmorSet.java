@@ -5,10 +5,10 @@ import java.io.Serializable;
 
 public class ArmorSet implements ItemInterface, Serializable{
     
-    private int healthMultiplier;
-    private int armorRating;
+    private double healthMultiplier;
+    private double armorRating;
 
-    public ArmorSet(int healthMultiplier, int armorMultiplier) {
+    public ArmorSet(double healthMultiplier, double armorMultiplier) {
         this.healthMultiplier = healthMultiplier;
         this.armorRating = armorMultiplier;
     }
@@ -37,7 +37,7 @@ public class ArmorSet implements ItemInterface, Serializable{
     }
 
     @Override
-    public int getDamageModifier() {
+    public double getDamageModifier() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -47,8 +47,8 @@ public class ArmorSet implements ItemInterface, Serializable{
     }
 
     @Override
-    public int getHealthModifier() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public double getHealthModifier() {
+        return healthMultiplier;
     }
 
     @Override
@@ -62,7 +62,7 @@ public class ArmorSet implements ItemInterface, Serializable{
     }
 
     @Override
-    public int getArmorRating() {
+    public double getArmorRating() {
         return armorRating;
     }
 

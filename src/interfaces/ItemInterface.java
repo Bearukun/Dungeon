@@ -6,9 +6,9 @@ public interface ItemInterface {
     
     public boolean isConsumable();
     
-    public int getDamageModifier();
+    public double getDamageModifier();
     
-    public int getHealthModifier();
+    public double getHealthModifier();
     
     public boolean isEquippable();
     
@@ -20,7 +20,7 @@ public interface ItemInterface {
     
     public void setKeyId(String roomName);
     
-    public int getArmorRating();
+    public double getArmorRating();
 
     
 }

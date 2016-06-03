@@ -31,7 +31,7 @@ public class Key implements ItemInterface, Serializable{
     }
 
     @Override
-    public int getDamageModifier() {
+    public double getDamageModifier() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -41,7 +41,7 @@ public class Key implements ItemInterface, Serializable{
     }
 
     @Override
-    public int getHealthModifier() {
+    public double getHealthModifier() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -56,7 +56,7 @@ public class Key implements ItemInterface, Serializable{
     }
 
     @Override
-    public int getArmorRating() {
+    public double getArmorRating() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -3,6 +3,7 @@ package model;
 import interfaces.PlayerInterface;
 import java.io.Serializable;
 import java.util.ArrayList;
+import model.itemType.ArmorSet;
 import model.itemType.Consumable;
 import model.itemType.Weapon;
 
@@ -25,6 +26,7 @@ public class Player implements PlayerInterface, Serializable {
         armor = startingArmor;
 
         equipment.add(new Item("Short Sword", "", "This is a short sword", 1, new Weapon(6)));
+        equipment.add(new Item("Casual clothes", "", "this is your clothes.", 1, new ArmorSet(10, 50.0)));
         inventory.add(new Item("Healing potion", "an healing potion", "A healing potion that will give you full health", 0, new Consumable(1, true, true)));
 
         calculateStats();
@@ -83,6 +85,8 @@ public class Player implements PlayerInterface, Serializable {
     public void calculateStats() {
 
         int weaponDamage = 0;
+        int armorRating = 0;
+        int healthModifier = 0;
 
         //Calculate damage
         for (Item item : equipment) {
@@ -92,9 +96,17 @@ public class Player implements PlayerInterface, Serializable {
                 weaponDamage += item.getItemInterface().getDamageModifier();
 
             }
+            if (item.getItemInterface().isArmor()) {
+
+                armorRating += item.getItemInterface().getArmorRating();
+                healthModifier += item.getItemInterface().getHealthModifier();
+
+            }
 
         }
-
+        
+        armor = startingArmor + armorRating; 
+        hp =  + tempHp + healthModifier; 
         damage = startingDamage + weaponDamage;
 
     }
@@ -151,7 +163,7 @@ public class Player implements PlayerInterface, Serializable {
 
                 if (inventory.get(i).getItemInterface().isConsumable()) {
 
-                    heal(inventory.get(i).getItemInterface().getHealthModifier());
+                    heal((int) inventory.get(i).getItemInterface().getHealthModifier());
 
                     returnString = inventory.get(i).getName() + " has been used, you now have " + hp + ".";
 
@@ -201,16 +213,16 @@ public class Player implements PlayerInterface, Serializable {
 
     @Override
     public String equippedItems() {
-        String returnString = "";
+        String returnString = "\n";
 
         for (int i = 0; i < equipment.size(); i++) {
             if (equipment.get(i).getItemInterface().isAWeapon()) {
-                returnString += equipment.get(i).getName() + "\n\tDamage: " + equipment.get(i).getItemInterface().getDamageModifier();
+                returnString += equipment.get(i).getName() + "\n\tDamage: " + equipment.get(i).getItemInterface().getDamageModifier()+"\n";
 
             } else if (equipment.get(i).getItemInterface().isArmor()) {
                 returnString += equipment.get(i).getName()
                         + "\n\tBonus Health: " + equipment.get(i).getItemInterface().getHealthModifier()
-                        + "\n\tArmor Rating: " + equipment.get(i).getItemInterface().getArmorRating();
+                        + "\n\tArmor Rating: " + equipment.get(i).getItemInterface().getArmorRating()+"\n";
             }
 
         }
