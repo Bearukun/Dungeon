@@ -66,6 +66,7 @@ public class TextGenerator  implements Serializable{
         bossTauntText.add("and yells \"You know what they say about curiosity.\"");
         
         chestLookupText.add("You also notice an old chest ");
+        chestLookupText.add("An old chest sits in the corner of the room");
         chestLookupText.add("You notice something else as well, a dusty chest ");
      
     }
