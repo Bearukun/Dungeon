@@ -67,7 +67,7 @@ public class GameControl implements Serializable{
         room14 = new Room("Capulo Sector", "StarCraft univers", new Unlocked());
         room15 = new Room("Mother Base", "Home of the Diamond Dogs", new Unlocked());
         room16 = new Room("Boston", "Home of Crane, Pool & Smitch", new Unlocked());
-        room17 = new Room("Mushroom Kingdom", "Te land of Super Mario", new Unlocked());
+        room17 = new Room("Mushroom Kingdom", "The land of Super Mario", new Unlocked());
         room18 = new Room("Yharnam", "Land of the Pale Blood Moon", new Unlocked());
         room19 = new Room("Middle-Earth", "Land of JRR Tolkien", new Unlocked());
         room20 = new Room("Exploding Kitten Room", "A room full of exploding kittens", new Unlocked());
@@ -331,7 +331,7 @@ public class GameControl implements Serializable{
             }
             if (player.getHp() <= 0) {
 
-                printer("You have been slayed, game over!");
+                printer("You have been slayed, game over!\nYou ended the game with:\n\n" + player.getTempHp() + " hitpoints.\n" + player.getInventory() + "\nYour ending level was: " + player.getLevel() + "\nYour maximum armor was: " + player.getArmor() + "\n\nYou had this weapon and armor equiped: " + player.equippedItems());
                 hasDied = true;
                 gameActive = false;
 
