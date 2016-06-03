@@ -2,20 +2,21 @@ package model;
 
 import interfaces.ItemInterface;
 import interfaces.MonsterInterface;
-import interfaces.RoomTypeInterface;
 import java.io.Serializable;
 import java.util.ArrayList;
+import interfaces.LockTypeInterface;
 
 /**
  * Room class
  */
-public class Room  implements Serializable{
+public class Room implements Serializable {
 
     //Initializing and instanciating variables. 
     private String roomName, description;
     private ArrayList<Item> items = new ArrayList();
     private Monster monster;
-    private RoomTypeInterface roomTypeInterface;
+    private Chest chest;
+    private LockTypeInterface lockTypeInterface;
 
     public Room north, south, west, east;
 
@@ -25,7 +26,7 @@ public class Room  implements Serializable{
      * @param roomname Name for the room.
      * @param description Description for the room.
      */
-    public Room(String roomname, String description, RoomTypeInterface roomTypeInterface) {
+    public Room(String roomname, String description, LockTypeInterface roomTypeInterface) {
 
         this.roomName = roomname;
         this.description = description;
@@ -33,7 +34,7 @@ public class Room  implements Serializable{
         this.south = null;
         this.west = null;
         this.east = null;
-        this.roomTypeInterface = roomTypeInterface;
+        this.lockTypeInterface = roomTypeInterface;
 
     }
 
@@ -43,29 +44,36 @@ public class Room  implements Serializable{
 
     }
 
+    public void addChest(String locationDescription, boolean isEndGameChest, LockTypeInterface lockTypeInterface) {
+
+        chest = new Chest(locationDescription, isEndGameChest, lockTypeInterface);
+
+    }
+
     public void addMonster(String name, String description, int id, MonsterInterface monsterType) {
 
         monster = new Monster(name, description, id, monsterType);
 
     }
-    
-    public void addItemToMonster(String name, String roomText, String inspectText, int value, ItemInterface itemType){
-        
+
+    public void addItemToMonster(String name, String roomText, String inspectText, int value, ItemInterface itemType) {
+
         monster.addItem(name, roomText, inspectText, value, itemType);
     }
 
     /**
      * Method used to look up room items.
-     * @return Returns a string with available items. 
+     *
+     * @return Returns a string with available items.
      */
     public String itemLookup(String itemLookupText) {
 
-        if(items == null){
-            
+        if (items == null) {
+
             return "";
-            
+
         }
-        
+
         String returnString = "";
 
         if (!items.isEmpty()) {
@@ -78,19 +86,19 @@ public class Room  implements Serializable{
             } else {
 
                 for (int i = 0; i < items.size(); i++) {
-                    
+
                     returnString += "" + items.get(i).getRoomText();
-                    
-                    if(i != items.size()-1){
-                        
+
+                    if (i != items.size() - 1) {
+
                         returnString += " and ";
-                        
-                    }else if(i == items.size()-1){
-                        
+
+                    } else if (i == items.size() - 1) {
+
                         returnString += ".\n";
-                        
+
                     }
-                    
+
                 }
 
             }
@@ -100,13 +108,33 @@ public class Room  implements Serializable{
         return returnString;
 
     }
-    
-    public void dropMonsterItems(){
-        
-       items.addAll(monster.getInventory());
-       monster.setInventory(null);
+
+    /**
+     * Method used to look up chest.
+     *
+     * @return Returns a string with available items.
+     */
+    public String chestLookup(String itemLookupText) {
+
+        if (chest == null) {
+
+            return "";
+
+        }
+
+        String returnString = itemLookupText;
+
+        returnString += chest.getLocationDescription() + ".\n";
+
+        return returnString;
+
     }
-    
+
+    public void dropMonsterItems() {
+
+        items.addAll(monster.getInventory());
+        monster.setInventory(null);
+    }
 
     @Override
     public String toString() {
@@ -170,10 +198,6 @@ public class Room  implements Serializable{
         this.roomName = roomName;
     }
 
-//    public TextGenerator getTextGen() {
-//        return textGen;
-//    }
-
     public Monster getMonster() {
         return monster;
     }
@@ -182,13 +206,12 @@ public class Room  implements Serializable{
         this.monster = monster;
     }
 
-    public RoomTypeInterface getRoomTypeInterface() {
-        return roomTypeInterface;
+    public LockTypeInterface getLockTypeInterface() {
+        return lockTypeInterface;
     }
 
-    public void setRoomTypeInterface(RoomTypeInterface roomTypeInterface) {
-        this.roomTypeInterface = roomTypeInterface;
+    public void setLockTypeInterface(LockTypeInterface lockTypeInterface) {
+        this.lockTypeInterface = lockTypeInterface;
     }
 
-    
 }

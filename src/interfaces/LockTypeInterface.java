@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface RoomTypeInterface {
+public interface LockTypeInterface {
 
     public boolean isLocked();
     

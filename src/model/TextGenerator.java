@@ -8,6 +8,7 @@ public class TextGenerator  implements Serializable{
 
     //Declaring, initializing and instanciating variables. 
     ArrayList<String> itemLookupText = new ArrayList();
+    ArrayList<String> chestLookupText = new ArrayList();
     ArrayList<String> bossTauntText = new ArrayList();
     ArrayList<String> minionTauntText = new ArrayList();
     Random rand = new Random();
@@ -35,7 +36,10 @@ public class TextGenerator  implements Serializable{
         bossTauntText.add("and shouts \"I will destroy you "+ playerName+"!\"");
         bossTauntText.add("and says in a slithering voice \"Fear..so exhilarating... Despair...so delicious...\"");
         bossTauntText.add("and shouts \"Let the coils of death unfurl!\"");
-
+        
+        chestLookupText.add("You also notice an old chest ");
+        chestLookupText.add("You notice something else as well, a dusty chest ");
+     
     }
 
     /**
@@ -46,6 +50,16 @@ public class TextGenerator  implements Serializable{
     public String generateItemLookupText() {
 
         return itemLookupText.get(rand.nextInt(itemLookupText.size()));
+
+    }
+    /**
+     * Method used to generate a random chest lookup text.
+     *
+     * @return Returns a string with a random text.
+     */
+    public String generateChestLookupText() {
+
+        return chestLookupText.get(rand.nextInt(chestLookupText.size()));
 
     }
 

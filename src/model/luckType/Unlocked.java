@@ -1,9 +1,9 @@
-package model.roomType;
+package model.luckType;
 
-import interfaces.RoomTypeInterface;
 import java.io.Serializable;
+import interfaces.LockTypeInterface;
 
-public class Unlocked implements RoomTypeInterface, Serializable{
+public class Unlocked implements LockTypeInterface, Serializable{
 
     public Unlocked() {
     }

@@ -10,8 +10,8 @@ import model.itemType.ArmorSet;
 import model.itemType.Consumable;
 import model.itemType.Key;
 import model.itemType.Weapon;
-import model.roomType.Locked;
-import model.roomType.Unlocked;
+import model.luckType.Locked;
+import model.luckType.Unlocked;
 
 /**
  * GameControl class
@@ -96,6 +96,7 @@ public class GameControl implements Serializable {
         room3.north = room7;
         room3.addRoomItem("Mystic Potion", "a mysterious looking potion", "You don't know what effect it will have on you", 900, new Consumable(50, true, false));
         room3.addRoomItem("Odd-looking vial", "an odd-looking vial", "You don't know what effect it will have on you", 300, new Consumable(-20, true, false));
+        room3.addChest("in the corner of the room", false, new Locked("Vase", true));
 
         //Room4
         room4.east = room1;
@@ -229,9 +230,9 @@ public class GameControl implements Serializable {
             case "west":
                 if (currentRoom.west == null) {
                     print = "\n***You hit a wall***\n";
-                } else if (currentRoom.west.getRoomTypeInterface().isLocked()) {
+                } else if (currentRoom.west.getLockTypeInterface().isLocked()) {
 
-                        print = "The way to the " + currentRoom.west.getRoomName() + " is locked. Find the key!";
+                    print = "The way to the " + currentRoom.west.getRoomName() + " is locked. Find the key!";
 
                 } else {
 
@@ -242,6 +243,10 @@ public class GameControl implements Serializable {
             case "east":
                 if (currentRoom.east == null) {
                     print = "\n***You hit a wall***\n";
+                } else if (currentRoom.east.getLockTypeInterface().isLocked()) {
+
+                    print = "The way to the " + currentRoom.east.getRoomName() + " is locked. Find the key!";
+
                 } else {
 
                     previousRoom = currentRoom;
@@ -251,6 +256,10 @@ public class GameControl implements Serializable {
             case "north":
                 if (currentRoom.north == null) {
                     print = "\n***You hit a wall***\n";
+                } else if (currentRoom.north.getLockTypeInterface().isLocked()) {
+
+                    print = "The way to the " + currentRoom.north.getRoomName() + " is locked. Find the key!";
+
                 } else {
 
                     previousRoom = currentRoom;
@@ -261,6 +270,11 @@ public class GameControl implements Serializable {
             case "south":
                 if (currentRoom.south == null) {
                     print = "\n***You hit a wall***\n";
+
+                } else if (currentRoom.south.getLockTypeInterface().isLocked()) {
+
+                    print = "The way to the " + currentRoom.south.getRoomName() + " is locked. Find the key!";
+
                 } else {
 
                     previousRoom = currentRoom;
@@ -283,7 +297,7 @@ public class GameControl implements Serializable {
 
         } else if (print.equals("")) {
 
-            print = "You are now standing in the " + currentRoom.getRoomName() + ". " + currentRoom.getDescription() + "\n" + currentRoom.itemLookup(textGen.generateItemLookupText());
+            print = "You are now standing in the " + currentRoom.getRoomName() + ". " + currentRoom.getDescription() + "\n" + currentRoom.itemLookup(textGen.generateItemLookupText()) + currentRoom.chestLookup(textGen.generateChestLookupText());
 
         }
 
@@ -295,47 +309,44 @@ public class GameControl implements Serializable {
      * Method used to unlock the rooms around you.
      */
     public void unlockRoom() {
-        
-        if(currentRoom.west.getRoomTypeInterface().isLocked()){
-            
+
+        if (currentRoom.west.getLockTypeInterface().isLocked()) {
+
             if (player.hasKey(currentRoom.west.getRoomName())) {
 
-                currentRoom.west.getRoomTypeInterface().unlockRoom();
-                
+                currentRoom.west.getLockTypeInterface().unlockRoom();
+
                 printer("You have unlocked the way to " + currentRoom.west.getRoomName() + ", that is located west of you.\n");
             }
-            
-        }else if(currentRoom.east.getRoomTypeInterface().isLocked()){
-            
+
+        } else if (currentRoom.east.getLockTypeInterface().isLocked()) {
+
             if (player.hasKey(currentRoom.east.getRoomName())) {
 
-                currentRoom.east.getRoomTypeInterface().unlockRoom();
-                
+                currentRoom.east.getLockTypeInterface().unlockRoom();
+
                 printer("You have unlocked the way to " + currentRoom.east.getRoomName() + ", that is located east of you.\n");
             }
-            
-        }else if(currentRoom.north.getRoomTypeInterface().isLocked()){
-            
+
+        } else if (currentRoom.north.getLockTypeInterface().isLocked()) {
+
             if (player.hasKey(currentRoom.north.getRoomName())) {
 
-                currentRoom.north.getRoomTypeInterface().unlockRoom();
-                
+                currentRoom.north.getLockTypeInterface().unlockRoom();
+
                 printer("You have unlocked the way to " + currentRoom.north.getRoomName() + ", that is located north of you.\n");
             }
-            
-        }else if(currentRoom.south.getRoomTypeInterface().isLocked()){
-            
+
+        } else if (currentRoom.south.getLockTypeInterface().isLocked()) {
+
             if (player.hasKey(currentRoom.south.getRoomName())) {
 
-                currentRoom.south.getRoomTypeInterface().unlockRoom();
-                
+                currentRoom.south.getLockTypeInterface().unlockRoom();
+
                 printer("You have unlocked the way to " + currentRoom.south.getRoomName() + ", that is located south of you.\n");
             }
-            
-        }
-        
 
-        
+        }
 
     }
 
@@ -471,15 +482,15 @@ public class GameControl implements Serializable {
 
         }
         if (splitString[0].equalsIgnoreCase("use")) {
-            
+
             String temp = player.useItem(input.substring(input.indexOf(' ') + 1));
-            
-            if(temp.equalsIgnoreCase("opened")){
-                
+
+            if (temp.equalsIgnoreCase("opened")) {
+
                 unlockRoom();
-                
-            }else{
-                
+
+            } else {
+
                 printer(temp);
             }
 
