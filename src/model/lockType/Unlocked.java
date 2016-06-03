@@ -1,4 +1,4 @@
-package model.luckType;
+package model.lockType;
 
 import java.io.Serializable;
 import interfaces.LockTypeInterface;
@@ -7,8 +7,6 @@ public class Unlocked implements LockTypeInterface, Serializable{
 
     public Unlocked() {
     }
-    
-    
 
     @Override
     public boolean isLocked() {
@@ -16,19 +14,16 @@ public class Unlocked implements LockTypeInterface, Serializable{
     }
 
     @Override
-    public void setUnlocks(String nameOfRoomToUnlock) {
+    public void unlock() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String getUnlocks() {
+    public String getCode() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public void unlockRoom() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+    
 
  
 

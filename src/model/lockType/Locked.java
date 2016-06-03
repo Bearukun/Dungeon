@@ -1,4 +1,4 @@
-package model.luckType;
+package model.lockType;
 
 import java.io.Serializable;
 import interfaces.LockTypeInterface;
@@ -12,32 +12,25 @@ public class Locked implements LockTypeInterface, Serializable{
         this.unlockCode = unlockCode;
         this.isLocked = isLocked;
     }
-    
-    
 
-    
     @Override
     public boolean isLocked() {
         return isLocked;
     }
 
     @Override
-    public void setUnlocks(String nameOfRoomToUnlock) {
-        unlockCode = nameOfRoomToUnlock;
+    public void unlock() {
+        isLocked = true;
     }
 
     @Override
-    public String getUnlocks() {
+    public String getCode() {
         return unlockCode;
     }
-
-    @Override
-    public void unlockRoom() {
-        isLocked = false;
-    }
+    
+    
 
  
-
             
             
     

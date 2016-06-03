@@ -39,18 +39,18 @@ public class Player implements PlayerInterface, Serializable{
 
     }
 
-    public String addItemToInventory(ArrayList<Item> roomItems) {
-        inventory.addAll(roomItems);
+    public String addItemToInventory(ArrayList<Item> items) {
+        inventory.addAll(items);
         String returnString = "";
 
-        if (roomItems.size() <= 1) {
+        if (items.size() <= 1) {
 
-            return "The following item has been added to your inventory: " + roomItems.get(0).getName();
+            return "You add the following item to you inventory:\n" + items.get(0).getName();
 
         } else {
-            returnString += "The following items has been added to your inventory:\n";
-            for (int i = 0; i < roomItems.size(); i++) {
-                returnString += roomItems.get(i).getName() + "\n";
+            returnString += "You add the following item to you inventory:\n";
+            for (int i = 0; i < items.size(); i++) {
+                returnString += items.get(i).getName() + "\n";
 
             }
             return returnString;
@@ -280,13 +280,13 @@ public class Player implements PlayerInterface, Serializable{
     }
 
     @Override
-    public boolean hasKey(String roomName) {
+    public boolean hasKey(String keyCode) {
         
         for (Item item : inventory) {
             
             if(item.getItemInterface().isKey()){
                 
-                item.getItemInterface().getKeyId().equalsIgnoreCase(roomName);
+                item.getItemInterface().getKeyId().equalsIgnoreCase(keyCode);
                 
                 return true;
                 
