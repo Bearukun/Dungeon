@@ -231,6 +231,10 @@ public class Player implements PlayerInterface, Serializable{
         return returnString;
     }
 
+    public int getTempHp() {
+        return tempHp;
+    }
+
     @Override
     public String equipItem(String itemName) {
         String returnString = "";
