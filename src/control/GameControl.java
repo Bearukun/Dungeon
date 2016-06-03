@@ -10,9 +10,11 @@ import model.itemType.ArmorSet;
 import model.itemType.Consumable;
 import model.itemType.Key;
 import model.itemType.Weapon;
-import model.luckType.Locked;
-import model.luckType.Unlocked;
+import model.lockType.Locked;
+import model.lockType.Unlocked;
 import model.monsterType.Minion;
+import model.lockType.Locked;
+import model.lockType.Unlocked;
 
 /**
  * GameControl class
@@ -185,7 +187,8 @@ public class GameControl implements Serializable {
         room3.north = room4;
         room3.addRoomItem("Mystic Potion", "a mysterious looking potion", "You don't know what effect it will have on you", 900, new Consumable(50, true, false));
         room3.addRoomItem("Odd-looking vial", "an odd-looking vial", "You don't know what effect it will have on you", 300, new Consumable(-20, true, false));
-        room3.addChest("in the corner of the room", false, new Locked("Vase", true));
+        room3.addRoomItem("An old key", "an odd-looking key", "This will open a chest.", 0, new Key(false, "room3"));
+        room3.addChest("in the corner of the room", false, new Locked("room3", true));
         room3.addItemToChest("Broad Sword", "a shiny broad sword", "forged by the flames of hell", 45, new Weapon(10));
         room3.addMonster("Lich King", "The lord of the Undead Scourge", 0, new Boss(50, 5, 999, textGen.generateTaunt("Boss")));
 
@@ -884,7 +887,7 @@ public class GameControl implements Serializable {
 
             if (player.hasKey(currentRoom.west.getRoomName())) {
 
-                currentRoom.west.getLockTypeInterface().unlockRoom();
+                currentRoom.west.getLockTypeInterface().unlock();
 
                 printer("You have unlocked the way to " + currentRoom.west.getRoomName() + ", that is located west of you.\n");
             }
@@ -893,7 +896,7 @@ public class GameControl implements Serializable {
 
             if (player.hasKey(currentRoom.east.getRoomName())) {
 
-                currentRoom.east.getLockTypeInterface().unlockRoom();
+                currentRoom.east.getLockTypeInterface().unlock();
 
                 printer("You have unlocked the way to " + currentRoom.east.getRoomName() + ", that is located east of you.\n");
             }
@@ -902,7 +905,7 @@ public class GameControl implements Serializable {
 
             if (player.hasKey(currentRoom.north.getRoomName())) {
 
-                currentRoom.north.getLockTypeInterface().unlockRoom();
+                currentRoom.north.getLockTypeInterface().unlock();
 
                 printer("You have unlocked the way to " + currentRoom.north.getRoomName() + ", that is located north of you.\n");
             }
@@ -911,7 +914,7 @@ public class GameControl implements Serializable {
 
             if (player.hasKey(currentRoom.south.getRoomName())) {
 
-                currentRoom.south.getLockTypeInterface().unlockRoom();
+                currentRoom.south.getLockTypeInterface().unlock();
 
                 printer("You have unlocked the way to " + currentRoom.south.getRoomName() + ", that is located south of you.\n");
             }
@@ -947,8 +950,9 @@ public class GameControl implements Serializable {
 
             }
             if (player.getHp() <= 0) {
-
-                printer("You have been slayed, game over!\nYou ended the game with:\n\n" + player.getTempHp() + " hitpoints.\n" + player.getInventory() + "\nYour ending level was: " + player.getLevel() + "\nYour maximum armor was: " + player.getArmor() + "\n\nYou had this weapon and armor equiped: " + player.equippedItems());
+                
+                player.calculateHighscore();
+                printer("\n\nYou have been slayed by "+ currentRoom.getMonster().getName() + ", game over!\n"+"Your score: " + player.calculateHighscore() + "\nYou ended the game with a max health of " + player.getTempHp() + " hitpoints." + " Your level was " + player.getLevel() + ", and your armor-rating was " + player.getArmor()+ ".\n\nYou have the following in your inventory:\n" + player.getInventory() + "\nYou had the following items equipped:\n" + player.equippedItems());
                 hasDied = true;
                 gameActive = false;
 
@@ -974,10 +978,11 @@ public class GameControl implements Serializable {
         if (input.equalsIgnoreCase("Help") && !inBattle) {
 
             String commands = "Movement: Used to move north/n, south/s, east/e or west/w.\n\tSyntax: go 'heading' or 'heading'\n"
-                    + "Statistics: Used to show your stats.\n\t.Syntax: 'stats' or 'show stats'\n"
+                    + "Stats: Used to show your statistics.\n\t.Syntax: 'stats' or 'show stats'\n"
                     + "Inventory: Show the items you have in your inventory.\n\t.Syntax: 'inventory' or 'inv'\n"
-                    + "Loot items: Loots every item available in the room.\n\t.Syntax: 'take all', 'all', pickup or 'take'\n"
-                    + "Use: Use a consumable, such as a potion.\n\t.Syntax: 'use #itemName#'\n"
+                    + "Pickup: Loots every item available in the room.\n\t.Syntax: 'take all', 'all', pickup or 'take'\n"
+                    + "Chest: Opens and loots the chest in the current room.\n\t.Syntax: 'chest' or 'open chest'\n"
+                    + "Use: Use a consumable, such as a potion or a key.\n\t.Syntax: 'use #itemName#'\n"
                     + "Equip: Equip an item from your inventory (Weapon and Armor) \n\t.Syntax: 'Equip #itemName#'\n"
                     + "Save: Save current state of game. \n\t.Syntax: 'save'\n"
                     + "Load: Loads saved state of game. \n\t.Syntax: 'save'\n"
@@ -1000,6 +1005,34 @@ public class GameControl implements Serializable {
             } else if (input.equalsIgnoreCase("Take all") || input.equalsIgnoreCase("all") || input.equalsIgnoreCase("pickup") || input.equalsIgnoreCase("take")) {
                 printer(player.addItemToInventory(currentRoom.getItems()));
                 currentRoom.setItems(null);
+
+            } else if (input.equalsIgnoreCase("chest") || input.equalsIgnoreCase("open chest")) {
+
+                if (currentRoom.getChest() != null) {
+
+                    if (currentRoom.getChest().getLockTypeInterface().isLocked()) {
+
+                        if (player.hasKey(currentRoom.getChest().getLockTypeInterface().getCode())) {
+
+                            printer("You unlock the chest...\n" + player.addItemToInventory(currentRoom.getChest().getInventory()));
+                            currentRoom.setChest(null);
+
+                        } else {
+
+                            printer("You do not have the key for this chest");
+
+                        }
+
+                    } else {
+
+                        printer(player.addItemToInventory(currentRoom.getChest().getInventory()));
+                        currentRoom.setChest(null);
+                    }
+                } else {
+
+                    printer("No chest is located in this room.");
+
+                }
 
             } else if (splitString[0].equalsIgnoreCase("Equip")) {
 
@@ -1048,7 +1081,7 @@ public class GameControl implements Serializable {
         }
         if (input.equalsIgnoreCase("inventory") || input.equalsIgnoreCase("inv")) {
 
-            printer(player.getInventory());
+            printer("You have the following items in your inventory: " +player.getInventory());
 
         }
         if (splitString[0].equalsIgnoreCase("use")) {

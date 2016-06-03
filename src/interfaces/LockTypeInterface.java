@@ -4,13 +4,8 @@ public interface LockTypeInterface {
 
     public boolean isLocked();
     
-    public void unlockRoom();
-    
-    public void setUnlocks(String nameOfRoomToUnlock);
+    public void unlock();
    
-    public String getUnlocks();
-    
-    
-
+    public String getCode();
     
 }

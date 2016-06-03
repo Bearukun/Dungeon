@@ -24,7 +24,7 @@ public class TextGenerator  implements Serializable{
          itemLookupText.add("You see ");
         itemLookupText.add("You stumble upon a corpse, in his bags you see ");
         itemLookupText.add("You notice ");
-        itemLookupText.add("You see an old chest, in it you see ");
+        itemLookupText.add("You see an old urne, in it you see ");
         itemLookupText.add("Behind a crooked pillar you see ");
         itemLookupText.add("As you take a step into the room, the floor under you gives in and a large crack shows ");
         

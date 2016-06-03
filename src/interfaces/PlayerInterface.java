@@ -9,6 +9,8 @@ public interface PlayerInterface {
     
     public String getStats();
     
+    public int calculateHighscore();
+    
     public String useItem(String itemName);
    
     public void heal(int amount);

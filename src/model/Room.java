@@ -219,4 +219,14 @@ public class Room implements Serializable {
         this.lockTypeInterface = lockTypeInterface;
     }
 
+    public Chest getChest() {
+        return chest;
+    }
+
+    public void setChest(Chest chest) {
+        this.chest = chest;
+    }
+
+    
+    
 }
