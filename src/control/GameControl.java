@@ -16,7 +16,7 @@ import model.roomType.Unlocked;
 /**
  * GameControl class
  */
-public class GameControl implements Serializable{
+public class GameControl implements Serializable {
 
     //Declaring, initializing and instanciating variables. 
     int highScore;
@@ -231,20 +231,7 @@ public class GameControl implements Serializable{
                     print = "\n***You hit a wall***\n";
                 } else if (currentRoom.west.getRoomTypeInterface().isLocked()) {
 
-                    if (!player.hasKey(currentRoom.getRoomName())) {
-
                         print = "The way to the " + currentRoom.west.getRoomName() + " is locked. Find the key!";
-
-                    } else if (player.hasKey(currentRoom.getRoomName())) {
-
-                        currentRoom.west.getRoomTypeInterface().unlockRoom();
-                        previousRoom = currentRoom;
-                        currentRoom = currentRoom.west;
-                        print = "You have unlocked the way to " + currentRoom.getRoomName() + "\n" +
-                                "You are now standing in the " + currentRoom.getRoomName() + ". " + currentRoom.getDescription() + "\n" + currentRoom.itemLookup(textGen.generateItemLookupText());
-                       
-
-                    }
 
                 } else {
 
@@ -295,12 +282,32 @@ public class GameControl implements Serializable{
                     + " - You now have " + player.getHp() + "HP left.";
 
         } else if (print.equals("")) {
-            
+
             print = "You are now standing in the " + currentRoom.getRoomName() + ". " + currentRoom.getDescription() + "\n" + currentRoom.itemLookup(textGen.generateItemLookupText());
 
         }
 
         printer(print);
+
+    }
+
+    public void unlockRoom() {
+        
+        if(currentRoom.west.getRoomTypeInterface().isLocked()){
+            
+            
+            if (player.hasKey(currentRoom.west.getRoomName())) {
+
+                currentRoom.west.getRoomTypeInterface().unlockRoom();
+                
+                printer("You have unlocked the way to " + currentRoom.west.getRoomName() + ", that is located west of you.\n");
+            }
+            
+            
+        }
+        
+
+        
 
     }
 
@@ -436,8 +443,17 @@ public class GameControl implements Serializable{
 
         }
         if (splitString[0].equalsIgnoreCase("use")) {
-
-            printer(player.useItem(input.substring(input.indexOf(' ') + 1)));
+            
+            String temp = player.useItem(input.substring(input.indexOf(' ') + 1));
+            
+            if(temp.equalsIgnoreCase("opened")){
+                
+                unlockRoom();
+                
+            }else{
+                
+                printer(temp);
+            }
 
         }
 
@@ -453,7 +469,6 @@ public class GameControl implements Serializable{
         System.out.println(toPrinter);
 
     }
-
 
     public boolean isGameActive() {
         return gameActive;
