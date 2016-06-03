@@ -108,6 +108,8 @@ public class Game {
                 gc = new GameControl(sca.next());
 
                 System.out.println("\nAnother breath of wind rushes through the pyramid, but his time no voices... Perhaps it was just your imagination.");
+                
+                gc.move("");
                 System.out.println("Type 'help' to show a list of available commands.");
 
                 boolean1 = false;

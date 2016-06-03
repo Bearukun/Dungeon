@@ -52,7 +52,7 @@ public class GameControl implements Serializable {
         createPlayer(playerName);
         createRooms();
         highScore = 0;
-        move("");
+        //move("");
     }
 
     /**
