@@ -423,7 +423,7 @@ public class GameControl implements Serializable {
 
             } else if (input.equalsIgnoreCase("go east") || input.equalsIgnoreCase("east")) {
                 move("east");
-            } else if (input.equalsIgnoreCase("go north") || input.equalsIgnoreCase("norht")) {
+            } else if (input.equalsIgnoreCase("go north") || input.equalsIgnoreCase("north")) {
                 move("north");
             } else if (input.equalsIgnoreCase("go south") || input.equalsIgnoreCase("south")) {
                 move("south");
