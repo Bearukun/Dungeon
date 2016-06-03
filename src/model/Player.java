@@ -172,13 +172,26 @@ public class Player implements PlayerInterface, Serializable{
 
             if (inventory.get(i).getName().equalsIgnoreCase(itemName)) {
 
-                heal(inventory.get(i).getItemInterface().getHealthModifier());
+                if(inventory.get(i).getItemInterface().isConsumable()){
+                    
+                    heal(inventory.get(i).getItemInterface().getHealthModifier());
 
-                returnString = inventory.get(i).getName() + " has been used, you now have " + hp + ".";
+                    returnString = inventory.get(i).getName() + " has been used, you now have " + hp + ".";
 
-                inventory.remove(i);
+                    inventory.remove(i);
 
-                break;
+                    break;
+                    
+                }else if(inventory.get(i).getItemInterface().isKey()){
+                    
+                    returnString = "opened";
+
+                    
+                    break;
+                    
+                    
+                }
+                
 
             }
 

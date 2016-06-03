@@ -9,6 +9,8 @@ public interface RoomTypeInterface {
     public void setUnlocks(String nameOfRoomToUnlock);
    
     public String getUnlocks();
+    
+    
 
     
 }
