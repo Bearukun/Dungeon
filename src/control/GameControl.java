@@ -79,7 +79,7 @@ public class GameControl implements Serializable {
         room16 = new Room("Corridor", "Home of Crane, Pool & Smitch", new Unlocked());
         room17 = new Room("High Priest of Anubis Chamber", "The land of Super Mario", new Unlocked());
         room18 = new Room("Corridor", "Land of the Pale Blood Moon", new Unlocked());
-        room19 = new Room("Altar of Anubis", "Land of JRR Tolkien", new Unlocked());
+        room19 = new Room("Altar of Anubis", "Land of JRR Tolkien", new Locked("Altar of Anubis Key", true));
         room20 = new Room("Corridor", "A room full of exploding kittens", new Unlocked());
         room21 = new Room("Corridor", "empty 21", new Unlocked());
         room22 = new Room("Corridor", "empty 22", new Unlocked());
@@ -93,7 +93,7 @@ public class GameControl implements Serializable {
         room30 = new Room("Sacrifice Room", "Empty 30", new Unlocked());
         room31 = new Room("High Priest of Horus Chamber", "Empty 31", new Unlocked());
         room32 = new Room("Chamber of The Sun", "Empty 32", new Unlocked());
-        room33 = new Room("Altar of Horus", "Empty 33", new Unlocked());
+        room33 = new Room("Altar of Horus", "Empty 33", new Locked("Altar of Horus Key", true));
         room34 = new Room("Corridor", "Empty 34", new Unlocked());
         room35 = new Room("Corridor", "Empty 35", new Unlocked());
         room36 = new Room("Corridor", "Empty 36", new Unlocked());
@@ -103,7 +103,7 @@ public class GameControl implements Serializable {
         room40 = new Room("Great North Hall", "Empty 40", new Unlocked());
         room41 = new Room("Entrance to Ra' Chamber", "Empty 41", new Unlocked());
         room42 = new Room("High Priest of Ra' Chamber", "Empty 42", new Unlocked());
-        room43 = new Room("Altar of Ra'", "Empty 43", new Unlocked());
+        room43 = new Room("Altar of Ra'", "Empty 43", new Locked("Altar of Ra' Key", true));
         room44 = new Room("Corridor", "Empty 44", new Unlocked());
         room45 = new Room("Corridor", "Empty 45", new Unlocked());
         room46 = new Room("Corridor", "Empty 46", new Unlocked());
@@ -127,7 +127,7 @@ public class GameControl implements Serializable {
         room64 = new Room("Chamber of the Underworld", "Empty 64", new Unlocked());
         room65 = new Room("Chamber of Death", "Empty 65", new Unlocked());
         room66 = new Room("High Priest of Osiris Chamber", "Empty 66", new Unlocked());
-        room67 = new Room("Altar of Osiris", "Empty 67", new Unlocked());
+        room67 = new Room("Altar of Osiris", "Empty 67", new Locked("Altar of Osiris Key", true));
         room68 = new Room("Entrance to Seth Chamber", "Empty 68", new Unlocked());
         room69 = new Room("Corridor", "Empty 69", new Unlocked());
         room70 = new Room("Servants Chambers", "Empty 70", new Unlocked());
@@ -148,15 +148,15 @@ public class GameControl implements Serializable {
         room85 = new Room("Corridor", "Empty 85", new Unlocked());
         room86 = new Room("High Priest of Seth Chamber", "Empty 86", new Unlocked());
         room87 = new Room("Corridor", "Empty 87", new Unlocked());
-        room88 = new Room("Altar of Seth", "Empty 88", new Unlocked());
-        room89 = new Room("Stairway of Imsety", "Empty 89", new Unlocked());
-        room90 = new Room("Stairway of Hapy", "Empty 90", new Unlocked());
-        room91 = new Room("Starway of Duamutef", "Empty 91", new Unlocked());
-        room92 = new Room("Stairway of Qebehsenuef", "Empty 92", new Unlocked());
+        room88 = new Room("Altar of Seth", "Empty 88", new Locked("Altar of Seth Key", true));
+        room89 = new Room("Stairway of Imsety", "Empty 89", new Locked("Stairway of Imsety", true));
+        room90 = new Room("Stairway of Hapy", "Empty 90", new Locked("Stairway of Hapy", true));
+        room91 = new Room("Starway of Duamutef", "Empty 91", new Locked("Starway of Duamutef", true));
+        room92 = new Room("Stairway of Qebehsenuef", "Empty 92", new Locked("Stairway of Qebehsenuef", true));
         room93 = new Room("Corridor", "Empty 93", new Unlocked());
         room94 = new Room("Treasure Room", "Empty 94", new Unlocked());
         room95 = new Room("Treasure Room", "Empty 95", new Unlocked());
-        room96 = new Room("Tomb of Tal'Rasha", "Empty 96", new Unlocked());
+        room96 = new Room("Tomb of Tal'Rasha", "Empty 96", new Locked("Key to The Tomb Of Tal'Rasha", true));
         
         
         
@@ -190,14 +190,14 @@ public class GameControl implements Serializable {
         room3.addRoomItem("An old key", "an odd-looking key", "This will open a chest.", 0, new Key(false, "room3"));
         room3.addChest("in the corner of the room", false, new Locked("room3", true));
         room3.addItemToChest("Broad Sword", "a shiny broad sword", "forged by the flames of hell", 45, new Weapon(10));
-        room3.addMonster("Lich King", "The lord of the Undead Scourge", 0, new Boss(50, 5, 999, textGen.generateTaunt("Boss")));
+        room3.addMonster("Lich King", "The lord of the Undead Scourge", 0, new Boss(20, 5, 999, textGen.generateTaunt("Boss")));
 
         //Room4: Chamber of Worship
         room4.east = null;
         room4.west = null;
         room4.south = room3;
         room4.north = null;
-        room4.addMonster("Lich", "A servent of the Lich King", 0, new Minion(30, 2, 50, textGen.generateTaunt("Minion")));
+        room4.addMonster("Lich", "A servent of the Lich King", 0, new Minion(20, 2, 20, textGen.generateTaunt("Minion")));
 
         //Room5: Corridor
         room5.east = room6;
@@ -276,7 +276,10 @@ public class GameControl implements Serializable {
         room17.west = room18;
         room17.south = room16;
         room17.north = null;
+        room17.addMonster("High Priest of Anubis", "High Priest of Anubis, God of mummification and the afterlife", 0, new Minion(50, 20, 10, textGen.generateTaunt("minion")));
+        room17.addItemToMonster("Altar of Anubis Key", " a strange silver key ", "An inscription on the key states: \"Key to the Altar of Anubis\"", 0, new Key(true, "Altar of Anubis Key"));
 
+        
         //Room18: Corridor
         room18.east = room17;
         room18.west = room19;
@@ -360,6 +363,8 @@ public class GameControl implements Serializable {
         room31.west = room32;
         room31.south = room30;
         room31.north = null;
+        room31.addMonster("High Priest of Horus", "The High Priest of the God Horus, God of the Skies", 0, new Minion(50, 20, 10, textGen.generateTaunt("Minion")));
+        room31.addItemToMonster("Altar of Horus Key", " a strange blue key ", "An inscription on the key states: \"Key to the Altar of Horus\"", 0, new Key(true, "Altar of Horus Key"));
         
         //Room32: Chamber of the Sun
         room32.east = room31;
@@ -414,6 +419,11 @@ public class GameControl implements Serializable {
         room40.west = room44;
         room40.south = room89;
         room40.north = room41;
+        room40.addRoomItem("Canopic Jar of Imsety", "a strange jar with a human head on the top","A canopic jar containing the liver of Tal'Rasha", 0, new Key(true, "Stairway of Imsety"));
+        room40.addRoomItem("Canopic Jar of Hapy", "a strange jar with a baboon head on the top","A canopic jar containing the lungs of Tal'Rasha", 0, new Key(true, "Stairway of Hapy"));
+        room40.addRoomItem("Canopic Jar of Duamutef", "a strange jar with a jackal head on the top","A canopic jar containing the stomach of Tal'Rasha", 0, new Key(true, "Stairway of Duamutef"));
+        room40.addRoomItem("Canopic Jar of Quebehsenuef", "a strange jar with a falcon head on the top","A canopic jar containing the intestines of Tal'Rasha", 0, new Key(true, "Stairway of Quebehsenuef"));
+
         
         //Room41: Entrance to Ra' Chamber
         room41.east = null;
@@ -426,12 +436,15 @@ public class GameControl implements Serializable {
         room42.west = null;
         room42.south = room41;
         room42.north = room43;
+        room42.addMonster("High Priest of Ra'", "High Priest of the God Ra', God of the Sun", 0, new Minion(20, 10, 10, textGen.generateTaunt("Minion")));
+        room42.addItemToMonster("Altar of Ra' Key", " a strange golden key ", "An inscription on the key states: \"Key to the Altar of Ra'\"", 0, new Key(true, "Altar of Ra' Key"));
         
         //Room43: Altar of Ra'
         room43.east = null;
         room43.west = null;
         room43.south = room42;
         room43.north = null;
+        room43.addItemToMonster("Key to The Tomb Of Tal'Rasha", "a magnificient gleaming obsidian key", "Inscription of the key states: \"Tomb Of Tal'Rasha\"", 0, new Key(true, "Key to The Tomb Of Tal'Rasha"));
         
         //Room44: Corridor
         room44.east = room40;
@@ -570,6 +583,8 @@ public class GameControl implements Serializable {
         room66.west = room58;
         room66.south = null;
         room66.north = room67;
+        room66.addMonster("High Priest of Osiris", "The High Priest of the God Osiris, God of the Underworld", 0, new Minion(30, 10, 0, textGen.generateTaunt("Minion")));
+        room66.addItemToMonster("Altar of Osiris Key", " a strange bronze key ", "An inscription on the key states: \"Key to the Altar of Osiris\"", 0, new Key(true, "Altar of Osiris Key"));
         
         //Room67: Altar of Osiris
         room67.east = room50; //SECRET DOOR THAT OPENS AFTER OSIRIS BOSS IS KILLED! // KEY FROM HIGH PRIEST ROOM!
@@ -690,6 +705,8 @@ public class GameControl implements Serializable {
         room86.west = null;
         room86.south = room85;
         room86.north = null;
+        room86.addMonster("High Priest of Seth", "The High Priest of the God Seth, God of Disorder and Violence", 0, new Minion(20, 5, 10, textGen.generateTaunt("Minion")));
+        room86.addItemToMonster("Altar of Seth Key", " a strange obsidian key ", "An inscription on the key states: \"Key to the Altar of Seth\"", 0, new Key(true, "Altar of Seth Key"));
         
         //Room87: Corridor
         room87.east = null;
@@ -746,11 +763,14 @@ public class GameControl implements Serializable {
         room95.south = null;
         room95.north = null;
         
-         //Room96: Corridor
+         //Room96: Tomb of Tal'Rasha
         room96.east = null;
         room96.west = null;
         room96.south = room93;
         room96.north = null;
+        room96.addMonster("Tal'Rasha", "The powerfull ancient Egyptian sorcerer and Lord of the Pyramid", highScore, new Boss(250, 25, 9999, textGen.generateTaunt("Boss")));
+        room96.addItemToMonster("Stone Obsidian Key", "a strange heavy obsidian key", "The key looks very old, only part of the inscription is intact spelling \"...Covernant\"", 0, new Key(true, "Stone Obsidian Key"));
+        room95.addChest("Behind Tal'Rashas sarcofacus stands a stone chest made of obsidian", true, new Locked("Stone Obsidian Key", true)); //Spillet skal slutte når denne chest åbnes! Ceo har teksten!
         
          //Room97: Corridor
 //        room97.east = null;
@@ -898,6 +918,7 @@ public class GameControl implements Serializable {
             if (player.hasKey(currentRoom.east.getRoomName())) {
 
                 currentRoom.east.getLockTypeInterface().unlock();
+                
 
                 printer("You have unlocked the way to " + currentRoom.east.getRoomName() + ", that is located east of you.\n");
             }
@@ -916,6 +937,7 @@ public class GameControl implements Serializable {
             if (player.hasKey(currentRoom.south.getRoomName())) {
 
                 currentRoom.south.getLockTypeInterface().unlock();
+                
 
                 printer("You have unlocked the way to " + currentRoom.south.getRoomName() + ", that is located south of you.\n");
             }
