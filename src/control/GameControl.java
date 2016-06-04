@@ -904,46 +904,55 @@ public class GameControl implements Serializable {
      * Method used to unlock the rooms around you.
      */
     public void unlockRoom() {
+        
+        boolean keyNotUsed = true;
+        
+        if (currentRoom.west != null) {
 
-        if (currentRoom.west.getLockTypeInterface().isLocked()) {
-
-            if (player.hasKey(currentRoom.west.getRoomName())) {
+            if (currentRoom.west.getLockTypeInterface().isLocked() && player.hasKey(currentRoom.west.getRoomName())) {
 
                 currentRoom.west.getLockTypeInterface().unlock();
-
+                keyNotUsed = false;
                 printer("You have unlocked the way to " + currentRoom.west.getRoomName() + ", that is located west of you.\n");
             }
 
-        } else if (currentRoom.east.getLockTypeInterface().isLocked()) {
+        }
+        if (currentRoom.east != null) {
 
-            if (player.hasKey(currentRoom.east.getRoomName())) {
+            if (currentRoom.east.getLockTypeInterface().isLocked() && player.hasKey(currentRoom.east.getRoomName())) {
 
                 currentRoom.east.getLockTypeInterface().unlock();
-                
-
+                keyNotUsed = false;
                 printer("You have unlocked the way to " + currentRoom.east.getRoomName() + ", that is located east of you.\n");
             }
 
-        } else if (currentRoom.north.getLockTypeInterface().isLocked()) {
+        }
+        if (currentRoom.north != null) {
 
-            if (player.hasKey(currentRoom.north.getRoomName())) {
+            if (currentRoom.north.getLockTypeInterface().isLocked() && player.hasKey(currentRoom.north.getRoomName())) {
 
                 currentRoom.north.getLockTypeInterface().unlock();
-
+                keyNotUsed = false;
                 printer("You have unlocked the way to " + currentRoom.north.getRoomName() + ", that is located north of you.\n");
             }
 
-        } else if (currentRoom.south.getLockTypeInterface().isLocked()) {
+        }
+        if (currentRoom.south != null) {
 
-            if (player.hasKey(currentRoom.south.getRoomName())) {
+            if (currentRoom.south.getLockTypeInterface().isLocked() && player.hasKey(currentRoom.south.getRoomName())) {
 
                 currentRoom.south.getLockTypeInterface().unlock();
-                
-
+                keyNotUsed = false;
                 printer("You have unlocked the way to " + currentRoom.south.getRoomName() + ", that is located south of you.\n");
             }
 
         }
+        if (keyNotUsed){
+            
+            printer("You can not use that key here.");
+            
+        }
+       
 
     }
 
