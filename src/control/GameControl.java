@@ -444,6 +444,7 @@ public class GameControl implements Serializable {
         room43.west = null;
         room43.south = room42;
         room43.north = null;
+        room43.addMonster("Mummuie'", "Mummie the dummie', mother of placeholder", 0, new Minion(20, 10, 10, textGen.generateTaunt("Minion")));
         room43.addItemToMonster("Key to The Tomb Of Tal'Rasha", "a magnificient gleaming obsidian key", "Inscription of the key states: \"Tomb Of Tal'Rasha\"", 0, new Key(true, "Key to The Tomb Of Tal'Rasha"));
         
         //Room44: Corridor
