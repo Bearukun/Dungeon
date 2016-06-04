@@ -20,7 +20,7 @@ public class Locked implements LockTypeInterface, Serializable{
 
     @Override
     public void unlock() {
-        isLocked = true;
+        isLocked = false;
     }
 
     @Override
