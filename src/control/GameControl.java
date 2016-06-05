@@ -174,9 +174,9 @@ public class GameControl implements Serializable {
         room2.east = null;
         room2.south = room1;
         room2.north = room3;
-        room2.addMonster("Skeleton King", "the mad king of Tristram, bound once again to the mortal realm", 0, new Boss(20, 2, 900, textGen.generateTaunt("boss")));
+        room2.addMonster("Swarm of Scarabs", "a large group of flesh eating beetles", 0, new Boss(10, 1, 1, textGen.generateTaunt("Minion")));
         room2.addItemToMonster("Mace of the Skeleton King", "a mace lies on the ground", "A powerfull mace that belonged to the Skeleton King", 200, new Weapon(20));
-        room2.addItemToMonster("Staff of Ra'", "a staff lies on a table", "A golden staff with the insciption \"Staff of Ra'\"", 100000, new Weapon(1000));
+        
         room2.addItemToMonster("Tal'Rasha's Elements", "a bunch of robes lies on the ground", "This is the magical impowered amor of the mage Tal'Rasha", 20, new ArmorSet(5, 10));
         room2.addItemToMonster("Rusty key", "an old key with the inscription \"Go weeeeest\"", "This key unlocks the room west of the entrance.", 0, new Key(true, "Dungeon"));
 
@@ -291,6 +291,7 @@ public class GameControl implements Serializable {
         room19.west = room7; //SECRET DOOR THAT OPENS AFTER ANUBIS BOSS IS KILLED! // KEY FROM HIGH PRIEST ROOM!
         room19.south = null;
         room19.north = null;
+        room19.addMonster("Anubis", "God of mummification and the afterlife", 0, new Boss(200, 25, 999, textGen.generateTaunt("Boss")));
 
         //Room20: Corridor
         room20.east = null;
@@ -377,6 +378,8 @@ public class GameControl implements Serializable {
         room33.west = room38; //SECRET DOOR THAT OPENS AFTER HORUS BOSS IS KILLED! // KEY FROM HIGH PRIEST ROOM!
         room33.south = null;
         room33.north = null;
+        room33.addMonster("Horus", "God of the Skies", 0, new Boss(150, 20, 999, textGen.generateTaunt("Boss")));
+        room33.addItemToMonster("Sword of Horus", "a golden gleaming sword sticks out from under the corps of Horus", "A Golden powerfull imbued Sword, forged for the God Horus", 250, new Weapon(50));
         
         //Room34: Corridor
         room34.east = null;
@@ -444,9 +447,9 @@ public class GameControl implements Serializable {
         room43.west = null;
         room43.south = room42;
         room43.north = null;
-        room43.addMonster("Mummuie'", "Mummie the dummie', mother of placeholder", 0, new Minion(20, 10, 10, textGen.generateTaunt("Minion")));
+        room43.addMonster("Ra'", "God of the Sun", 0, new Boss(150, 20, 999, textGen.generateTaunt("Boss")));
         room43.addItemToMonster("Key to The Tomb Of Tal'Rasha", "a magnificient gleaming obsidian key", "Inscription of the key states: \"Tomb Of Tal'Rasha\"", 0, new Key(true, "Key to The Tomb Of Tal'Rasha"));
-        
+        room43.addItemToMonster("Staff of Ra'", "a staff lies on a table", "A golden staff with the insciption \"Staff of Ra'\"", 300, new Weapon(75));
         //Room44: Corridor
         room44.east = room40;
         room44.west = room45;
@@ -500,6 +503,7 @@ public class GameControl implements Serializable {
         room52.west = null;
         room52.south = room53;
         room52.north = room21;
+        
         
         //Room53: Corridor
         room53.east = null;
@@ -592,6 +596,7 @@ public class GameControl implements Serializable {
         room67.west = null;
         room67.south = room66;
         room67.north = null;
+        room67.addMonster("Osiris", "God of the Underworld", 0, new Boss(150, 30, 999, textGen.generateTaunt("Boss")));
         
         //Room68: Entrance to Seth Chamber
         room68.east = room47;
@@ -720,6 +725,7 @@ public class GameControl implements Serializable {
         room88.west = null;
         room88.south = room45; //SECRET DOOR THAT OPENS AFTER SETH BOSS IS KILLED! // KEY FROM HIGH PRIEST ROOM!
         room88.north = room88;
+        room88.addMonster("Seth", "God of Disorder and Violence", 0, new Boss(175, 35, 999, textGen.generateTaunt("Boss")));
         
         //Room89: Stairway of Imsety
         room89.east = null;
