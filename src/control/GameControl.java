@@ -1100,10 +1100,19 @@ public class GameControl implements Serializable {
                 used = true;
 
             } else if (input.equalsIgnoreCase("Take all") || input.equalsIgnoreCase("all") || input.equalsIgnoreCase("pickup") || input.equalsIgnoreCase("take")) {
-
-                printer(player.addItemToInventory(currentRoom.getItems()));
-                currentRoom.setItems(null);
-                used = true;
+                
+                if(!currentRoom.getItems().isEmpty()){
+                            
+                    printer(player.addItemToInventory(currentRoom.getItems()));
+                    currentRoom.setItems(null);
+                    used = true;
+                    
+                }else{
+                    
+                    printer("There is nothing to pick up...");
+                    used = true;
+                    
+                }
 
             } else if (input.equalsIgnoreCase("chest") || input.equalsIgnoreCase("open chest")) {
 
