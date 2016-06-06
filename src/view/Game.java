@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -143,6 +142,29 @@ public class Game {
             } else if (input.equalsIgnoreCase("load")) {
 
                 load();
+            }else if(input.equalsIgnoreCase("new game")){
+                
+                NewGame();
+                break;
+            }else if(input.equalsIgnoreCase("quit")){
+                gc.printer("Are you sure you want to quit?");
+                
+                input = sca.nextLine();
+                
+                if(input.equalsIgnoreCase("yes") ||input.equalsIgnoreCase("y")){
+                    
+                    gc.endGame(3);
+                    
+                    System.exit(0);
+                    
+                }else{
+                    
+                    gc.printer("Continueing your adventure...\n");
+                    
+                }
+                
+                
+                
             }
 
             gc.inputAnalyzer(input);

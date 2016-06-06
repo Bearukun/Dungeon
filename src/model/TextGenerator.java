@@ -8,6 +8,7 @@ public class TextGenerator  implements Serializable{
 
     //Declaring, initializing and instanciating variables. 
     ArrayList<String> itemLookupText = new ArrayList();
+    ArrayList<String> gameText = new ArrayList();
     ArrayList<String> chestLookupText = new ArrayList();
     ArrayList<String> bossTauntText = new ArrayList();
     ArrayList<String> minionTauntText = new ArrayList();
@@ -20,8 +21,11 @@ public class TextGenerator  implements Serializable{
     public TextGenerator(String playerName) {
         
         this.playerName = playerName;
+        
+        
+        gameText.add("Do you wish to start a new game, or load a save.\nType 'new' to start a new game, or 'load' to load a saved game.");
 
-         itemLookupText.add("You see ");
+        itemLookupText.add("You see ");
         itemLookupText.add("You stumble upon a corpse, in his bags you see ");
         itemLookupText.add("You notice ");
         itemLookupText.add("You see an old urne, in it you see ");

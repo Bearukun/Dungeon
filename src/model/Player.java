@@ -17,16 +17,16 @@ public class Player implements PlayerInterface, Serializable {
     public Player(String name) {
         this.name = name;
 
-        hp = 3;
+        hp = 300;
         tempHp = hp;
         level = 1;
-        startingDamage = 6;
+        startingDamage = 600;
         startingArmor = 0;
         damage = startingDamage;
         armor = startingArmor;
 
         equipment.add(new Item("Short Sword", "", "This is a short sword", 1, new Weapon(6)));
-        equipment.add(new Item("Casual clothes", "", "this is your clothes.", 1, new ArmorSet(10, 50)));
+        equipment.add(new Item("Casual clothes", "", "this is your clothes.", 1, new ArmorSet(0, 1)));
         inventory.add(new Item("Healing potion", "an healing potion", "A healing potion that will give you full health", 0, new Consumable(1, true, true)));
 
         calculateStats();
@@ -36,7 +36,7 @@ public class Player implements PlayerInterface, Serializable {
     @Override
     public String getStats() {
 
-        return "You have " + hp + "HP, your level is " + level + ", you give " + damage + "HP in damage and your armorrating is " + armor + ".\n"
+        return "You have " + hp + "HP, your level is " + level + ", you give " + damage + "HP in base damage and your armorrating is " + armor + ".\n"
                 + "Current equipped: " + equippedItems();
 
     }
@@ -117,6 +117,8 @@ public class Player implements PlayerInterface, Serializable {
         level++;
         hp = tempHp + 10;
         tempHp = hp;
+        
+       
 
     }
 
@@ -299,7 +301,7 @@ public class Player implements PlayerInterface, Serializable {
 
     @Override
     public int getDamage() {
-        return damage;
+        return damage+level;
     }
 
     public void setDamage(int damage) {
@@ -327,5 +329,11 @@ public class Player implements PlayerInterface, Serializable {
     public int getTempHp() {
         return tempHp;
     }
+
+    public int getStartingDamage() {
+        return startingDamage;
+    }
+    
+    
 
 }

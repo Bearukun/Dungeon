@@ -3,9 +3,10 @@ package model;
 import interfaces.ChestInterface;
 import interfaces.ItemInterface;
 import interfaces.LockTypeInterface;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Chest implements ChestInterface{
+public class Chest implements ChestInterface, Serializable{
     
     private String locationDescription;
     private boolean isEndGameChest;
