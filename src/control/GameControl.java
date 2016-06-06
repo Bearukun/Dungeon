@@ -1020,7 +1020,10 @@ public class GameControl implements Serializable {
         if (endGamecode == 1) {
 
             player.calculateHighscore();
-            printer("\n\nWOW, YOU BIG BOY! SO AMAZING :O OH MAH GAAAH GAME O-VA\n " + "Your score: " + player.calculateHighscore() + "\nYou ended the game with a max health of " + player.getTempHp() + " hitpoints." + " Your level was " + player.getLevel() + ", and your base damage was " + player.getStartingDamage() + " and your armor-rating was " + player.getArmor() + ".\n\nYou have the following in your inventory:\n" + player.getInventory() + "\nYou had the following items equipped:\n" + player.equippedItems());
+            System.out.println(TextGenerator.getGameText(TextGenerator.GameText.END_GAME_COMPLETE));
+            printer("\n\nThank you for playing \"Pyramid of The Valley\"!  \n " + "Your score: " + player.calculateHighscore() + "\nYou ended the game with a max health of " + player.getTempHp() + " hitpoints." + " Your level was " + player.getLevel() + ", and your base damage was " + player.getStartingDamage() + " and your armor-rating was " + player.getArmor() + ".\n\nYou have the following in your inventory:\n" + player.getInventory() + "\nYou had the following items equipped:\n" + player.equippedItems());
+           
+            
             hasDied = false;
             gameActive = false;
 

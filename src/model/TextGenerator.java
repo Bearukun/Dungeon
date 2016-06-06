@@ -22,7 +22,6 @@ public class TextGenerator implements Serializable {
 
         this.playerName = playerName;
 
-
         itemLookupText.add("You see ");
         itemLookupText.add("You stumble upon a corpse, in his bags you see ");
         itemLookupText.add("You notice ");
@@ -77,7 +76,7 @@ public class TextGenerator implements Serializable {
      */
     public enum GameText {
 
-        HELP_COMBAT, HELP, NEW_OR_LOAD, INTRO, INTRO_PART2
+        HELP_COMBAT, HELP, NEW_OR_LOAD, INTRO, INTRO_PART2, END_GAME_COMPLETE
 
     }
 
@@ -187,7 +186,7 @@ public class TextGenerator implements Serializable {
                         + "“Tomb of Tal Rasha”\n"
                         + "\n"
                         + "Your thoughts are speeding inside your brain with all kinds of questions, since there has never been any record of a Pharo named “Tal Rasha” in Egyptian history, nor of any pyramid being build in the valley."
-                        + "\nBut your eager to find out what lies inside the pyramid gets the better of you and with your tools, you carve a hole big enough to crawl inside the pyramid.\n"
+                        + "\nBut your eager to find out what lies inside the pyramid gets the better of you. You quickly note down the name, approximate size and location of the pyramid in your notebook and on your map\n and with your tools, you carve a hole big enough to crawl inside the pyramid.\n"
                         + "Upon entering the pyramid, you light your lighter and spot a convenient placed torch on the left wall just a few meters in front of you. "
                         + "\nYou walk towards the torch and lights it up, but as pull it the torch down from its resting place, you hear a giant slab of rock coming down from the ceiling behind you, blocking the way you came in from.\n"
                         + "\n"
@@ -200,6 +199,40 @@ public class TextGenerator implements Serializable {
                 break;
             case INTRO_PART2:
                 returnString = "\nAnother breath of wind rushes through the pyramid, but his time no voices... Perhaps it was just your imagination.";
+                break;
+            case END_GAME_COMPLETE:
+                returnString = "​\n"
+                        + "You open the big strange stone chest and inside you discover a golden covered chest, with ornaments of the angels spreading their wings over the top of the chest.\n"
+                        + "\n“No…” You start telling yourself.\n"
+                        + "“It can’t be…”\n"
+                        + "“It’s just a myth, a legend, it dosen’t exist”\n"
+                        + "“Could this really be… The Ark Of The Covenant?”\n\n"
+                        + "After having starred at the golden chest for a few moments, you slowly move your arms and place your hands beneath the lit of the chest.\n"
+                        + "\nYou take one last deep breath and open up the chest.\n\n"
+                        + "The lit was apparently lighter than expected, but upon looking down inside the chest to see its content, you see that the only thing in the chest is dust and a bit of stone rubble.\n"
+                        + "You feel disappointed.\n"
+                        + "You were just about to close the lit back on, when you noticed a light from the bottom of the chest that seemingly is getting brighter and brighter.\nYou can’t take your eyes of the light, as it just keeps getting brighter and brighter. In a few moments, the whole room is engulfed in the light from the chest,\nyet you can’t take your eyes of it. You begin to feel the light burning into your eyes, strange voices whispering inside your brain and the feeling of your body levitating.\nStrange visions are shown to you of past, present and future events.\n"
+                        + "\nIt’s all so beautiful….\n\n"
+                        + "Then all of a sudden, pain starts to rush through your body, your blood is pumping though your veins faster than they have ever done, putting enormous pressure on your brain-and heart-flow,\nand your mind starts to show you all the horrors you have encountered in the pyramid.\n"
+                        + "\n\nA ghostly figure suddenly appears from the chest with a magnificent sword. It looks at you for just a brief second… and then stabs you with its golden sword.\n"
+                        + "As your body begins to collapse on the stone floor, you take one last look at the chest and see the lit of the golden chest closing, as the ghost is vanishing back down into the chest.\n"
+                        + "\nYou feel the end of your life has come.\n"
+                        + "\nYou stop breathing, laying cold and lifeless of the stone cold floor of the tomb.\n"
+                        + "\nTal'Rashas tomb has become your own...\n"
+                        + "\n\nYou wake up in your tent.\n"
+                        + "\nSweat is dripping from your head and down your body.\n"
+                        + "Your body begins to shake and your brain slowly starts to grasp what had just transpired.\n"
+                        + "\"It was just a dream... A nightmare... A horrific nightmare\"\n"
+                        + "\nYou get up from you bed and first reach out for your bucket of water, but rather instinctively grabs your little flask of scotch instead.\n"
+                        + "You can hear the wind howling outside. The morning sun is shinning through the old small holes in the tent.\n"
+                        + "You get yourself together, put on your cloth and walk outside.\n"
+                        + "\nThe sandstorm from the Sahara had hit the expedition overnight, but everyone seemed to have survived and were unharmed.\n"
+                        + "As the day went on, you found yourself once again sitting in you chair overlooking your latest dig site.\n"
+                        + "No treasure here today either.\n"
+                        + "\nYou grab your notebook and map from your bag to plot where to dig next.\n"
+                        + "But as you open the map of the valley and looking down at it, you're put in a state of shock.\n"
+                        + "Because in the middle of the map were the approximate size and location of a Pyramid written in what could only be your own hand writing....\n"
+                        + "\n\"Pyramid of Tal'Rasha\"\n";
                 break;
             default:
                 throw new AssertionError();
