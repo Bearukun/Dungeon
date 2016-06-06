@@ -3,8 +3,8 @@ package model.itemType;
 import interfaces.ItemInterface;
 import java.io.Serializable;
 
-public class Consumable implements ItemInterface, Serializable{
-    
+public class Consumable implements ItemInterface, Serializable {
+
     private int healthModifier;
     private boolean isConsumable, isMaximumHealing;
 
@@ -15,86 +15,80 @@ public class Consumable implements ItemInterface, Serializable{
     }
 
     public int getHealthModifier() {
-        
-        if(isMaximumHealing){
-            
+
+        if (isMaximumHealing) {
+
             return 1337;
-            
-        }else{
-            
+
+        } else {
+
             return healthModifier;
-        
+
         }
-        
-        
-    }
 
-    public void setHealthModifier(int healthModifier) {
-        this.healthModifier = healthModifier;
-    }
-
-    public boolean isIsConsumable() {
-        return isConsumable;
-    }
-
-    public void setIsConsumable(boolean isConsumable) {
-        this.isConsumable = isConsumable;
-    }
-
-    public boolean isIsMaximumHealing() {
-        return isMaximumHealing;
-    }
-
-    public void setIsMaximumHealing(boolean isMaximumHealing) {
-        this.isMaximumHealing = isMaximumHealing;
     }
 
     @Override
     public boolean isAWeapon() {
-        return false;
-    }
 
-    @Override
-    public int getDamageModifier() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
+
     }
 
     @Override
     public boolean isConsumable() {
+        
         return true;
+  
     }
 
     @Override
     public boolean isEquippable() {
+        
         return false;
+   
     }
 
     @Override
     public boolean isArmor() {
+        
         return false;
-    }
-
-    @Override
-    public int getArmorRating() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   
     }
 
     @Override
     public boolean isKey() {
+        
         return false;
+  
+    }
+
+    @Override
+    public int getDamageModifier() {
+
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    }
+
+    @Override
+    public int getArmorRating() {
+        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
     }
 
     @Override
     public String getKeyId() {
+        
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   
     }
 
     @Override
     public void setKeyId(String roomName) {
+        
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
     }
 
-   
-    
-    
 }

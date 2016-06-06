@@ -37,5 +37,4 @@ public interface PlayerInterface {
     
     public boolean hasKey(String roomName);
 
-
 }
