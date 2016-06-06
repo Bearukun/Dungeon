@@ -30,8 +30,10 @@ public class Game {
      */
     private void NewGame() {
 
+        //Boolean used for the while-loop.
         boolean boolean1 = true;
 
+        //While loop-loop to ensure that we load or start a new game. 
         while (boolean1) {
 
             System.out.println(TextGenerator.getGameText(TextGenerator.GameText.NEW_OR_LOAD));
@@ -69,7 +71,8 @@ public class Game {
             }
 
         }
-
+        
+        //This while loop will keep the game running.
         while (gc.isGameActive() == true) {
 
             input = sca.nextLine();
@@ -81,6 +84,7 @@ public class Game {
             } else if (input.equalsIgnoreCase("load")) {
 
                 load();
+                
             } else if (input.equalsIgnoreCase("new game")) {
 
                 NewGame();

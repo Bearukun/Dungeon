@@ -53,6 +53,7 @@ public class Room implements Serializable {
     public void addItemToChest(String name, String roomText, String inspectText, int value, ItemInterface itemType) {
 
         chest.addItem(name, roomText, inspectText, value, itemType);
+        
     }
 
     public void addMonster(String name, String description, int id, MonsterInterface monsterType) {
@@ -64,6 +65,7 @@ public class Room implements Serializable {
     public void addItemToMonster(String name, String roomText, String inspectText, int value, ItemInterface itemType) {
 
         monster.addItem(name, roomText, inspectText, value, itemType);
+        
     }
 
     /**
@@ -139,94 +141,62 @@ public class Room implements Serializable {
 
         items.addAll(monster.getInventory());
         monster.setInventory(null);
+        
     }
 
     @Override
     public String toString() {
+        
         return description;
+   
     }
 
     public String getDescription() {
+        
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+   
     }
 
     public ArrayList<Item> getItems() {
+        
         return items;
 
     }
 
     public void setItems(ArrayList<Item> items) {
+        
         this.items = items;
-    }
-
-    public Room getNorth() {
-        return north;
-    }
-
-    public void setNorth(Room north) {
-        this.north = north;
-    }
-
-    public Room getSouth() {
-        return south;
-    }
-
-    public void setSouth(Room south) {
-        this.south = south;
-    }
-
-    public Room getWest() {
-        return west;
-    }
-
-    public void setWest(Room west) {
-        this.west = west;
-    }
-
-    public Room getEast() {
-        return east;
-    }
-
-    public void setEast(Room east) {
-        this.east = east;
+    
     }
 
     public String getRoomName() {
+        
         return roomName;
-    }
-
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
+    
     }
 
     public Monster getMonster() {
+        
         return monster;
-    }
-
-    public void setMonster(Monster monster) {
-        this.monster = monster;
+    
     }
 
     public LockTypeInterface getLockTypeInterface() {
+        
         return lockTypeInterface;
-    }
-
-    public void setLockTypeInterface(LockTypeInterface lockTypeInterface) {
-        this.lockTypeInterface = lockTypeInterface;
+    
     }
 
     public Chest getChest() {
+        
         return chest;
+    
     }
 
     public void setChest(Chest chest) {
+        
         this.chest = chest;
+   
     }
-
-    
     
 }

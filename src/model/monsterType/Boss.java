@@ -14,14 +14,13 @@ public class Boss implements MonsterInterface, Serializable{
     private ArrayList<Item> inventory = new ArrayList();
 
     public Boss(int hp, int damage, int level, String taunt) {
+        
         this.hp = hp;
         this.damage = damage;
         this.level = level;
         this.taunt = taunt;
+    
     }
-    
-    
-    
 
     @Override
     public int getHp() {
@@ -60,7 +59,9 @@ public class Boss implements MonsterInterface, Serializable{
 
     @Override
     public void setHp(int hp) {
+        
         this.hp = hp;
+   
     }
     
 }

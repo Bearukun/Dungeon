@@ -22,8 +22,6 @@ public class Chest implements ChestInterface, Serializable{
     public void addItem(String name, String roomText, String inspectText, int value, ItemInterface itemType){
         inventory.add(new Item(name, roomText, inspectText, value, itemType));
     }
-    
-    
 
     @Override
     public boolean isEndGameChest() {
@@ -31,7 +29,6 @@ public class Chest implements ChestInterface, Serializable{
         return isEndGameChest;
         
     }
-
     
     @Override
     public ArrayList<Item> getInventory() {
@@ -40,36 +37,12 @@ public class Chest implements ChestInterface, Serializable{
         
     }
 
-
-
     public String getLocationDescription() {
         return locationDescription;
-    }
-
-    public void setLocationDescription(String locationDescription) {
-        this.locationDescription = locationDescription;
-    }
-
-    public boolean isIsEndGameChest() {
-        return isEndGameChest;
-    }
-
-    public void setIsEndGameChest(boolean isEndGameChest) {
-        this.isEndGameChest = isEndGameChest;
     }
 
     public LockTypeInterface getLockTypeInterface() {
         return lockTypeInterface;
     }
 
-    public void setLockTypeInterface(LockTypeInterface lockTypeInterface) {
-        this.lockTypeInterface = lockTypeInterface;
-    }
-    
-    
-
-
-
-    
-    
 }

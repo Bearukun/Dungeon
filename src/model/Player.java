@@ -17,10 +17,10 @@ public class Player implements PlayerInterface, Serializable {
     public Player(String name) {
         this.name = name;
 
-        hp = 300;
+        hp = 3;
         tempHp = hp;
         level = 1;
-        startingDamage = 600;
+        startingDamage = 6;
         startingArmor = 0;
         damage = startingDamage;
         armor = startingArmor;
@@ -117,8 +117,6 @@ public class Player implements PlayerInterface, Serializable {
         level++;
         hp = tempHp + 10;
         tempHp = hp;
-        
-       
 
     }
 
@@ -286,10 +284,6 @@ public class Player implements PlayerInterface, Serializable {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Override
     public int getHp() {
         return hp;
@@ -304,26 +298,14 @@ public class Player implements PlayerInterface, Serializable {
         return damage+level;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
     @Override
     public int getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
     @Override
     public int getArmor() {
         return armor;
-    }
-
-    public void setArmor(int armor) {
-        this.armor = armor;
     }
 
     public int getTempHp() {
@@ -334,6 +316,4 @@ public class Player implements PlayerInterface, Serializable {
         return startingDamage;
     }
     
-    
-
 }

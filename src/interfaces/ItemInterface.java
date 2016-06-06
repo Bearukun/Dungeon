@@ -22,5 +22,4 @@ public interface ItemInterface {
     
     public int getArmorRating();
 
-    
 }

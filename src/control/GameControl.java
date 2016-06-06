@@ -20,8 +20,8 @@ import model.lockType.Unlocked;
 public class GameControl implements Serializable {
 
     //Declaring, initializing and instanciating variables. 
-    int highScore;
-    boolean hasBeenRun;
+    private int highScore;
+    private boolean hasBeenRun, hasDied, inBattle, gameActive;
 
     //Declaring objects. 
     Room room1, room2, room3, room4, room5, room6, room7, room8, room9, room10,
@@ -38,11 +38,6 @@ public class GameControl implements Serializable {
     Player player;
     private TextGenerator textGen;
 
-    private boolean gameActive = true;
-    private boolean hasDied = false;
-
-    private boolean inBattle = false;
-
     /**
      * Constructor
      */
@@ -51,7 +46,7 @@ public class GameControl implements Serializable {
         createPlayer(playerName);
         createRooms();
         highScore = 0;
-        //move("");
+        gameActive = true;
     }
 
     /**
