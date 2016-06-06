@@ -13,6 +13,13 @@ public class Boss implements MonsterInterface, Serializable{
     private String taunt;
     private ArrayList<Item> inventory = new ArrayList();
 
+    /**
+     * Constructor for the boss class. 
+     * @param hp The amount of hp the boss has.
+     * @param damage How much damage the boss deals.
+     * @param level The level of the boss. 
+     * @param taunt The sentence it will say at the beginning if the battle. 
+     */
     public Boss(int hp, int damage, int level, String taunt) {
         
         this.hp = hp;

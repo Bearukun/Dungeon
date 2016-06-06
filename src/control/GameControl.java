@@ -973,6 +973,7 @@ public class GameControl implements Serializable {
      */
     public void combatSystem(String command) {
 
+//        The player attacks
         if (command.equals("attack")) {
 
             currentRoom.getMonster().getMonsterInterface().setHp(currentRoom.getMonster().getMonsterInterface().getHp() - player.getDamage());
@@ -991,6 +992,7 @@ public class GameControl implements Serializable {
                 currentRoom.dropMonsterItems();
 
             }
+//          If the monster survives the hit, it attacks the player
             if (currentRoom.getMonster().isIsAlive()) {
 
                 printer(currentRoom.getMonster().getName() + " attacks you for " + calculateMonsterDamage() + "! You have " + player.getHp() + "HP left!");
@@ -1035,6 +1037,7 @@ public class GameControl implements Serializable {
      */
     public void endGame(int endGamecode) {
 
+//        If the player reach the end game treasure chest
         if (endGamecode == 1) {
 
             player.calculateHighscore();
@@ -1045,6 +1048,7 @@ public class GameControl implements Serializable {
             hasDied = false;
             gameActive = false;
 
+//            If the player dies
         } else if (endGamecode == 2) {
 
             player.calculateHighscore();
@@ -1065,7 +1069,7 @@ public class GameControl implements Serializable {
 
     /**
      * Method used to calculate how much damage that need to be removed from the
-     * monsters attack.
+     * monsters attack if the player got armor.
      *
      * @return Returns the amount of damage that need to be removed.
      */
