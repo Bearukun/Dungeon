@@ -23,6 +23,7 @@ public class GameControl implements Serializable {
 
     //Declaring, initializing and instanciating variables. 
     int highScore;
+    boolean hasBeenRun;
 
     //Declaring objects. 
     Room room1, room2, room3, room4, room5, room6, room7, room8, room9, room10,
@@ -56,7 +57,7 @@ public class GameControl implements Serializable {
     }
 
     /**
-     * Method used to create rooms.
+     * Method used to create rooms and place player.
      */
     private void createRooms() {
 
@@ -785,7 +786,7 @@ public class GameControl implements Serializable {
 //        room99.west = null;
 //        room99.south = room6;
 //        room99.north = room21;
-        currentRoom = room96;
+        currentRoom = room1;
         previousRoom = currentRoom;
 
     }
@@ -879,8 +880,6 @@ public class GameControl implements Serializable {
             print = "As you enter the " + currentRoom.getRoomName() + ", you encounter " + currentRoom.getMonster().getName() + " - " + currentRoom.getMonster().getDescription() + ".\n"
                     + currentRoom.getMonster().getName() + " attacks you " + currentRoom.getMonster().getMonsterInterface().getTaunt() + "\nYou recive " + (currentRoom.getMonster().getMonsterInterface().getDamage() - calculateMonsterDamage()) + " damage!"
                     + " - You now have " + player.getHp() + "HP left.";
-            
-            
 
         } else if (print.equals("") && !hasDied) {
 
@@ -959,11 +958,9 @@ public class GameControl implements Serializable {
 
             currentRoom.getMonster().getMonsterInterface().setHp(currentRoom.getMonster().getMonsterInterface().getHp() - player.getDamage());
             player.setHp(player.getHp() - calculateMonsterDamage());
-            
-            
+
             printer("You hit " + currentRoom.getMonster().getName() + " for " + player.getDamage() + "! " + currentRoom.getMonster().getMonsterInterface().getHp() + "HP left."
                     + "\n");
-         
 
             if (currentRoom.getMonster().getMonsterInterface().getHp() <= 0 && player.getHp() > 0) {
 
@@ -974,24 +971,20 @@ public class GameControl implements Serializable {
 
                 currentRoom.dropMonsterItems();
 
-
             }
-               if(currentRoom.getMonster().isIsAlive()){
-                
+            if (currentRoom.getMonster().isIsAlive()) {
+
                 printer(currentRoom.getMonster().getName() + " attacks you for " + calculateMonsterDamage() + "! You have " + player.getHp() + "HP left!");
-            
-                
-            }else{
-                
-                printer("You have " + player.getHp() + "HP left!");
-                
-                move("");
-                
-            }
-   
-            checkHp();
 
-        } else if (command.equals("use")) {
+            } else {
+
+                printer("You have " + player.getHp() + "HP left!");
+
+                move("");
+
+            }
+
+            checkHp();
 
         } else if (command.equals("flee")) {
 
@@ -1003,6 +996,9 @@ public class GameControl implements Serializable {
 
     }
 
+    /**
+     * Method used to check player HP.
+     */
     public void checkHp() {
 
         if (player.getHp() <= 0) {
@@ -1012,38 +1008,45 @@ public class GameControl implements Serializable {
         }
 
     }
-    
-    public void endGame(int endGamecode){
-        
-        if(endGamecode == 1){
-            
+
+    /**
+     * Method used to end the game, with different conditions.
+     *
+     * @param endGamecode
+     */
+    public void endGame(int endGamecode) {
+
+        if (endGamecode == 1) {
+
             player.calculateHighscore();
-            printer("\n\nWOW, YOU BIG BOY! SO AMAZING :O OH MAH GAAAH GAME O-VA\n " + "Your score: " + player.calculateHighscore() + "\nYou ended the game with a max health of " + player.getTempHp() + " hitpoints." + " Your level was " + player.getLevel() + ", and your base damage was "+ player.getStartingDamage() + " and your armor-rating was " + player.getArmor() + ".\n\nYou have the following in your inventory:\n" + player.getInventory() + "\nYou had the following items equipped:\n" + player.equippedItems());
+            printer("\n\nWOW, YOU BIG BOY! SO AMAZING :O OH MAH GAAAH GAME O-VA\n " + "Your score: " + player.calculateHighscore() + "\nYou ended the game with a max health of " + player.getTempHp() + " hitpoints." + " Your level was " + player.getLevel() + ", and your base damage was " + player.getStartingDamage() + " and your armor-rating was " + player.getArmor() + ".\n\nYou have the following in your inventory:\n" + player.getInventory() + "\nYou had the following items equipped:\n" + player.equippedItems());
             hasDied = false;
             gameActive = false;
-            
-            
-        }else if(endGamecode == 2){
-            
+
+        } else if (endGamecode == 2) {
+
             player.calculateHighscore();
-            printer("\n\nYou have been slayed by " + currentRoom.getMonster().getName() + ", game over!\n" + "Your score: " + player.calculateHighscore() + "\nYou ended the game with a max health of " + player.getTempHp() + " hitpoints." + " Your level was " + player.getLevel() + ", and your base damage was "+ player.getStartingDamage() + " and your armor-rating was " + player.getArmor() + ".\n\nYou have the following in your inventory:\n" + player.getInventory() + "\nYou had the following items equipped:\n" + player.equippedItems());
+            printer("\n\nYou have been slayed by " + currentRoom.getMonster().getName() + ", game over!\n" + "Your score: " + player.calculateHighscore() + "\nYou ended the game with a max health of " + player.getTempHp() + " hitpoints." + " Your level was " + player.getLevel() + ", and your base damage was " + player.getStartingDamage() + " and your armor-rating was " + player.getArmor() + ".\n\nYou have the following in your inventory:\n" + player.getInventory() + "\nYou had the following items equipped:\n" + player.equippedItems());
             hasDied = true;
             gameActive = false;
-            
-            
-        }else if(endGamecode == 3){
-            
+
+        } else if (endGamecode == 3) {
+
             player.calculateHighscore();
-            printer("\n\nGame over!\n" + "Your score: " + player.calculateHighscore() + "\nYou ended the game with a max health of " + player.getTempHp() + " hitpoints." + " Your level was " + player.getLevel() + ", and your base damage was "+ player.getStartingDamage() + " and your armor-rating was " + player.getArmor() + ".\n\nYou have the following in your inventory:\n" + player.getInventory() + "\nYou had the following items equipped:\n" + player.equippedItems());
+            printer("\n\nGame over!\n" + "Your score: " + player.calculateHighscore() + "\nYou ended the game with a max health of " + player.getTempHp() + " hitpoints." + " Your level was " + player.getLevel() + ", and your base damage was " + player.getStartingDamage() + " and your armor-rating was " + player.getArmor() + ".\n\nYou have the following in your inventory:\n" + player.getInventory() + "\nYou had the following items equipped:\n" + player.equippedItems());
             hasDied = true;
             gameActive = false;
-            
-            
+
         }
-        
-        
+
     }
 
+    /**
+     * Method used to calculate how much damage that need to be removed from the
+     * monsters attack.
+     *
+     * @return Returns the amount of damage that need to be removed.
+     */
     public int calculateMonsterDamage() {
 
         double percentageOfAttack;
@@ -1054,41 +1057,66 @@ public class GameControl implements Serializable {
 
     }
 
+    /**
+     * Method used to analyze the input from the player.
+     *
+     * @param input Takes a string as input with the command from the player.
+     */
     public void inputAnalyzer(String input) {
 
         //This is used for the use command.
         String[] splitString = input.split(" ");
 
-        if (input.equalsIgnoreCase("Help") && !inBattle) {
+        boolean used = false;
 
-            String commands = "Movement: Used to move north/n, south/s, east/e or west/w.\n\tSyntax: go 'heading' or 'heading'\n"
-                    + "Stats: Used to show your statistics.\n\t.Syntax: 'stats' or 'show stats'\n"
-                    + "Inventory: Show the items you have in your inventory.\n\t.Syntax: 'inventory' or 'inv'\n"
-                    + "Pickup: Loots every item available in the room.\n\t.Syntax: 'take all', 'all', pickup or 'take'\n"
-                    + "Chest: Opens and loots the chest in the current room.\n\t.Syntax: 'chest' or 'open chest'\n"
-                    + "Use: Use a consumable, such as a potion or a key.\n\t.Syntax: 'use #itemName#'\n"
-                    + "Equip: Equip an item from your inventory (Weapon and Armor) \n\t.Syntax: 'Equip #itemName#'\n"
-                    + "Save: Save current state of game. \n\t.Syntax: 'save'\n"
-                    + "Load: Loads saved state of game. \n\t.Syntax: 'save'\n"
-                    + "Quit the game: If you want to leave the game, remember to save you progress..!\n\t.Syntax: 'quit'\n";
-            printer(commands);
-
-        }
-
+        //If the player is not in battle.
         if (!inBattle) {
+
+            if (input.equalsIgnoreCase("Help")) {
+
+                String commands = "Movement: Used to move north/n, south/s, east/e or west/w.\n\tSyntax: go 'heading' or 'heading'\n"
+                        + "Stats: Used to show your statistics.\n\t.Syntax: 'stats' or 'show stats'\n"
+                        + "Inventory: Show the items you have in your inventory.\n\t.Syntax: 'inventory' or 'inv'\n"
+                        + "Pickup: Loots every item available in the room.\n\t.Syntax: 'take all', 'all', pickup or 'take'\n"
+                        + "Chest: Opens and loots the chest in the current room.\n\t.Syntax: 'chest' or 'open chest'\n"
+                        + "Use: Use a consumable, such as a potion or a key.\n\t.Syntax: 'use #itemName#'\n"
+                        + "Equip: Equip an item from your inventory (Weapon and Armor) \n\t.Syntax: 'Equip #itemName#'\n"
+                        + "Save: Save current state of game. \n\t.Syntax: 'save'\n"
+                        + "Load: Loads saved state of game. \n\t.Syntax: 'save'\n"
+                        + "Quit the game: If you want to leave the game, remember to save you progress..!\n\t.Syntax: 'quit'\n";
+
+                //Send string to printer.
+                printer(commands);
+
+                used = true;
+
+            }
+
             if (input.equalsIgnoreCase("go west") || input.equalsIgnoreCase("west")) {
+
                 move("west");
+                used = true;
 
             } else if (input.equalsIgnoreCase("go east") || input.equalsIgnoreCase("east")) {
+
                 move("east");
+                used = true;
+
             } else if (input.equalsIgnoreCase("go north") || input.equalsIgnoreCase("north")) {
+
                 move("north");
+                used = true;
+
             } else if (input.equalsIgnoreCase("go south") || input.equalsIgnoreCase("south")) {
+
                 move("south");
+                used = true;
 
             } else if (input.equalsIgnoreCase("Take all") || input.equalsIgnoreCase("all") || input.equalsIgnoreCase("pickup") || input.equalsIgnoreCase("take")) {
+
                 printer(player.addItemToInventory(currentRoom.getItems()));
                 currentRoom.setItems(null);
+                used = true;
 
             } else if (input.equalsIgnoreCase("chest") || input.equalsIgnoreCase("open chest")) {
 
@@ -1097,22 +1125,24 @@ public class GameControl implements Serializable {
                     if (currentRoom.getChest().getLockTypeInterface().isLocked()) {
 
                         if (player.hasKey(currentRoom.getChest().getLockTypeInterface().getCode())) {
-                            
-                            if(currentRoom.getChest().isEndGameChest()){
-                                
+
+                            if (currentRoom.getChest().isEndGameChest()) {
+
                                 endGame(1);
-                                
-                            }else{
-                                
+                                used = true;
+
+                            } else {
+
                                 printer("You unlock the chest...\n" + player.addItemToInventory(currentRoom.getChest().getInventory()));
                                 currentRoom.setChest(null);
-                                
+                                used = true;
+
                             }
-                            
 
                         } else {
 
                             printer("You do not have the key for this chest");
+                            used = true;
 
                         }
 
@@ -1120,48 +1150,53 @@ public class GameControl implements Serializable {
 
                         printer(player.addItemToInventory(currentRoom.getChest().getInventory()));
                         currentRoom.setChest(null);
+                        used = true;
+
                     }
                 } else {
 
                     printer("No chest is located in this room.");
+                    used = true;
 
                 }
 
             } else if (splitString[0].equalsIgnoreCase("Equip")) {
 
                 printer(player.equipItem(input.substring(input.indexOf(' ') + 1)));
+                used = true;
 
             }
 
         }
 
-        if (input.equalsIgnoreCase("Help") && inBattle) {
-
-            String commands = "While in a battle, you can't move further in the dungeon..!"
-                    + "\nAttack: Attacks the enemy in the current room"
-                    + "\n\tSyntax: attack"
-                    + "\nInventory: Show the items you have in your inventory."
-                    + "\n\tSyntax: 'inventory' or 'inv'"
-                    + "\nUse: Use an item in your inventory, if you have any."
-                    + "\n\tSyntax: use 'itmename"
-                    + "\nFlee: Flees to the previous room."
-                    + "\n\tSyntax: flee";
-            printer(commands);
-
-        }
-
+        //If the player is in battle.
         if (inBattle) {
 
-            if (input.equalsIgnoreCase("Attack")) {
+            if (input.equalsIgnoreCase("Help")) {
+
+                String commands = "While in a battle, you can't move further in the dungeon..!"
+                        + "\nAttack: Attacks the enemy in the current room"
+                        + "\n\tSyntax: attack"
+                        + "\nInventory: Show the items you have in your inventory."
+                        + "\n\tSyntax: 'inventory' or 'inv'"
+                        + "\nUse: Use an item in your inventory, if you have any."
+                        + "\n\tSyntax: use 'itmename"
+                        + "\nFlee: Flees to the previous room."
+                        + "\n\tSyntax: flee";
+
+                printer(commands);
+                used = true;
+
+            } else if (input.equalsIgnoreCase("Attack")) {
 
                 combatSystem("attack");
+                used = true;
 
-            } else if (input.equalsIgnoreCase("use")) {
-
-                combatSystem("use");
             } else if (input.equalsIgnoreCase("Flee")) {
 
                 combatSystem("flee");
+                used = true;
+
             }
 
         }
@@ -1171,13 +1206,11 @@ public class GameControl implements Serializable {
 
             printer(player.getStats());
 
-        }
-        if (input.equalsIgnoreCase("inventory") || input.equalsIgnoreCase("inv")) {
+        } else if (input.equalsIgnoreCase("inventory") || input.equalsIgnoreCase("inv")) {
 
             printer("You have the following items in your inventory: " + player.getInventory());
 
-        }
-        if (splitString[0].equalsIgnoreCase("use")) {
+        } else if (splitString[0].equalsIgnoreCase("use")) {
 
             String temp = player.useItem(input.substring(input.indexOf(' ') + 1));
 
@@ -1188,14 +1221,24 @@ public class GameControl implements Serializable {
             } else {
 
                 printer(temp);
+
             }
 
         }
+        
+        //Reminding person that the command was unknown.  
+        if (!used && hasBeenRun) {
+            
+            printer("'" +input+"'" +" is a unknown command, type 'help' to get list of available commands.");
+
+        }
+        
+        hasBeenRun = true;
 
     }
 
     /**
-     * Print method, can be useful to implement some GUI with an text window.
+     * Print method, handling everything being output.
      *
      * @param toPrinter Takes a String to print.
      */
