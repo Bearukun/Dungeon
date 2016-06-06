@@ -43,6 +43,7 @@ public class Game {
             if (begin.equalsIgnoreCase("new")) {
 
                 System.out.println(TextGenerator.getGameText(TextGenerator.GameText.INTRO));
+                
 
                 //Instantiating GameControl
                 gc = new GameControl(sca.next());
