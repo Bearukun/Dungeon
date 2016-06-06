@@ -1,5 +1,6 @@
 package control;
 
+import interfaces.ItemInterface;
 import java.io.Serializable;
 import model.Player;
 import model.Room;
@@ -165,6 +166,7 @@ public class GameControl implements Serializable {
         room2.north = room3;
         room2.addMonster("Swarm of Scarabs", "a large group of flesh eating beetles", 0, new Boss(10, 1, 1, textGen.generateTaunt("Minion")));
         room2.addItemToMonster("Mace of the Skeleton King", "a mace lies on the ground", "A powerfull mace that belonged to the Skeleton King", 200, new Weapon(20));
+        room2.addItemToMonster("Long Sword", "a big rusty sword", "A Long Sword that while it has seen better days, can still cut like it was just crafted!", 10, new Weapon(10));
 
         room2.addItemToMonster("Tal'Rasha's Elements", "a bunch of robes lies on the ground", "This is the magical impowered amor of the mage Tal'Rasha", 20, new ArmorSet(5, 10));
         room2.addItemToMonster("Rusty key", "an old key with the inscription \"Go weeeeest\"", "This key unlocks the room west of the entrance.", 0, new Key(true, "Dungeon"));
@@ -187,6 +189,7 @@ public class GameControl implements Serializable {
         room4.south = room3;
         room4.north = null;
         room4.addMonster("Lich", "A servent of the Lich King", 0, new Minion(20, 2, 20, textGen.generateTaunt("Minion")));
+        room4.addRoomItem("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
 
         //Room5: Corridor
         room5.east = room6;
@@ -217,13 +220,17 @@ public class GameControl implements Serializable {
         room9.west = room8;
         room9.south = null;
         room9.north = null;
+        room9.addRoomItem("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
+        
 
         //Room10: Servants Chamber
         room10.east = room11;
         room10.west = room9;
         room10.south = null;
         room10.north = null;
-
+        room10.addChest("A chest is placed behind what looks like a bed.", false, new Unlocked());
+        room10.addItemToChest("Bastard Sword", "An odd looking sword", "A horrific, but pretty effectfull Bastard Sword", 10, new Weapon(14));
+        
         //Room11: Sacrifice Room
         room11.east = null;
         room11.west = room10;
@@ -356,6 +363,7 @@ public class GameControl implements Serializable {
         room31.north = null;
         room31.addMonster("High Priest of Horus", "The High Priest of the God Horus, God of the Skies", 0, new Minion(50, 20, 10, textGen.generateTaunt("Minion")));
         room31.addItemToMonster("Altar of Horus Key", " a strange blue key ", "An inscription on the key states: \"Key to the Altar of Horus\"", 0, new Key(true, "Altar of Horus Key"));
+        room31.addRoomItem("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
 
         //Room32: Chamber of the Sun
         room32.east = room31;
@@ -428,7 +436,8 @@ public class GameControl implements Serializable {
         room42.north = room43;
         room42.addMonster("High Priest of Ra'", "High Priest of the God Ra', God of the Sun", 0, new Minion(20, 10, 10, textGen.generateTaunt("Minion")));
         room42.addItemToMonster("Altar of Ra' Key", " a strange golden key ", "An inscription on the key states: \"Key to the Altar of Ra'\"", 0, new Key(true, "Altar of Ra' Key"));
-
+        room42.addItemToMonster("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
+        
         //Room43: Altar of Ra'
         room43.east = null;
         room43.west = null;
@@ -545,7 +554,8 @@ public class GameControl implements Serializable {
         room61.west = null;
         room61.south = null;
         room61.north = room62;
-
+        room61.addRoomItem("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
+        
         //Room62: Chamber of Souls
         room62.east = room59;
         room62.west = null;
@@ -622,6 +632,7 @@ public class GameControl implements Serializable {
         room73.west = null;
         room73.south = room72;
         room73.north = room80;
+        room73.addRoomItem("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
 
         //Room74: Chamber of Deception
         room74.east = room75;
@@ -688,6 +699,7 @@ public class GameControl implements Serializable {
         room84.west = room83;
         room84.south = room77;
         room84.north = null;
+        room84.addRoomItem("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
 
         //Room85: Corridor
         room85.east = null;
@@ -753,13 +765,22 @@ public class GameControl implements Serializable {
         room94.west = null;
         room94.south = null;
         room94.north = null;
+        room94.addChest("A big golden chest sits in the middle of a pile of Gold and Jewels", false, new Unlocked());
+        //room94.addItemToChest("Silver Necklace", "Glimmering necklace", "A glimmering Silver Necklace", 800, new ItemInterface);
+//        room94.addItemToChest("Pearl", "A single white pearl", "A beuatiful glimmering Pearl", 50, itemType);
+//        room94.addItemToChest("Pearl", "A single white pearl", "A beuatiful glimmering Pearl", 50, itemType);
 
-        //Room95: Corridor
+        //Room95: Treasure Room
         room95.east = null;
         room95.west = room93;
         room95.south = null;
         room95.north = null;
-
+        room95.addRoomItem("Health Potion", "a health potion lies amongst all the gold", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
+        room95.addChest("A big silver chest sits in the front of the piles of gold ", false, new Unlocked());
+//        room95.addItemToChest("Rubies", "Small glimmering stones", "Beuatiful shinning rubies", 200, itemType);
+//        room95.addItemToChest("Rubies", "Small glimmering stones", "Beuatiful shinning rubies", 200, itemType);
+//        room95.addItemToChest("Rubies", "Small glimmering stones", "Beuatiful shinning rubies", 200, itemType);
+        
         //Room96: Tomb of Tal'Rasha
         room96.east = null;
         room96.west = null;
