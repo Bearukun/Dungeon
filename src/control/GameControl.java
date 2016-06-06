@@ -10,8 +10,6 @@ import model.itemType.ArmorSet;
 import model.itemType.Consumable;
 import model.itemType.Key;
 import model.itemType.Weapon;
-import model.lockType.Locked;
-import model.lockType.Unlocked;
 import model.monsterType.Minion;
 import model.lockType.Locked;
 import model.lockType.Unlocked;
@@ -1073,20 +1071,9 @@ public class GameControl implements Serializable {
         if (!inBattle) {
 
             if (input.equalsIgnoreCase("Help")) {
-
-                String commands = "Movement: Used to move north/n, south/s, east/e or west/w.\n\tSyntax: go 'heading' or 'heading'\n"
-                        + "Stats: Used to show your statistics.\n\t.Syntax: 'stats' or 'show stats'\n"
-                        + "Inventory: Show the items you have in your inventory.\n\t.Syntax: 'inventory' or 'inv'\n"
-                        + "Pickup: Loots every item available in the room.\n\t.Syntax: 'take all', 'all', pickup or 'take'\n"
-                        + "Chest: Opens and loots the chest in the current room.\n\t.Syntax: 'chest' or 'open chest'\n"
-                        + "Use: Use a consumable, such as a potion or a key.\n\t.Syntax: 'use #itemName#'\n"
-                        + "Equip: Equip an item from your inventory (Weapon and Armor) \n\t.Syntax: 'Equip #itemName#'\n"
-                        + "Save: Save current state of game. \n\t.Syntax: 'save'\n"
-                        + "Load: Loads saved state of game. \n\t.Syntax: 'save'\n"
-                        + "Quit the game: If you want to leave the game, remember to save you progress..!\n\t.Syntax: 'quit'\n";
-
+             
                 //Send string to printer.
-                printer(commands);
+                printer(textGen.getGameText(TextGenerator.GameText.HELP));
 
                 used = true;
 
@@ -1184,7 +1171,7 @@ public class GameControl implements Serializable {
                         + "\nFlee: Flees to the previous room."
                         + "\n\tSyntax: flee";
 
-                printer(commands);
+                printer(textGen.getGameText(TextGenerator.GameText.HELP_COMBAT));
                 used = true;
 
             } else if (input.equalsIgnoreCase("Attack")) {
@@ -1242,7 +1229,7 @@ public class GameControl implements Serializable {
      *
      * @param toPrinter Takes a String to print.
      */
-    public void printer(String toPrinter) {
+    public static void printer(String toPrinter) {
 
         System.out.println(toPrinter);
 
