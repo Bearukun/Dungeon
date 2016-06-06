@@ -13,6 +13,12 @@ public class Chest implements ChestInterface, Serializable{
     private ArrayList<Item> inventory = new ArrayList();
     private LockTypeInterface lockTypeInterface;
 
+    /**
+     * Constructor for the chest class. 
+     * @param Locationdescription Description for the chest.
+     * @param IsEndGameChest Checks if it is the end game chest. 
+     * @param LockType Checks if the chest is locked or not
+     */
     public Chest(String description, boolean isEndGameChest, LockTypeInterface lockTypeInterface) {
         this.locationDescription = description;
         this.isEndGameChest = isEndGameChest;
