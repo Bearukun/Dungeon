@@ -62,101 +62,101 @@ public class GameControl implements Serializable {
 
         //Initalising and instantiating new rooms. 
         room1 = new Room("Entrance", "It's very dark and you feel a very unwelcoming aura around you.", new Unlocked());
-        room2 = new Room("Corridor", "You see many bones laying around as if this have been some sort of mass burial.", new Unlocked());
-        room3 = new Room("Great South Hall", "It seems like this is some sort of ancient Sacrefice site, it still reeks of corpses.", new Unlocked());
-        room4 = new Room("Chamber of Worship", "S/M Dungeon ", new Locked("Dungeon", true));
-        room5 = new Room("Corridor", "McDonalds", new Unlocked());
-        room6 = new Room("Corridor", "Burger King", new Unlocked());
-        room7 = new Room("Corridor", "Kingdom from Dark Souls 1 & 2", new Unlocked());
-        room8 = new Room("Entrance to Anubis Chamber", "Land of Warcraft", new Unlocked());
-        room9 = new Room("Chamber of Preparation", "The space ship in Cuppertino", new Unlocked());
-        room10 = new Room("Servants Chambers", "There is food here!", new Unlocked());
-        room11 = new Room("Sacrifice Room", "There is no dead parrots here!", new Unlocked());
-        room12 = new Room("Corridor", "The other tech company in Seattle", new Unlocked());
-        room13 = new Room("Chamber of Worship", "Land of Diablo", new Unlocked());
-        room14 = new Room("Chamber of Burial", "StarCraft univers", new Unlocked());
-        room15 = new Room("Trasure Room", "Home of the Diamond Dogs", new Unlocked());
-        room16 = new Room("Corridor", "Home of Crane, Pool & Smitch", new Unlocked());
-        room17 = new Room("High Priest of Anubis Chamber", "The land of Super Mario", new Unlocked());
-        room18 = new Room("Corridor", "Land of the Pale Blood Moon", new Unlocked());
-        room19 = new Room("Altar of Anubis", "Land of JRR Tolkien", new Locked("Altar of Anubis Key", true));
-        room20 = new Room("Corridor", "A room full of exploding kittens", new Unlocked());
-        room21 = new Room("Corridor", "empty 21", new Unlocked());
-        room22 = new Room("Corridor", "empty 22", new Unlocked());
-        room23 = new Room("Corridor", "empty 23", new Unlocked());
-        room24 = new Room("Entrance to Horus Chamber", "A room full of exploding kittens", new Unlocked());
-        room25 = new Room("Servants Chambers", "Empty 25", new Unlocked());
-        room26 = new Room("Corridor", "Empty 26", new Unlocked());
-        room27 = new Room("Chamber of Light", "Empty 27", new Unlocked());
-        room28 = new Room("Treasure Room", "Empty 28", new Unlocked());
-        room29 = new Room("Chamber of Worship", "Empty 29", new Unlocked());
-        room30 = new Room("Sacrifice Room", "Empty 30", new Unlocked());
-        room31 = new Room("High Priest of Horus Chamber", "Empty 31", new Unlocked());
-        room32 = new Room("Chamber of The Sun", "Empty 32", new Unlocked());
-        room33 = new Room("Altar of Horus", "Empty 33", new Locked("Altar of Horus Key", true));
-        room34 = new Room("Corridor", "Empty 34", new Unlocked());
-        room35 = new Room("Corridor", "Empty 35", new Unlocked());
-        room36 = new Room("Corridor", "Empty 36", new Unlocked());
-        room37 = new Room("Corridor", "Empty 37", new Unlocked());
-        room38 = new Room("Corridor", "Empty 38", new Unlocked());
-        room39 = new Room("Corridor", "Empty 39", new Unlocked());
-        room40 = new Room("Great North Hall", "Empty 40", new Unlocked());
-        room41 = new Room("Entrance to Ra' Chamber", "Empty 41", new Unlocked());
-        room42 = new Room("High Priest of Ra' Chamber", "Empty 42", new Unlocked());
-        room43 = new Room("Altar of Ra'", "Empty 43", new Locked("Altar of Ra' Key", true));
-        room44 = new Room("Corridor", "Empty 44", new Unlocked());
-        room45 = new Room("Corridor", "Empty 45", new Unlocked());
-        room46 = new Room("Corridor", "Empty 46", new Unlocked());
-        room47 = new Room("Corridor", "Empty 47", new Unlocked());
-        room48 = new Room("Corridor", "Empty 48", new Unlocked());
-        room49 = new Room("Corridor", "Empty 49", new Unlocked());
-        room50 = new Room("Corridor", "Empty 50", new Unlocked());
-        room51 = new Room("Corridor", "Empty 51", new Unlocked());
-        room52 = new Room("Corridor", "Empty 52", new Unlocked());
-        room53 = new Room("Corridor", "Empty 53", new Unlocked());
-        room54 = new Room("Corridor", "Empty 54", new Unlocked());
-        room55 = new Room("Corridor", "Empty 55", new Unlocked());
-        room56 = new Room("Entrance to Osiris Chamber", "Empty 56", new Unlocked());
-        room57 = new Room("Chamber of Mercy", "Empty 57", new Unlocked());
-        room58 = new Room("Corridor", "Empty 58", new Unlocked());
-        room59 = new Room("Sacrifice Room", "Empty 59", new Unlocked());
-        room60 = new Room("Chamber of Worship", "Empty 60", new Unlocked());
-        room61 = new Room("Servants Chambers", "Empty 61", new Unlocked());
-        room62 = new Room("Chamber of Souls", "Empty 62", new Unlocked());
-        room63 = new Room("Treasure Room", "Empty 63", new Unlocked());
-        room64 = new Room("Chamber of the Underworld", "Empty 64", new Unlocked());
-        room65 = new Room("Chamber of Death", "Empty 65", new Unlocked());
-        room66 = new Room("High Priest of Osiris Chamber", "Empty 66", new Unlocked());
-        room67 = new Room("Altar of Osiris", "Empty 67", new Locked("Altar of Osiris Key", true));
-        room68 = new Room("Entrance to Seth Chamber", "Empty 68", new Unlocked());
-        room69 = new Room("Corridor", "Empty 69", new Unlocked());
-        room70 = new Room("Servants Chambers", "Empty 70", new Unlocked());
-        room71 = new Room("Corridor", "Empty 71", new Unlocked());
-        room72 = new Room("Treasure Room", "Empty 72", new Unlocked());
-        room73 = new Room("Corridor", "Empty 73", new Unlocked());
-        room74 = new Room("Chamber of Deception", "Empty 74", new Unlocked());
-        room75 = new Room("Corridor", "Empty 75", new Unlocked());
-        room76 = new Room("Chamber of Betrayel", "Empty 76", new Unlocked());
-        room77 = new Room("Corridor", "Empty 77", new Unlocked());
-        room78 = new Room("Chamber of Torture", "Empty 78", new Unlocked());
-        room79 = new Room("Chamber of Fear", "Empty 79", new Unlocked());
-        room80 = new Room("Chamber of Hatred", "Empty 80", new Unlocked());
-        room81 = new Room("Sacrifice Room", "Empty 81", new Unlocked());
-        room82 = new Room("Corridor", "Empty 82", new Unlocked());
-        room83 = new Room("Chamber of Illusion", "Empty 83", new Unlocked());
-        room84 = new Room("Chamber of Worship", "Empty 84", new Unlocked());
-        room85 = new Room("Corridor", "Empty 85", new Unlocked());
-        room86 = new Room("High Priest of Seth Chamber", "Empty 86", new Unlocked());
-        room87 = new Room("Corridor", "Empty 87", new Unlocked());
-        room88 = new Room("Altar of Seth", "Empty 88", new Locked("Altar of Seth Key", true));
-        room89 = new Room("Stairway of Imsety", "Empty 89", new Locked("Stairway of Imsety", true));
-        room90 = new Room("Stairway of Hapy", "Empty 90", new Locked("Stairway of Hapy", true));
-        room91 = new Room("Starway of Duamutef", "Empty 91", new Locked("Starway of Duamutef", true));
-        room92 = new Room("Stairway of Qebehsenuef", "Empty 92", new Locked("Stairway of Qebehsenuef", true));
-        room93 = new Room("Corridor", "Empty 93", new Unlocked());
-        room94 = new Room("Treasure Room", "Empty 94", new Unlocked());
-        room95 = new Room("Treasure Room", "Empty 95", new Unlocked());
-        room96 = new Room("Tomb of Tal'Rasha", "Empty 96", new Locked("Key to The Tomb Of Tal'Rasha", true));
+        room2 = new Room("Corridor", "You see a light to the North of you.", new Unlocked());
+        room3 = new Room("Great South Hall", "Standing in the Great open hall, you notice some hieroglyphs in the middle of the room stating \"Great South Hall\" ", new Unlocked());
+        room4 = new Room("Chamber of Worship", "Standing in the chamber, you notice strange paintings on the walls depicting people worshipping some one holy or powerfull, but definitely not a Pharo ", new Locked("Dungeon", true));
+        room5 = new Room("Corridor", "A corridor East of the southern great hall", new Unlocked());
+        room6 = new Room("Corridor", "A corridor with paintings of a path and a person walking with the God Anubis", new Unlocked());
+        room7 = new Room("Corridor", "A corridor with heiroglyphs on one of the walls stating \"Secret Passage\" ", new Unlocked());
+        room8 = new Room("Entrance to Anubis Chamber", "A huge doorway carved in limestone, with the heiroglyphs \"Passage to the Chamber of Anubis\" ", new Unlocked());
+        room9 = new Room("Chamber of Preparation", "Looks like the kind of chamber that would have been used to prepare a body for mummyfication", new Unlocked());
+        room10 = new Room("Servants Chambers", "A chamber dedicated to the servants and helpers of Anubis and, probably also the workers who constructed the pyramid", new Unlocked());
+        room11 = new Room("Sacrifice Room", "A chamber filled with various kinds of offerings for the God Anubis, such as food and statues. ", new Unlocked());
+        room12 = new Room("Corridor", "On the walls of the corridor, you notice some kind of painting of a High Priest holdning a key and opening a door to an Altar of a God", new Unlocked());
+        room13 = new Room("Chamber of Worship", "Standing in the chamber, you notice strange paintings on the walls depicting people worshipping some one holy or powerfull, but definitely not a Pharo ", new Unlocked());
+        room14 = new Room("Chamber of Burial", "The paintings on the wall depicts the God Anubis overseen mummies been buried", new Unlocked());
+        room15 = new Room("Trasure Room", "A room filled with ancient riches from various regions of the Egyptian empire, dedicated to the God Anubis", new Unlocked());
+        room16 = new Room("Corridor", "Paintings of a huge obsidian circle with a star in the center is depicted on the wall... Some kind of StarGate?", new Unlocked());
+        room17 = new Room("High Priest of Anubis Chamber", "Inside the chamber belonging to the High Priest of the God Anubis, you notice alot of gifts and offering for his Master.", new Unlocked());
+        room18 = new Room("Corridor", "THe paintings in the corridor have erroded away...", new Unlocked());
+        room19 = new Room("Altar of Anubis", "your standing in the chamber belonging to the High Priest of the God Anubis", new Locked("Altar of Anubis Key", true));
+        room20 = new Room("Corridor", "On the walls of the corridor, you see a painting of the God Anubis holdning the Canopic Jar of Imesty and using it as some kind key at something called \"Stairway of Ascendance\"", new Unlocked());
+        room21 = new Room("Corridor", "On the walls of the corridor, you see a painting of the God Horus holdning the Canopic Jar of Hapy and using it as some kind of key at something called \"Stairway of Ascendance\"", new Unlocked());
+        room22 = new Room("Corridor", "On the walls of the corridor, you see a painting of the God Seth holdning the Canopic Jar of Duamutef and using it as some kind of key at something called \"Stairway of Ascendance\"", new Unlocked());
+        room23 = new Room("Corridor", "On the walls of the corridor, you see a painting of the God Osiris holdning the Canopic Jar of Qebehsenuef and using it as some kind of key at something called \"Stairway of Ascendance\"", new Unlocked());
+        room24 = new Room("Entrance to Horus Chamber", "a huge doorway carved in limestone, with the heiroglyphs \"Passage to the Chamber of Horus\"", new Unlocked());
+        room25 = new Room("Servants Chambers", "a chamber dedicated to the servants and helpers of Horus and, probably also the workers who constructed the pyramid", new Unlocked());
+        room26 = new Room("Corridor", "On the walls of the corridor, you notice some kind of painting of a High Priest holdning a key and opening a door to an Altar of a God", new Unlocked());
+        room27 = new Room("Chamber of Light", "You feel joy and courage fills your body while inside this chamber", new Unlocked());
+        room28 = new Room("Treasure Room", "A room filled with ancient riches from various regions of the Egyptian empire, dedicated to the God Horus", new Unlocked());
+        room29 = new Room("Chamber of Worship", "Standing in the chamber, you notice strange paintings on the walls depicting people worshipping some one holy or powerfull, but definitely not a Pharo ", new Unlocked());
+        room30 = new Room("Sacrifice Room", "A chamber filled with various kinds of offerings for the God Horus, such as food and statues. ", new Unlocked());
+        room31 = new Room("High Priest of Horus Chamber", "Inside the chamber belonging to the High Priest of the God Horus, you notice alot of gifts and offering for his Master.", new Unlocked());
+        room32 = new Room("Chamber of The Sun", "Paintings on the wall depicts the Egyptian people and even their Pharo worshipping the Sun God, Ra'", new Unlocked());
+        room33 = new Room("Altar of Horus", "your standing in the chamber belonging to the High Priest of the God Horus", new Locked("Altar of Horus Key", true));
+        room34 = new Room("Corridor", "Paintings on the wall shows how the Paroh ordered his best workers to secretly and quickly build the pyramid to entomb the sorcerer... \nAnd how all the people with knowledge of the pyramid and it's location were buried alive with it beneath the sands of the valley", new Unlocked());
+        room35 = new Room("Corridor", "On the walls of the corridors are pinatings of the Egyptian gods of Osiris, Seth, Horus, Anubis and even Ra' bestowing incredible powers to the sorcerer", new Unlocked());
+        room36 = new Room("Corridor", "Paintings on the wall depicts the sorcerer serving serveral Pharo's through his life time... Perhaps for hundreds of years", new Unlocked());
+        room37 = new Room("Corridor", "On the walls of the corridor, you see a painting of the God Ra holdning some kind of key with the inscription \"Tomb Of Tal'Rasha\" ", new Unlocked());
+        room38 = new Room("Corridor", "a corridor with heiroglyphs on one of the walls stating \"Secret Passage\" ", new Unlocked());
+        room39 = new Room("Corridor", "a corridor east of the great north hall", new Unlocked());
+        room40 = new Room("Great North Hall", "Standing in the Great open hall, you notice some hieroglyphs in the middle of the room stating \"Great North Hall\"\nTo the south is the \"Stairway of Ascendance\"", new Unlocked());
+        room41 = new Room("Entrance to Ra' Chamber", "\"a huge doorway carved in limestone, with the heiroglyphs \"Passage to the Chamber of Ra'\"", new Unlocked());
+        room42 = new Room("High Priest of Ra' Chamber", "Inside the chamber belonging to the High Priest of the God Ra', you notice alot of gifts and offering for his Master.", new Unlocked());
+        room43 = new Room("Altar of Ra'", "your standing in the chamber belonging to the physical manifistation of the God  Ra'", new Locked("Altar of Ra' Key", true));
+        room44 = new Room("Corridor", "a corridor west of the great north hall", new Unlocked());
+        room45 = new Room("Corridor", "a corridor with heiroglyphs on one of the walls stating \"Secret Passage\" ", new Unlocked());
+        room46 = new Room("Corridor", "Pictures on the walls depicts what looks like a sorcerer performing mystical and magical spells... Against the enemies of Egypt... and the sorcerer. ", new Unlocked());
+        room47 = new Room("Corridor", "Paintings on the wall tells the story of how a young Paroh ordered the sorcerer to be captured and mummyfied... alive", new Unlocked());
+        room48 = new Room("Corridor", "On the walls of the corridor, you see a painting of the God Anubis holdning the Canopic Jar of Imesty and using it as some kind key at something called \"Stairway of Ascendance\"", new Unlocked());
+        room49 = new Room("Corridor", "On the walls of the corridor, you see a painting of the God Horus holdning the Canopic Jar of Hapy and using it as some kind of key at something called \"Stairway of Ascendance\"", new Unlocked());
+        room50 = new Room("Corridor", "a corridor with heiroglyphs on one of the walls stating \"Secret Passage\" ", new Unlocked());
+        room51 = new Room("Corridor", "On the walls of the corridor, you see a painting of the God Seth holdning the Canopic Jar of Duamutef and using it as some kind of key at something called \"Stairway of Ascendance\"", new Unlocked());
+        room52 = new Room("Corridor", "On the walls of the corridor, you see a painting of the God Ra holdning some kind of key with the inscription \"Tomb Of Tal'Rasha\" ", new Unlocked());
+        room53 = new Room("Corridor", "On the walls of the corridor, you see a painting of the God Osiris holdning the Canopic Jar of Qebehsenuef and using it as some kind of key at something called \"Stairway of Ascendance\"", new Unlocked());
+        room54 = new Room("Corridor", "a corridor west of the great south hall", new Unlocked());
+        room55 = new Room("Corridor", "Paintings on the wall shows the sorcerer being alive at the time of Imhotep, the man who is thought to have come up with the idea for the pyramids", new Unlocked());
+        room56 = new Room("Entrance to Osiris Chamber", "a huge doorway carved in limestone, with the heiroglyphs \"Passage to the Chamber of Osiris\"", new Unlocked());
+        room57 = new Room("Chamber of Mercy", "Inside the chamber, you se paintings of the God Osiris carrying people to the afterlife, brining their familys happines and a good life", new Unlocked());
+        room58 = new Room("Corridor", "On the walls of the corridor, you notice some kind of painting of a High Priest holdning a key and opening a door to an Altar of a God", new Unlocked());
+        room59 = new Room("Sacrifice Room", "A chamber filled with various kinds of offerings for the God Osiris, such as food and statues. ", new Unlocked());
+        room60 = new Room("Chamber of Worship", "Standing in the chamber, you notice strange paintings on the walls depicting people worshipping some one holy or powerfull, but definitely not a Pharo ", new Unlocked());
+        room61 = new Room("Servants Chambers", "a chamber dedicated to the servants and helpers of Osiris and, probably also the workers who constructed the pyramid", new Unlocked());
+        room62 = new Room("Chamber of Souls", "A huge beuatiful mirror sits in the middle of the chamber showing the souls of people travelling to the underworld", new Unlocked());
+        room63 = new Room("Treasure Room", "A room filled with ancient riches from various regions of the Egyptian empire, dedicated to the God Osiris", new Unlocked());
+        room64 = new Room("Chamber of the Underworld", "A strange black portal sits behind bars made of obsidian stone... Could this be a doorway to the underworld?", new Unlocked());
+        room65 = new Room("Chamber of Death", "You feel the chilling rush of death and despair rushing down your spine as you stand in the room... Screams of dead people fill your mind", new Unlocked());
+        room66 = new Room("High Priest of Osiris Chamber", "Inside the chamber belonging to the High Priest of the God Osiris, you notice alot of gifts and offering for his Master.", new Unlocked());
+        room67 = new Room("Altar of Osiris", "your standing in the chamber belonging to the High Priest of the God Osiris", new Locked("Altar of Osiris Key", true));
+        room68 = new Room("Entrance to Seth Chamber", "a huge doorway carved in limestone, with the heiroglyphs \"Passage to the Chamber of Seth\"", new Unlocked());
+        room69 = new Room("Corridor", "The paintings on the wall have erroded...", new Unlocked());
+        room70 = new Room("Servants Chambers", "a chamber dedicated to the servants and helpers of Seth and, probably also the workers who constructed the pyramid", new Unlocked());
+        room71 = new Room("Corridor", "Paintings on the wall depicts how the Pharo convinced the Gods to keep the sorcerer sealed away in his tomb... What ever that means", new Unlocked());
+        room72 = new Room("Treasure Room", "A room filled with ancient riches from various regions of the Egyptian empire, dedicated to the God Seth", new Unlocked());
+        room73 = new Room("Corridor", "Paintings the wall depicts the sorcerer using his powers to help the Egyptian empire blossom, advance and prosper.", new Unlocked());
+        room74 = new Room("Chamber of Deception", "You arn't entirely sure of what you are seeing inside this chamber", new Unlocked());
+        room75 = new Room("Corridor", "No paintings only the wall... only a heiroglyph stating\"Betrayer, murdere, monster, fiend\" ", new Unlocked());
+        room76 = new Room("Chamber of Betrayel", "Walking through the chamber, you feel betrayed... By your workers, the museum... and perhaps even your thoughts.", new Unlocked());
+        room77 = new Room("Corridor", "Paintings on the corridor walls depicts the sorcerer leading the Egyptians armies to victory, using his mystical powers. ", new Unlocked());
+        room78 = new Room("Chamber of Torture", "You look around the chamber an notice a lot of various torture devices... some of them dripping with what looks like fresh blood", new Unlocked());
+        room79 = new Room("Chamber of Fear", "As you stand in the chamber, the feeling of fear of never finding anything of value in Egypt rushes through your body", new Unlocked());
+        room80 = new Room("Chamber of Hatred", "As you stand in the chamber, the feeling of hatred of the museum not supporting you and your workers leaving the expeditions fills your mind", new Unlocked());
+        room81 = new Room("Sacrifice Room", "A chamber filled with various kinds of offerings for the God Seth, such as food and statues... and corpses? ", new Unlocked());
+        room82 = new Room("Corridor", "Paintings on the wall depicts the sorcerer standing with 2 strange figures... They look more demonic than human. \nOne of them has what looks to be a Red Jewel in his forhead ", new Unlocked());
+        room83 = new Room("Chamber of Illusion", "You see various shapes and figures in the room. You see yourself being hailed for your discoveries in Egypt,\nbut then you see your self being buried alive.", new Unlocked());
+        room84 = new Room("Chamber of Worship", "Standing in the chamber, you notice strange paintings on the walls depicting people worshipping some one holy or powerfull, but definitely not a Pharo ", new Unlocked());
+        room85 = new Room("Corridor", "On the walls of the corridor, you notice some kind of painting of a High Priest holdning a key and opening a door to an Altar of a God", new Unlocked());
+        room86 = new Room("High Priest of Seth Chamber", "Inside the chamber belonging to the High Priest of the God Seth, you notice alot of gifts and offering for his Master.", new Unlocked());
+        room87 = new Room("Corridor", "Paintings on the wall depicts a battle between the Egyptian people and a single man... Who would face the wrath of an entire nation?", new Unlocked());
+        room88 = new Room("Altar of Seth", "your standing in the chamber belonging to the High Priest of the God Seth", new Locked("Altar of Seth Key", true));
+        room89 = new Room("Stairway of Imsety", "Your standing in a chamber between the door of Imsety and Hapy, on the \"Stairway of Ascendance\" ", new Locked("Stairway of Imsety", true));
+        room90 = new Room("Stairway of Hapy", "Your standing in a chamber between the door of Hapy and Duamutef, on the \"Stairway of Ascendance\" ", new Locked("Stairway of Hapy", true));
+        room91 = new Room("Starway of Duamutef", "Your standing in a chamber between the door of Duamutef and Qebehsenuef, on the \"Stairway of Ascendance\" ", new Locked("Starway of Duamutef", true));
+        room92 = new Room("Stairway of Qebehsenuef", "", new Locked("Stairway of Qebehsenuef", true));
+        room93 = new Room("Corridor", "A corridor connecting the \"Stairway of Ascendance\" with the Tomb of Tal'Rasha and varoius treasure rooms! \nOn the walls of the corridor, you see a painting of the God Ra holdning some kind of key with the inscription \"Tomb Of Tal'Rasha\" ", new Unlocked());
+        room94 = new Room("Treasure Room", "A room filled with riches from around the ancient Egyptian kingdom!", new Unlocked());
+        room95 = new Room("Treasure Room", "A room filled with riches from around the ancient Egyptian kingdom!", new Unlocked());
+        room96 = new Room("Tomb of Tal'Rasha", "This is the most sacred room in the whole pyramid. This is where he would sleep for all eternity and ascend to the eternal afterlife. ", new Locked("Key to The Tomb Of Tal'Rasha", true));
 
         //Room 1: Entrance
         room1.east = null;
@@ -286,6 +286,8 @@ public class GameControl implements Serializable {
         room19.south = null;
         room19.north = null;
         room19.addMonster("Anubis", "God of mummification and the afterlife", 0, new Boss(200, 25, 999, textGen.generateTaunt("Boss")));
+        room19.addRoomItem("Canopic Jar of Imsety", "a strange jar with a human head on the top", "A canopic jar containing the liver of Tal'Rasha", 0, new Key(true, "Stairway of Imsety"));
+
 
         //Room20: Corridor
         room20.east = null;
@@ -374,7 +376,9 @@ public class GameControl implements Serializable {
         room33.north = null;
         room33.addMonster("Horus", "God of the Skies", 0, new Boss(150, 20, 999, textGen.generateTaunt("Boss")));
         room33.addItemToMonster("Sword of Horus", "a golden gleaming sword sticks out from under the corps of Horus", "A Golden powerfull imbued Sword, forged for the God Horus", 250, new Weapon(50));
+        room33.addRoomItem("Canopic Jar of Hapy", "a strange jar with a baboon head on the top", "A canopic jar containing the lungs of Tal'Rasha", 0, new Key(true, "Stairway of Hapy"));
 
+        
         //Room34: Corridor
         room34.east = null;
         room34.west = null;
@@ -416,10 +420,6 @@ public class GameControl implements Serializable {
         room40.west = room44;
         room40.south = room89;
         room40.north = room41;
-        room40.addRoomItem("Canopic Jar of Imsety", "a strange jar with a human head on the top", "A canopic jar containing the liver of Tal'Rasha", 0, new Key(true, "Stairway of Imsety"));
-        room40.addRoomItem("Canopic Jar of Hapy", "a strange jar with a baboon head on the top", "A canopic jar containing the lungs of Tal'Rasha", 0, new Key(true, "Stairway of Hapy"));
-        room40.addRoomItem("Canopic Jar of Duamutef", "a strange jar with a jackal head on the top", "A canopic jar containing the stomach of Tal'Rasha", 0, new Key(true, "Stairway of Duamutef"));
-        room40.addRoomItem("Canopic Jar of Quebehsenuef", "a strange jar with a falcon head on the top", "A canopic jar containing the intestines of Tal'Rasha", 0, new Key(true, "Stairway of Quebehsenuef"));
 
         //Room41: Entrance to Ra' Chamber
         room41.east = null;
@@ -443,6 +443,7 @@ public class GameControl implements Serializable {
         room43.addMonster("Ra'", "God of the Sun", 0, new Boss(150, 20, 999, textGen.generateTaunt("Boss")));
         room43.addItemToMonster("Key to The Tomb Of Tal'Rasha", "a magnificient gleaming obsidian key", "Inscription of the key states: \"Tomb Of Tal'Rasha\"", 0, new Key(true, "Key to The Tomb Of Tal'Rasha"));
         room43.addItemToMonster("Staff of Ra'", "a staff lies on a table", "A golden staff with the insciption \"Staff of Ra'\"", 300, new Weapon(75));
+       
         //Room44: Corridor
         room44.east = room40;
         room44.west = room45;
@@ -589,6 +590,8 @@ public class GameControl implements Serializable {
         room67.south = room66;
         room67.north = null;
         room67.addMonster("Osiris", "God of the Underworld", 0, new Boss(150, 30, 999, textGen.generateTaunt("Boss")));
+        room67.addRoomItem("Canopic Jar of Quebehsenuef", "a strange jar with a falcon head on the top", "A canopic jar containing the intestines of Tal'Rasha", 0, new Key(true, "Stairway of Quebehsenuef"));
+
 
         //Room68: Entrance to Seth Chamber
         room68.east = room47;
@@ -718,6 +721,8 @@ public class GameControl implements Serializable {
         room88.south = room45; //SECRET DOOR THAT OPENS AFTER SETH BOSS IS KILLED! // KEY FROM HIGH PRIEST ROOM!
         room88.north = room88;
         room88.addMonster("Seth", "God of Disorder and Violence", 0, new Boss(175, 35, 999, textGen.generateTaunt("Boss")));
+        room88.addRoomItem("Canopic Jar of Duamutef", "a strange jar with a jackal head on the top", "A canopic jar containing the stomach of Tal'Rasha", 0, new Key(true, "Stairway of Duamutef"));
+
 
         //Room89: Stairway of Imsety
         room89.east = null;
@@ -785,7 +790,7 @@ public class GameControl implements Serializable {
 //        room99.west = null;
 //        room99.south = room6;
 //        room99.north = room21;
-        currentRoom = room96;
+        currentRoom = room40;
         previousRoom = currentRoom;
 
     }
