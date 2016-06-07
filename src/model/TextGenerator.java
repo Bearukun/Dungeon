@@ -25,14 +25,14 @@ public class TextGenerator implements Serializable {
         itemLookupText.add("You see ");
         itemLookupText.add("You stumble upon a corpse, in his bags you see ");
         itemLookupText.add("You notice ");
-        itemLookupText.add("You see an old urne, in it you see ");
+        itemLookupText.add("You see an old urn, in it you see ");
         itemLookupText.add("Behind a crooked pillar you see ");
         itemLookupText.add("As you take a step into the room, the floor under you gives in and a large crack shows ");
 
         minionTauntText.add("and yells \"For the master!\"");
-        minionTauntText.add("and shouts \"You take no candle!\"");
+        minionTauntText.add("and shouts \"You no take candle!\"");
         minionTauntText.add("and shouts \"Bones! Need more bones!\"");
-        minionTauntText.add("and yells \"Invaders! You! Shall! Go! No! Further\"");
+        minionTauntText.add("and yells \"Invaders! You! Shall! Go! No! Further!\"");
         minionTauntText.add("and yells \"Your entrails will make a fine necklace!\"");
         minionTauntText.add("and shouts \"FLESH..IS..WEAK!!\" ");
         minionTauntText.add("and shouts \"MADNESS WILL CONSUME YOU!\"");
@@ -60,9 +60,9 @@ public class TextGenerator implements Serializable {
         bossTauntText.add("and shouts \"You are not prepared!\"");
         bossTauntText.add("and yells \"This place will be your tomb!\"");
         bossTauntText.add("and says \"Death...good choice, not the best choice maybe...but better than fail and live.\"");
-        bossTauntText.add("and shouts \"Proceed and I will banish your souls to oblivion\" ");
+        bossTauntText.add("and shouts \"Proceed, and I will banish your souls to oblivion\" ");
         bossTauntText.add("and says \"An epic battle, how exciting!\"");
-        bossTauntText.add("and says \"I see dead people; you be dead people!\" ");
+        bossTauntText.add("and says \"I see dead people, you be dead people!\" ");
         bossTauntText.add("and yells \"You know what they say about curiosity.\"");
 
         chestLookupText.add("You also notice an old chest ");

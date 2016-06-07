@@ -1016,7 +1016,7 @@ public class GameControl implements Serializable {
      */
     public void endGame(int endGamecode) {
 
-//        If the player reach the end game treasure chest
+//        If the player reach the end game treasure chest.
         if (endGamecode == 1) {
 
             player.calculateHighscore();
@@ -1027,7 +1027,7 @@ public class GameControl implements Serializable {
             hasDied = false;
             gameActive = false;
 
-//            If the player dies
+//            If the player dies.
         } else if (endGamecode == 2) {
 
             player.calculateHighscore();
@@ -1035,6 +1035,7 @@ public class GameControl implements Serializable {
             hasDied = true;
             gameActive = false;
 
+//            If the player chooses to quit the game.
         } else if (endGamecode == 3) {
 
             player.calculateHighscore();
