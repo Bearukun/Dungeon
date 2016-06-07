@@ -181,14 +181,15 @@ public class GameControl implements Serializable {
         room3.addRoomItem("An old key", "an odd-looking key", "This will open a chest.", 0, new Key(false, "room3"));
         room3.addChest("in the corner of the room", false, new Locked("room3", true));
         room3.addItemToChest("Broad Sword", "a shiny broad sword", "forged by the flames of hell", 45, new Weapon(10));
-        room3.addMonster("Lich King", "The lord of the Undead Scourge", 0, new Boss(20, 5, 999, textGen.generateTaunt("Boss")));
+        
 
         //Room4: Chamber of Worship
         room4.east = null;
         room4.west = null;
         room4.south = room3;
         room4.north = null;
-        room4.addMonster("Lich", "A servent of the Lich King", 0, new Minion(20, 2, 20, textGen.generateTaunt("Minion")));
+        room4.addMonster("Lich King", "The lord of the Undead Scourge", 0, new Boss(20, 5, 999, textGen.generateTaunt("Boss")));
+        
         room4.addRoomItem("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
 
         //Room5: Corridor
@@ -196,18 +197,22 @@ public class GameControl implements Serializable {
         room5.west = room3;
         room5.south = null;
         room5.north = null;
+        room5.addMonster("Mummified Cat", "a mummified cat wearing bandages, watch out for its claws! ", 2, new Minion(25, 3, 1, textGen.generateTaunt("Minion")));
 
         //Room6: Corridor
         room6.east = room8;
         room6.west = room5;
         room6.south = room7;
         room6.north = room20;
+        room6.addMonster("Mummified Goat", "an odd creture to mummify...", 2, new Minion(20, 4, 8, textGen.generateTaunt("Minion")));
+        
 
         //Room7: Chamber of Tools
         room7.east = null;
         room7.west = null;
         room7.south = null;
         room7.north = room6;
+        room7.addMonster("Builders Tools", "Various tools of the pyramids workers", 2, new Minion(25, 4, 1, textGen.generateTaunt("Minion")));
 
         //Room8: Entrance to Anubis Chamber
         room8.east = room9;
@@ -221,7 +226,7 @@ public class GameControl implements Serializable {
         room9.south = null;
         room9.north = null;
         room9.addRoomItem("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
-        
+        room9.addRoomItem("Old Mummy bandages", "old wrappings on the floor", "Old wrappings used to wrap the body in during the mummyfication process", 5, new ArmorSet(2, 2));
 
         //Room10: Servants Chamber
         room10.east = room11;
@@ -242,6 +247,7 @@ public class GameControl implements Serializable {
         room12.west = null;
         room12.south = room13;
         room12.north = room11;
+        room12.addMonster("Mummified Dog", "looks like a servant of Anubis, wathc out for its bites!", 4, new Minion(30, 4, 2, textGen.generateTaunt("Minion")));
 
         //Room13: Chamber of Worship
         room13.east = null;
@@ -254,12 +260,14 @@ public class GameControl implements Serializable {
         room14.west = room15;
         room14.south = null;
         room14.north = room13;
+        room14.addMonster("Mummified Horse", "An ancient egyptian mummified warhorse", 6, new Minion(40, 7, 8, textGen.generateTaunt("Minion")));
 
         //Room15: Treasure Room
         room15.east = room14;
         room15.west = null;
         room15.south = null;
         room15.north = room16;
+        room15.addRoomItem("Diamond Dog statue", "a strange statue covered in Diamonds", "A statue of a Dog covered in Diamonds", 500, new Consumable(0, false, false));
 
         //Room16: Corridor
         room16.east = null;
@@ -288,6 +296,7 @@ public class GameControl implements Serializable {
         room19.north = null;
         room19.addMonster("Anubis", "God of mummification and the afterlife", 0, new Boss(200, 25, 999, textGen.generateTaunt("Boss")));
         room19.addRoomItem("Canopic Jar of Imsety", "a strange jar with a human head on the top", "A canopic jar containing the liver of Tal'Rasha", 0, new Key(true, "Stairway of Imsety"));
+        room19.addItemToMonster("Scyth of Anubis", "a gleaming weapon lies on a table", "The Golden Scyth of Anubis ", 300, new Weapon(50));
 
 
         //Room20: Corridor
@@ -325,6 +334,8 @@ public class GameControl implements Serializable {
         room25.west = room24;
         room25.south = null;
         room25.north = null;
+        room25.addMonster("Mummified Dog", "looks like a servant of Anubis, wathc out for its bites!", 4, new Minion(30, 4, 2, textGen.generateTaunt("Minion")));
+
 
         //Room26: Corridor
         room26.east = null;
@@ -377,7 +388,7 @@ public class GameControl implements Serializable {
         room33.south = null;
         room33.north = null;
         room33.addMonster("Horus", "God of the Skies", 0, new Boss(150, 20, 999, textGen.generateTaunt("Boss")));
-        room33.addItemToMonster("Sword of Horus", "a golden gleaming sword sticks out from under the corps of Horus", "A Golden powerfull imbued Sword, forged for the God Horus", 250, new Weapon(50));
+        room33.addItemToMonster("Sword of Horus", "a golden gleaming sword sticks out from under the corps of Horus", "A Golden powerfull imbued Sword, forged for the God Horus", 250, new Weapon(65));
         room33.addRoomItem("Canopic Jar of Hapy", "a strange jar with a baboon head on the top", "A canopic jar containing the lungs of Tal'Rasha", 0, new Key(true, "Stairway of Hapy"));
 
         
@@ -392,6 +403,7 @@ public class GameControl implements Serializable {
         room35.west = null;
         room35.south = room34;
         room35.north = room36;
+        room35.addMonster("Mummified Falcon", "A holy bird of the ancient egyptions, watch out for its claws and sharp beak!", 4, new Minion(25, 10, 9, textGen.generateTaunt("Minion")));
 
         //Room36: Corridor
         room36.east = null;
@@ -410,7 +422,9 @@ public class GameControl implements Serializable {
         room38.west = room39;
         room38.south = room37;
         room38.north = null;
-
+        room38.addMonster("Mummified Crocodile", "a grey colored mummified crocodile, watch out for its razor sharp teeth!", 5, new Minion(40, 13, 8, textGen.generateTaunt("Minion")));
+        room38.addItemToMonster("Crocodile Scale Armor", "a strange armor-kit lies on the floor ", "A robust set of armor made of crocodile scales", 25, new ArmorSet(10, 10));
+        
         //Room39: Corridor
         room39.east = room38;
         room39.west = room40;
@@ -445,7 +459,7 @@ public class GameControl implements Serializable {
         room43.north = null;
         room43.addMonster("Ra'", "God of the Sun", 0, new Boss(150, 20, 999, textGen.generateTaunt("Boss")));
         room43.addItemToMonster("Key to The Tomb Of Tal'Rasha", "a magnificient gleaming obsidian key", "Inscription of the key states: \"Tomb Of Tal'Rasha\"", 0, new Key(true, "Key to The Tomb Of Tal'Rasha"));
-        room43.addItemToMonster("Staff of Ra'", "a staff lies on a table", "A golden staff with the insciption \"Staff of Ra'\"", 300, new Weapon(75));
+        room43.addItemToMonster("Staff of Ra'", "a staff lies on a table", "A golden staff with the insciption \"Staff of Ra'\"", 400, new Weapon(75));
        
         //Room44: Corridor
         room44.east = room40;
@@ -476,6 +490,8 @@ public class GameControl implements Serializable {
         room48.west = null;
         room48.south = room49;
         room48.north = room47;
+        room48.addMonster("Mummified Falcon", "A holy bird of the ancient egyptions, watch out for its claws and sharp beak!", 4, new Minion(25, 10, 9, textGen.generateTaunt("Minion")));
+
 
         //Room49: Corridor
         room49.east = null;
@@ -488,6 +504,8 @@ public class GameControl implements Serializable {
         room50.west = room67;
         room50.south = room51;
         room50.north = room49;
+        room50.addMonster("Mummified Dog", "looks like a servant of Anubis, wathc out for its bites!", 4, new Minion(30, 4, 2, textGen.generateTaunt("Minion")));
+
 
         //Room51: Corridor
         room51.east = null;
@@ -506,6 +524,9 @@ public class GameControl implements Serializable {
         room53.west = null;
         room53.south = room54;
         room53.north = room52;
+        room53.addMonster("Skeleton Jackal Headed Mummy", "Servant of Tal'Rasha", 2, new Minion(65, 10, 4, textGen.generateTaunt("Minion")));
+        room53.addItemToMonster("Scyth", "moon cresent shaped weapon", "A razor sharp scyth, used by the servants of Tal'Rasha", 50, new Weapon(25));
+        room53.addRoomItem("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
 
         //Room54: Corridor
         room54.east = room55;
@@ -542,6 +563,7 @@ public class GameControl implements Serializable {
         room59.west = room62;
         room59.south = room60;
         room59.north = room64;
+        room59.addRoomItem("Wings of Horus", "a strange armor-kit lies on the ground", "Wings of Horus, they won't let you fly, but they will protect you from attackers!", 30, new ArmorSet(20, 10));
 
         //Room60: Chamber of Worship
         room60.east = room57;
@@ -561,24 +583,30 @@ public class GameControl implements Serializable {
         room62.west = null;
         room62.south = room61;
         room62.north = room63;
+        room62.addMonster("Lich", "A servent of the Lich King", 0, new Minion(100, 15, 20, textGen.generateTaunt("Minion")));
 
         //Room63: Treasure Room
         room63.east = room64;
         room63.west = null;
         room63.south = room62;
         room63.north = null;
-
-        //Room64: Chamber of the Underworld
+        room63.addMonster("Skeleton Jackal Headed Mummy", "Servant of Tal'Rasha", 2, new Minion(65, 10, 4, textGen.generateTaunt("Minion")));
+        room63.addItemToMonster("Scyth", "moon cresent shaped weapon", "A razor sharp scyth, used by the servants of Tal'Rasha", 50, new Weapon(25));
+        
+//Room64: Chamber of the Underworld
         room64.east = room65;
         room64.west = room63;
         room64.south = room59;
         room64.north = null;
+        room64.addRoomItem("Bone Sword", "a strange bone is lying on the floor", "A sword made of a single Human bone", 15, new Weapon(20));
 
         //Room65: Chamber of Death
         room65.east = null;
         room65.west = room64;
         room65.south = room58;
         room65.north = null;
+        room65.addChest("A rusty chest sits in the middle of the room", false, new Unlocked());
+        room65.addItemToChest("Death Mask", "a strange hood", "A unfinished Death mask, normally used for putting on royal mummies", 50, new ArmorSet(5, 10));
 
         //Room66: High Priest of Osiris Chamber
         room66.east = null;
@@ -595,6 +623,7 @@ public class GameControl implements Serializable {
         room67.north = null;
         room67.addMonster("Osiris", "God of the Underworld", 0, new Boss(150, 30, 999, textGen.generateTaunt("Boss")));
         room67.addRoomItem("Canopic Jar of Quebehsenuef", "a strange jar with a falcon head on the top", "A canopic jar containing the intestines of Tal'Rasha", 0, new Key(true, "Stairway of Quebehsenuef"));
+        room67.addItemToMonster("Dagger of Osiris", " a strange small dagger", "A dagger used by the God Osiris himself", 250, new Weapon(40));
 
 
         //Room68: Entrance to Seth Chamber
@@ -614,6 +643,9 @@ public class GameControl implements Serializable {
         room70.west = room71;
         room70.south = null;
         room70.north = room75;
+        room70.addRoomItem("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
+
+        
 
         //Room71: Corridor
         room71.east = room70;
@@ -639,18 +671,24 @@ public class GameControl implements Serializable {
         room74.west = room73;
         room74.south = room71;
         room74.north = room79;
-
+        room74.addMonster("Mummified Christan", "Programmer and GameDesigner... wait, what?", 999, new Minion(50, 5, 999, textGen.generateTaunt("Minion")));
+        room74.addItemToMonster("Ice Chest Key", "a strange key hands around the mummies neck", "The key is ice cold... where could it fit?", 20, new Key(false, "Ice Chest Key"));
+        
         //Room75: Corridor
         room75.east = room76;
         room75.west = room74;
         room75.south = room70;
         room75.north = room78;
+        room75.addMonster("Mummy", "a former eqyptian, now wrapped in bandages and bound to serve the Pyramids master in the afterlife", 2, new Minion(30, 15, 9, textGen.generateTaunt("Minion")));
 
         //Room76: Chamber of Betrayel
         room76.east = null;
         room76.west = room75;
         room76.south = room69;
         room76.north = room77;
+        room76.addMonster("Skeleton Jackal Headed Mummy", "Servant of Tal'Rasha", 2, new Minion(65, 10, 4, textGen.generateTaunt("Minion")));
+        room76.addItemToMonster("Scyth", "moon cresent shaped weapon", "A razor sharp scyth, used by the servants of Tal'Rasha", 50, new Weapon(25));
+
 
         //Room77: Corridor
         room77.east = null;
@@ -663,6 +701,7 @@ public class GameControl implements Serializable {
         room78.west = room79;
         room78.south = room75;
         room78.north = room83;
+        room78.addMonster("Mummified Bjørn", "Programmer... wait, what?", 9, new Minion(50, 5, 999, textGen.generateTaunt("Minion")));
 
         //Room79: Chamber of Fear
         room79.east = room78;
@@ -675,7 +714,9 @@ public class GameControl implements Serializable {
         room80.west = null;
         room80.south = room73;
         room80.north = room81;
-
+        room80.addChest("A ice covered chest...", false, new Locked("Ice Chest Key", true));
+        room80.addItemToChest("FrostMourne", "A large strange blade lies on the bottom of the chest", "Frostmourne, sword of the Lich King and stealer of Souls", 1000, new Weapon(125));
+        
         //Room81: Sacrifice Room
         room81.east = room82;
         room81.west = null;
@@ -693,6 +734,8 @@ public class GameControl implements Serializable {
         room83.west = room82;
         room83.south = room78;
         room83.north = null;
+        room83.addMonster("Mummified Hannibal", "Programmer... wait, what?", 9, new Minion(50, 5, 999, textGen.generateTaunt("Minion")));
+
 
         //Room84: Chamber of Worship
         room84.east = room85;
@@ -728,7 +771,7 @@ public class GameControl implements Serializable {
         room88.north = room88;
         room88.addMonster("Seth", "God of Disorder and Violence", 0, new Boss(175, 35, 999, textGen.generateTaunt("Boss")));
         room88.addRoomItem("Canopic Jar of Duamutef", "a strange jar with a jackal head on the top", "A canopic jar containing the stomach of Tal'Rasha", 0, new Key(true, "Stairway of Duamutef"));
-
+        room88.addItemToMonster("Twisted Spear of Seth", "a spear lies on the floor", "A dark obsidian covered spear, forged by Seth himself", 400, new Weapon(100));
 
         //Room89: Stairway of Imsety
         room89.east = null;
@@ -766,9 +809,9 @@ public class GameControl implements Serializable {
         room94.south = null;
         room94.north = null;
         room94.addChest("A big golden chest sits in the middle of a pile of Gold and Jewels", false, new Unlocked());
-        //room94.addItemToChest("Silver Necklace", "Glimmering necklace", "A glimmering Silver Necklace", 800, new ItemInterface);
-//        room94.addItemToChest("Pearl", "A single white pearl", "A beuatiful glimmering Pearl", 50, itemType);
-//        room94.addItemToChest("Pearl", "A single white pearl", "A beuatiful glimmering Pearl", 50, itemType);
+        room94.addItemToChest("Silver Necklace", "Glimmering necklace", "A glimmering Silver Necklace", 800, new Consumable(0, false, false));
+        room94.addItemToChest("Pearl", "A single white pearl", "A beuatiful glimmering Pearl", 50, new Consumable(0, false, false));
+        room94.addItemToChest("Pearl", "A single white pearl", "A beuatiful glimmering Pearl", 50, new Consumable(0, false, false));
 
         //Room95: Treasure Room
         room95.east = null;
@@ -777,9 +820,9 @@ public class GameControl implements Serializable {
         room95.north = null;
         room95.addRoomItem("Health Potion", "a health potion lies amongst all the gold", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
         room95.addChest("A big silver chest sits in the front of the piles of gold ", false, new Unlocked());
-//        room95.addItemToChest("Rubies", "Small glimmering stones", "Beuatiful shinning rubies", 200, itemType);
-//        room95.addItemToChest("Rubies", "Small glimmering stones", "Beuatiful shinning rubies", 200, itemType);
-//        room95.addItemToChest("Rubies", "Small glimmering stones", "Beuatiful shinning rubies", 200, itemType);
+        room95.addItemToChest("Rubies", "Small glimmering stones", "Beuatiful shinning rubies", 200, new Consumable(0, false, false));
+        room95.addItemToChest("Rubies", "Small glimmering stones", "Beuatiful shinning rubies", 200, new Consumable(0, false, false));
+        room95.addItemToChest("Rubies", "Small glimmering stones", "Beuatiful shinning rubies", 200, new Consumable(0, false, false));
         
         //Room96: Tomb of Tal'Rasha
         room96.east = null;
