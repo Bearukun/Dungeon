@@ -732,7 +732,7 @@ public class GameControl implements Serializable {
         room77.west = room78;
         room77.south = room76;
         room77.north = room84;
-        room77.addMonster("Guard of Sth", "A Dogheaded mummy that defends the chambers of Seth", 1, new Minion(50, 10, 9, textGen.generateTaunt("Minion")));
+        room77.addMonster("Guard of Seth", "A Dogheaded mummy that defends the chambers of Seth", 1, new Minion(50, 10, 9, textGen.generateTaunt("Minion")));
 
         //Room78: Chamber of Torture
         room78.east = room77;
