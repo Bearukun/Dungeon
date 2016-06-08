@@ -1201,14 +1201,17 @@ public class GameControl implements Serializable {
         if (input.equalsIgnoreCase("stats") || input.equalsIgnoreCase("show stats")) {
 
             printer(player.getStats());
+            used = true;
 
         } else if (input.equalsIgnoreCase("inventory") || input.equalsIgnoreCase("inv")) {
 
             printer("You have the following items in your inventory: " + player.getInventory());
+            used = true;
 
         } else if (splitString[0].equalsIgnoreCase("use")) {
 
             String temp = player.useItem(input.substring(input.indexOf(' ') + 1));
+            used = true;
 
             if (temp.equalsIgnoreCase("opened")) {
 
