@@ -163,8 +163,8 @@ public class GameControl implements Serializable {
         room2.east = null;
         room2.south = room1;
         room2.north = room3;
-        room2.addMonster("Swarm of Scarabs", "a large group of flesh eating beetles", 0, new Boss(10, 1, 1, textGen.generateTaunt("Minion")));
-        room2.addItemToMonster("Mace of the Skeleton King", "a mace lies on the ground", "A powerfull mace that belonged to the Skeleton King", 200, new Weapon(20));
+            room2.addMonster("Swarm of Scarabs", "a large group of flesh eating beetles", 0, new Boss(10, 1, 1, textGen.generateTaunt("Minion")));
+            room2.addItemToMonster("Mace of the Skeleton King", "a mace lies on the ground", "A powerfull mace that belonged to the Skeleton King", 200, new Weapon(20));
         room2.addItemToMonster("Long Sword", "a big rusty sword", "A Long Sword that while it has seen better days, can still cut like it was just crafted!", 10, new Weapon(10));
 
         room2.addItemToMonster("Tal'Rasha's Elements", "a bunch of robes lies on the ground", "This is the magical impowered amor of the mage Tal'Rasha", 20, new ArmorSet(5, 10));
@@ -623,7 +623,7 @@ public class GameControl implements Serializable {
         room63.addChest("Chest sits in the corner", false, new Locked("Key of Osiris", true));
         room63.addItemToChest("Robes of Osiris", "A strange robe lies on the bottom of the chest", "The Robes of the God Osiris", 500, new ArmorSet(60, 10));
 
-//Room64: Chamber of the Underworld
+        //Room64: Chamber of the Underworld
         room64.east = room65;
         room64.west = room63;
         room64.south = room59;
