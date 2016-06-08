@@ -1338,7 +1338,7 @@ public class GameControl implements Serializable {
 
             }
 
-        } else if (input.equalsIgnoreCase("save") || input.equalsIgnoreCase("load")) {
+        } else if (input.equalsIgnoreCase("save") || input.equalsIgnoreCase("load") || input.equalsIgnoreCase("quit") || input.equalsIgnoreCase("new game")) {
 
             used = true;
 
