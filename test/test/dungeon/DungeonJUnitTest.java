@@ -1,6 +1,5 @@
 package test.dungeon;
 
-import control.GameControl;
 import java.util.ArrayList;
 import model.Item;
 import model.itemType.Key;
