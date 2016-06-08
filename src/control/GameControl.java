@@ -40,6 +40,7 @@ public class GameControl implements Serializable {
 
     /**
      * Constructor for the GameControl class
+     *
      * @param playerName Name for the player
      */
     public GameControl(String playerName) {
@@ -1336,6 +1337,10 @@ public class GameControl implements Serializable {
                 printer(temp);
 
             }
+
+        } else if (input.equalsIgnoreCase("save") || input.equalsIgnoreCase("load")) {
+
+            used = true;
 
         }
 
