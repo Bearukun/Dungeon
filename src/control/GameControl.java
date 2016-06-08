@@ -655,7 +655,7 @@ public class GameControl implements Serializable {
         room67.south = room66;
         room67.north = null;
         room67.addMonster("Osiris", "God of the Underworld", 0, new Boss(150, 30, 999, textGen.generateTaunt("Boss")));
-        room67.addRoomItem("Canopic Jar of Quebehsenuef", "a strange jar with a falcon head on the top", "A canopic jar containing the intestines of Tal'Rasha", 0, new Key(true, "Stairway of Quebehsenuef"));
+        room67.addItemToMonster("Canopic Jar of Quebehsenuef", "a strange jar with a falcon head on the top", "A canopic jar containing the intestines of Tal'Rasha", 0, new Key(true, "Stairway of Quebehsenuef"));
         room67.addItemToMonster("Dagger of Osiris", " a strange small dagger", "A dagger used by the God Osiris himself", 250, new Weapon(40));
         room67.addItemToMonster("Head of Osiris", "The head of the physical manifistation of the fallen God lies on the floor", "Head of the physical manifistation of the God Osiris ", 1000, new Consumable(0, false, false));
         room67.addItemToMonster("Key of Osiris", "a strange key with the head of Osiris lies on the floor", "Inscription on the Key states \"Treasury of Osiris\"", highScore, new Key(false, "Key of Osiris"));
