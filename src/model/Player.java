@@ -71,6 +71,7 @@ public class Player implements PlayerInterface, Serializable {
         }
         
         return highScore;
+        
     }
 
     public String addItemToInventory(ArrayList<Item> items) {
