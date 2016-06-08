@@ -23,8 +23,9 @@ public class Room implements Serializable {
     /**
      * Constructor for the Room class.
      *
-     * @param roomname Name for the room.
-     * @param description Description for the room.
+     * @param roomname The rooms name.
+     * @param description The description of the room.
+     * @param roomTypeInterface What kind of room it is.
      */
     public Room(String roomname, String description, LockTypeInterface roomTypeInterface) {
 
@@ -53,7 +54,7 @@ public class Room implements Serializable {
     public void addItemToChest(String name, String roomText, String inspectText, int value, ItemInterface itemType) {
 
         chest.addItem(name, roomText, inspectText, value, itemType);
-        
+
     }
 
     public void addMonster(String name, String description, int id, MonsterInterface monsterType) {
@@ -65,12 +66,12 @@ public class Room implements Serializable {
     public void addItemToMonster(String name, String roomText, String inspectText, int value, ItemInterface itemType) {
 
         monster.addItem(name, roomText, inspectText, value, itemType);
-        
+
     }
 
     /**
      * Method used to look up room items.
-     *
+     * @param itemLookupText The text from the textGenerator.
      * @return Returns a string with available items.
      */
     public String itemLookup(String itemLookupText) {
@@ -118,7 +119,7 @@ public class Room implements Serializable {
 
     /**
      * Method used to look up chest.
-     *
+     * @param itemLookupText The text from the textGenerator. 
      * @return Returns a string with available items.
      */
     public String chestLookup(String itemLookupText) {
@@ -141,62 +142,62 @@ public class Room implements Serializable {
 
         items.addAll(monster.getInventory());
         monster.setInventory(null);
-        
+
     }
 
     @Override
     public String toString() {
-        
+
         return description;
-   
+
     }
 
     public String getDescription() {
-        
+
         return description;
-   
+
     }
 
     public ArrayList<Item> getItems() {
-        
+
         return items;
 
     }
 
     public void setItems(ArrayList<Item> items) {
-        
+
         this.items = items;
-    
+
     }
 
     public String getRoomName() {
-        
+
         return roomName;
-    
+
     }
 
     public Monster getMonster() {
-        
+
         return monster;
-    
+
     }
 
     public LockTypeInterface getLockTypeInterface() {
-        
+
         return lockTypeInterface;
-    
+
     }
 
     public Chest getChest() {
-        
+
         return chest;
-    
+
     }
 
     public void setChest(Chest chest) {
-        
+
         this.chest = chest;
-   
+
     }
-    
+
 }

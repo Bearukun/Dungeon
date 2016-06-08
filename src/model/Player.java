@@ -17,12 +17,6 @@ public class Player implements PlayerInterface, Serializable {
     /**
      * Constructor for the player class. 
      * @param name Name of the player.
-     * @param tempHp 
-     * @param startingDamage the amount of damage the player dealst at the start of the game. 
-     * @param startingArmor the amount of armor the player has at the start of the game. 
-     * @param damage the amount of damage the player deals, updates thoughout the game.
-     * @param armor the amount of armor the player has, updates throughout the game.
-     * Also spawns the players starting items.
      */
     public Player(String name) {
         this.name = name;
@@ -77,7 +71,7 @@ public class Player implements PlayerInterface, Serializable {
     public String addItemToInventory(ArrayList<Item> items) {
         inventory.addAll(items);
         String returnString = "";
-
+     
         if (items.size() <= 1) {
 
             return "You add the following item to you inventory:\n" + items.get(0).getName();

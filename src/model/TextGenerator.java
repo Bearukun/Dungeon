@@ -17,6 +17,7 @@ public class TextGenerator implements Serializable {
 
     /**
      * Constructor for the TextGenerator class.
+     * @param playerName The players name.
      */
     public TextGenerator(String playerName) {
 
@@ -83,7 +84,7 @@ public class TextGenerator implements Serializable {
     /**
      * Method used for returning appropriate menu text.
      *
-     * @param menuText
+     * @param menuText What help text that the method needs to return.
      * @return String with selected enum.
      */
     public static String getGameText(GameText menuText) {
