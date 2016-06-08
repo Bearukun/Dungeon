@@ -3,7 +3,7 @@ package view;
 public class Main {
 
     /**
-     * @param args the command line arguments
+     * Initializing the game.
      */
     public static void main(String[] args) {
         

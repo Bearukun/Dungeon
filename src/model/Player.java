@@ -14,10 +14,20 @@ public class Player implements PlayerInterface, Serializable {
     private ArrayList<Item> inventory = new ArrayList();
     private ArrayList<Item> equipment = new ArrayList();
 
+    /**
+     * Constructor for the player class. 
+     * @param name Name of the player.
+     * @param tempHp 
+     * @param startingDamage the amount of damage the player dealst at the start of the game. 
+     * @param startingArmor the amount of armor the player has at the start of the game. 
+     * @param damage the amount of damage the player deals, updates thoughout the game.
+     * @param armor the amount of armor the player has, updates throughout the game.
+     * Also spawns the players starting items.
+     */
     public Player(String name) {
         this.name = name;
 
-        hp = 3;
+        hp = 30;
         tempHp = hp;
         level = 1;
         startingDamage = 6;
