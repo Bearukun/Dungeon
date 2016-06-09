@@ -140,14 +140,13 @@ public class Room implements Serializable {
 
     public void dropMonsterItems() {
         
-        if (monster.getInventory() != null){
+        if (!monster.getInventory().isEmpty()){
             
             items.addAll(monster.getInventory());
             monster.setInventory(null);
             
-        }
+        }   
         
-        items = null;
 
     }
 

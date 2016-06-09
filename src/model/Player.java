@@ -71,13 +71,13 @@ public class Player implements PlayerInterface, Serializable {
     public String addItemToInventory(ArrayList<Item> items) {
         inventory.addAll(items);
         String returnString = "";
-     
+        
         if (items.size() == 1) {
 
             return "You add the following item to you inventory:\n" + items.get(0).getName();
 
         } else {
-            returnString += "You add the following item to you inventory:\n";
+            returnString += "You add the following items to you inventory:\n";
             for (int i = 0; i < items.size(); i++) {
                 returnString += items.get(i).getName() + "\n";
 
