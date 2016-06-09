@@ -1163,7 +1163,7 @@ public class GameControl implements Serializable {
     public int calculateMonsterDamage() {
 
         double percentageOfAttack;
-        
+
         percentageOfAttack = ((player.getArmor() / 100.0) * currentRoom.getMonster().getMonsterInterface().getDamage());
         return (int) (percentageOfAttack);
 
@@ -1215,11 +1215,15 @@ public class GameControl implements Serializable {
 
             } else if (input.equalsIgnoreCase("Take all") || input.equalsIgnoreCase("all") || input.equalsIgnoreCase("pickup") || input.equalsIgnoreCase("take")) {
 
-                if (currentRoom.getItems().size() >= 1) {
+                if (currentRoom.getItems() != null) {
 
-                    printer(player.addItemToInventory(currentRoom.getItems()));
-                    currentRoom.setItems(null);
-                    used = true;
+                    if (currentRoom.getItems().size() >= 1) {
+
+                        printer(player.addItemToInventory(currentRoom.getItems()));
+                        currentRoom.setItems(null);
+                        used = true;
+
+                    }
 
                 } else {
 
