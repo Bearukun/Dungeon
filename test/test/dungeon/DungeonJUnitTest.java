@@ -75,7 +75,7 @@ public class DungeonJUnitTest {
         
         //Check if player can loot.
         gc.inputAnalyzer("pickup");
-        assertTrue("Inventory length should be 5, it is: ", gc.getPlayer().getInventory().contains("Rusty key"));
+        assertTrue("Inventory should contain a rusty key, it does not: ", gc.getPlayer().getInventory().contains("Rusty key"));
                 
     }
     
