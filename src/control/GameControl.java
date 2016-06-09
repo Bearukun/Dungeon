@@ -1075,8 +1075,9 @@ public class GameControl implements Serializable {
                 player.levelUp();
                 currentRoom.getMonster().setIsAlive(false);
                 inBattle = false;
-
+                
                 currentRoom.dropMonsterItems();
+                
 
             }
 //          If the monster survives the hit, it attacks the player
