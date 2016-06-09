@@ -74,7 +74,7 @@ public class TextGenerator implements Serializable {
         bossTauntText.add("and says \"It's hiiiiigh noon.\"");
         bossTauntText.add("and yells \"Death from above!\"");
         bossTauntText.add("and yells \"Nerf this!\"");
-        bossTauntText.add("and yells \"Ryu ga waka teki wa kurau!\"");
+        bossTauntText.add("and yells \"Ryuu ga waga teki wo kurau!\"");
         bossTauntText.add("and slithers \"Embrace tranquility!\"");
         bossTauntText.add("and slithers \"Death comes!\"");
 
