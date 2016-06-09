@@ -72,7 +72,7 @@ public class Player implements PlayerInterface, Serializable {
         inventory.addAll(items);
         String returnString = "";
      
-        if (items.size() <= 1) {
+        if (items.size() == 1) {
 
             return "You add the following item to you inventory:\n" + items.get(0).getName();
 
