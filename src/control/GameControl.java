@@ -75,7 +75,7 @@ public class GameControl implements Serializable {
         room16 = new Room("Corridor", "Paintings of a huge obsidian circle with a star in the center is depicted on the wall... Some kind of StarGate?", new Unlocked());
         room17 = new Room("High Priest of Anubis Chamber", "Inside the chamber belonging to the High Priest of the God Anubis, you notice alot of gifts and offering for his Master.", new Unlocked());
         room18 = new Room("Corridor", "The paintings in the corridor have erroded away...", new Unlocked());
-        room19 = new Room("Altar of Anubis", "you're standing in the chamber belonging to the High Priest of the God Anubis", new Locked("Altar of Anubis Key", true));
+        room19 = new Room("Altar of Anubis", "You're standing in the chamber belonging to the High Priest of the God Anubis", new Locked("Altar of Anubis Key", true));
         room20 = new Room("Corridor", "On the walls of the corridor, you see a painting of the God Anubis holdning the Canopic Jar of Imesty and using it as some kind key at something called \"Stairway of Ascendance\"", new Unlocked());
         room21 = new Room("Corridor", "On the walls of the corridor, you see a painting of the God Horus holdning the Canopic Jar of Hapy and using it as some kind of key at something called \"Stairway of Ascendance\"", new Unlocked());
         room22 = new Room("Corridor", "On the walls of the corridor, you see a painting of the God Seth holdning the Canopic Jar of Duamutef and using it as some kind of key at something called \"Stairway of Ascendance\"", new Unlocked());
@@ -89,7 +89,7 @@ public class GameControl implements Serializable {
         room30 = new Room("Sacrifice Room", "A chamber filled with various kinds of offerings for the God Horus, such as food and statues. ", new Unlocked());
         room31 = new Room("High Priest of Horus Chamber", "Inside the chamber belonging to the High Priest of the God Horus, you notice alot of gifts and offering for his Master.", new Unlocked());
         room32 = new Room("Chamber of The Sun", "Paintings on the wall depicts the Egyptian people and even their Pharaoh worshipping the Sun God, Ra'", new Unlocked());
-        room33 = new Room("Altar of Horus", "you're standing in the chamber belonging to the High Priest of the God Horus", new Locked("Altar of Horus Key", true));
+        room33 = new Room("Altar of Horus", "You're standing in the chamber belonging to the High Priest of the God Horus", new Locked("Altar of Horus Key", true));
         room34 = new Room("Corridor", "Paintings on the wall shows how the Paroh ordered his best workers to secretly and quickly build the pyramid to entomb the sorcerer... \nAnd how all the people with knowledge of the pyramid and it's location were buried alive with it beneath the sands of the valley", new Unlocked());
         room35 = new Room("Corridor", "On the walls of the corridors are pinatings of the Egyptian gods of Osiris, Seth, Horus, Anubis and even Ra' bestowing incredible powers to the sorcerer", new Unlocked());
         room36 = new Room("Corridor", "Paintings on the wall depicts the sorcerer serving serveral Pharaoh's through his life time... Perhaps for hundreds of years", new Unlocked());
@@ -99,7 +99,7 @@ public class GameControl implements Serializable {
         room40 = new Room("Great North Hall", "Standing in the Great open hall, you notice some hieroglyphs in the middle of the room stating \"Great North Hall\"\nTo the south is the \"Stairway of Ascendance\"", new Unlocked());
         room41 = new Room("Entrance to Ra' Chamber", "\"a huge doorway carved in limestone, with the heiroglyphs \"Passage to the Chamber of Ra'\"", new Unlocked());
         room42 = new Room("High Priest of Ra' Chamber", "Inside the chamber belonging to the High Priest of the God Ra', you notice alot of gifts and offering for his Master.", new Unlocked());
-        room43 = new Room("Altar of Ra'", "you're standing in the chamber belonging to the physical manifistation of the God  Ra'", new Locked("Altar of Ra' Key", true));
+        room43 = new Room("Altar of Ra'", "You're standing in the chamber belonging to the physical manifistation of the God  Ra'", new Locked("Altar of Ra' Key", true));
         room44 = new Room("Corridor", "a corridor west of the great north hall", new Unlocked());
         room45 = new Room("Corridor", "a corridor with heiroglyphs on one of the walls stating \"Secret Passage\" ", new Unlocked());
         room46 = new Room("Corridor", "Pictures on the walls depicts what looks like a sorcerer performing mystical and magical spells... Against the enemies of Egypt... and the sorcerer. ", new Unlocked());
@@ -123,7 +123,7 @@ public class GameControl implements Serializable {
         room64 = new Room("Chamber of the Underworld", "A strange black portal sits behind bars made of obsidian stone... Could this be a doorway to the underworld?", new Unlocked());
         room65 = new Room("Chamber of Death", "You feel the chilling rush of death and despair rushing down your spine as you stand in the room... Screams of dead people fill your mind", new Unlocked());
         room66 = new Room("High Priest of Osiris Chamber", "Inside the chamber belonging to the High Priest of the God Osiris, you notice alot of gifts and offering for his Master.", new Unlocked());
-        room67 = new Room("Altar of Osiris", "you're standing in the chamber belonging to the High Priest of the God Osiris", new Locked("Altar of Osiris Key", true));
+        room67 = new Room("Altar of Osiris", "You're standing in the chamber belonging to the High Priest of the God Osiris", new Locked("Altar of Osiris Key", true));
         room68 = new Room("Entrance to Seth Chamber", "a huge doorway carved in limestone, with the heiroglyphs \"Passage to the Chamber of Seth\"", new Unlocked());
         room69 = new Room("Corridor", "The paintings on the wall have erroded...", new Unlocked());
         room70 = new Room("Servants Chambers", "a chamber dedicated to the servants and helpers of Seth and, probably also the workers who constructed the pyramid", new Unlocked());
@@ -144,7 +144,7 @@ public class GameControl implements Serializable {
         room85 = new Room("Corridor", "On the walls of the corridor, you notice some kind of painting of a High Priest holdning a key and opening a door to an Altar of a God", new Unlocked());
         room86 = new Room("High Priest of Seth Chamber", "Inside the chamber belonging to the High Priest of the God Seth, you notice alot of gifts and offering for his Master.", new Unlocked());
         room87 = new Room("Corridor", "Paintings on the wall depicts a battle between the Egyptian people and a single man... Who would face the wrath of an entire nation?", new Unlocked());
-        room88 = new Room("Altar of Seth", "you're standing in the chamber belonging to the High Priest of the God Seth", new Locked("Altar of Seth Key", true));
+        room88 = new Room("Altar of Seth", "You're standing in the chamber belonging to the High Priest of the God Seth", new Locked("Altar of Seth Key", true));
         room89 = new Room("Stairway of Imsety", "You're standing in a chamber between the door of Imsety and Hapy, on the \"Stairway of Ascendance\" ", new Locked("Stairway of Imsety", true));
         room90 = new Room("Stairway of Hapy", "You're standing in a chamber between the door of Hapy and Duamutef, on the \"Stairway of Ascendance\" ", new Locked("Stairway of Hapy", true));
         room91 = new Room("Starway of Duamutef", "You're standing in a chamber between the door of Duamutef and Qebehsenuef, on the \"Stairway of Ascendance\" ", new Locked("Starway of Duamutef", true));
