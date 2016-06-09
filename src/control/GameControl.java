@@ -232,7 +232,7 @@ public class GameControl implements Serializable {
         room10.east = room11;
         room10.west = room9;
         room10.south = null;
-        room10.north = null;
+        room10.north = null; 
         room10.addChest("A chest is placed behind what looks like a bed.", false, new Unlocked());
         room10.addItemToChest("Bastard Sword", "An odd looking sword", "A horrific, but pretty effectfull Bastard Sword", 10, new Weapon(14));
 
@@ -892,7 +892,7 @@ public class GameControl implements Serializable {
 //        room99.west = null;
 //        room99.south = room6;
 //        room99.north = room21;
-        currentRoom = room1;
+        currentRoom = room96;
         previousRoom = currentRoom;
 
     }

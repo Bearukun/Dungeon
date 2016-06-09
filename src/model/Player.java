@@ -21,7 +21,7 @@ public class Player implements PlayerInterface, Serializable {
     public Player(String name) {
         this.name = name;
 
-        hp = 30;
+        hp = 500;
         tempHp = hp;
         level = 1;
         startingDamage = 6;
