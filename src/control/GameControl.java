@@ -894,7 +894,7 @@ public class GameControl implements Serializable {
 //        room99.west = null;
 //        room99.south = room6;
 //        room99.north = room21;
-        currentRoom = room91;
+        currentRoom = room1;
         previousRoom = currentRoom;
 
     }
