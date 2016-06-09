@@ -46,10 +46,16 @@ public class TextGenerator implements Serializable {
         minionTauntText.add("and says \"The menagerie is for guests only.\"");
         minionTauntText.add("and says \"You never know what skitters in the darkness.\"");
         minionTauntText.add("and says \"Death...Is...Close\"");
-        minionTauntText.add("and yell \"I want this nightmare to be over!\"");
+        minionTauntText.add("and yells \"I want this nightmare to be over!\"");
         minionTauntText.add("and yells \"BLOOD WILL FLOW!\"");
         minionTauntText.add("and says \"Despair, so delicious!\"");
+        minionTauntText.add("and slithers \"Die! die! die!\"");
+        minionTauntText.add("and sobs \"Heroes never die!\"");
+        minionTauntText.add("and yells \"It's a perfect day for some mayhem!\"");
+        minionTauntText.add("and yells \"Surprice!\"");
+        minionTauntText.add("and yells \"Back again and ready for more!\"");
 
+        
         bossTauntText.add("and shouts \"Naughty Secrets! I'll rip the secrets from your flesh " + playerName + "!\"");
         bossTauntText.add("and says \"We're gonna bury you here " + playerName + "...\"");
         bossTauntText.add("and yells \"Interloper! Mortal who dare to interfere with my sport will pay.\"");
@@ -65,6 +71,12 @@ public class TextGenerator implements Serializable {
         bossTauntText.add("and says \"An epic battle, how exciting!\"");
         bossTauntText.add("and says \"I see dead people, you be dead people!\" ");
         bossTauntText.add("and yells \"You know what they say about curiosity.\"");
+        bossTauntText.add("and says \"It's hiiiiigh noon.\"");
+        bossTauntText.add("and yells \"Death from above!\"");
+        bossTauntText.add("and yells \"Nerf this!\"");
+        bossTauntText.add("and yells \"Ryu ga waka teki wa kurau!\"");
+        bossTauntText.add("and slithers \"Embrace tranquility!\"");
+        bossTauntText.add("and slithers \"Death comes!\"");
 
         chestLookupText.add("You also notice an old chest ");
         chestLookupText.add("An old chest sits in the corner of the room");
