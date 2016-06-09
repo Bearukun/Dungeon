@@ -118,7 +118,7 @@ public class GameControl implements Serializable {
         room59 = new Room("Sacrifice Room", "A chamber filled with various kinds of offerings for the God Osiris, such as food and statues. ", new Unlocked());
         room60 = new Room("Chamber of Worship", "Standing in the chamber, you notice strange paintings on the walls depicting people worshipping some one holy or powerfull, but definitely not a Pharo ", new Unlocked());
         room61 = new Room("Servants Chambers", "a chamber dedicated to the servants and helpers of Osiris and, probably also the workers who constructed the pyramid", new Unlocked());
-        room62 = new Room("Chamber of Souls", "A huge beuatiful mirror sits in the middle of the chamber showing the souls of people travelling to the underworld", new Unlocked());
+        room62 = new Room("Chamber of Souls", "A huge beautiful mirror sits in the middle of the chamber showing the souls of people travelling to the underworld", new Unlocked());
         room63 = new Room("Treasure Room", "A room filled with ancient riches from various regions of the Egyptian empire, dedicated to the God Osiris", new Unlocked());
         room64 = new Room("Chamber of the Underworld", "A strange black portal sits behind bars made of obsidian stone... Could this be a doorway to the underworld?", new Unlocked());
         room65 = new Room("Chamber of Death", "You feel the chilling rush of death and despair rushing down your spine as you stand in the room... Screams of dead people fill your mind", new Unlocked());
@@ -856,8 +856,8 @@ public class GameControl implements Serializable {
         room94.north = null;
         room94.addChest("A big golden chest sits in the middle of a pile of Gold and Jewels", false, new Unlocked());
         room94.addItemToChest("Silver Necklace", "Glimmering necklace", "A glimmering Silver Necklace", 800, new Consumable(0, false, false));
-        room94.addItemToChest("Pearl", "A single white pearl", "A beuatiful glimmering Pearl", 50, new Consumable(0, false, false));
-        room94.addItemToChest("Pearl", "A single white pearl", "A beuatiful glimmering Pearl", 50, new Consumable(0, false, false));
+        room94.addItemToChest("Pearl", "A single white pearl", "A beautiful glimmering Pearl", 50, new Consumable(0, false, false));
+        room94.addItemToChest("Pearl", "A single white pearl", "A beautiful glimmering Pearl", 50, new Consumable(0, false, false));
 
         //Room95: Treasure Room
         room95.east = null;
@@ -866,9 +866,9 @@ public class GameControl implements Serializable {
         room95.north = null;
         room95.addRoomItem("Health Potion", "a health potion lies amongst all the gold", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
         room95.addChest("A big silver chest sits in the front of the piles of gold ", false, new Unlocked());
-        room95.addItemToChest("Rubies", "Small glimmering stones", "Beuatiful shinning rubies", 200, new Consumable(0, false, false));
-        room95.addItemToChest("Rubies", "Small glimmering stones", "Beuatiful shinning rubies", 200, new Consumable(0, false, false));
-        room95.addItemToChest("Rubies", "Small glimmering stones", "Beuatiful shinning rubies", 200, new Consumable(0, false, false));
+        room95.addItemToChest("Rubies", "Small glimmering stones", "Beautiful shinning rubies", 200, new Consumable(0, false, false));
+        room95.addItemToChest("Rubies", "Small glimmering stones", "Beautiful shinning rubies", 200, new Consumable(0, false, false));
+        room95.addItemToChest("Rubies", "Small glimmering stones", "Beautiful shinning rubies", 200, new Consumable(0, false, false));
 
         //Room96: Tomb of Tal'Rasha
         room96.east = null;
