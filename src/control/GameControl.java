@@ -1064,7 +1064,7 @@ public class GameControl implements Serializable {
         if (command.equals("attack")) {
 
             currentRoom.getMonster().getMonsterInterface().setHp(currentRoom.getMonster().getMonsterInterface().getHp() - player.getDamage());
-            player.setHp(player.getHp() - calculateMonsterDamage());
+            player.setHp(player.getHp() - (currentRoom.getMonster().getMonsterInterface().getDamage() - calculateMonsterDamage()));
 
             printer("You hit " + currentRoom.getMonster().getName() + " for " + player.getDamage() + "! " + currentRoom.getMonster().getMonsterInterface().getHp() + "HP left."
                     + "\n");
@@ -1082,7 +1082,7 @@ public class GameControl implements Serializable {
 //          If the monster survives the hit, it attacks the player
             if (currentRoom.getMonster().isIsAlive()) {
 
-                printer(currentRoom.getMonster().getName() + " attacks you for " + calculateMonsterDamage() + "! You have " + player.getHp() + "HP left!");
+                printer(currentRoom.getMonster().getName() + " attacks you for " + (currentRoom.getMonster().getMonsterInterface().getDamage() - calculateMonsterDamage()) + "! You have " + player.getHp() + "HP left!");
 
             } else {
 
@@ -1163,9 +1163,8 @@ public class GameControl implements Serializable {
     public int calculateMonsterDamage() {
 
         double percentageOfAttack;
-
+        
         percentageOfAttack = ((player.getArmor() / 100.0) * currentRoom.getMonster().getMonsterInterface().getDamage());
-
         return (int) (percentageOfAttack);
 
     }
