@@ -174,7 +174,7 @@ public class GameControl implements Serializable {
 
         //Room 3: Great South Hall
         room3.east = room5;
-        room3.west = room56;
+        room3.west = room55;
         room3.south = room2;
         room3.north = room4;
         room3.addRoomItem("Mystic Potion", "a mysterious looking potion", "You don't know what effect it will have on you", 900, new Consumable(50, true, false));
@@ -537,7 +537,7 @@ public class GameControl implements Serializable {
 
         //Room52: Corridor
         room52.east = null;
-        room52.west = null;
+        room52.west = room56;
         room52.south = room53;
         room52.north = room21;
 
@@ -655,7 +655,7 @@ public class GameControl implements Serializable {
         room67.south = room66;
         room67.north = null;
         room67.addMonster("Osiris", "God of the Underworld", 0, new Boss(150, 30, 999, textGen.generateTaunt("Boss")));
-        room67.addItemToMonster("Canopic Jar of Quebehsenuef", "a strange jar with a falcon head on the top", "A canopic jar containing the intestines of Tal'Rasha", 0, new Key(true, "Stairway of Quebehsenuef"));
+        room67.addItemToMonster("Canopic Jar of Qebehsenuef", "a strange jar with a falcon head on the top", "A canopic jar containing the intestines of Tal'Rasha", 0, new Key(true, "Stairway of Qebehsenuef"));
         room67.addItemToMonster("Dagger of Osiris", " a strange small dagger", "A dagger used by the God Osiris himself", 250, new Weapon(40));
         room67.addItemToMonster("Head of Osiris", "The head of the physical manifistation of the fallen God lies on the floor", "Head of the physical manifistation of the God Osiris ", 1000, new Consumable(0, false, false));
         room67.addItemToMonster("Key of Osiris", "a strange key with the head of Osiris lies on the floor", "Inscription on the Key states \"Treasury of Osiris\"", highScore, new Key(false, "Key of Osiris"));
@@ -835,11 +835,13 @@ public class GameControl implements Serializable {
         room91.south = room92;
         room91.north = room90;
 
+        
         //Room92: Stairway of Qebehsenuef
         room92.east = null;
         room92.west = null;
         room92.south = room93;
         room92.north = room91;
+
 
         //Room93: Corridor
         room93.east = room95;
@@ -892,7 +894,7 @@ public class GameControl implements Serializable {
 //        room99.west = null;
 //        room99.south = room6;
 //        room99.north = room21;
-        currentRoom = room17;
+        currentRoom = room91;
         previousRoom = currentRoom;
 
     }
@@ -1216,7 +1218,8 @@ public class GameControl implements Serializable {
 
             } else if (input.equalsIgnoreCase("Take all") || input.equalsIgnoreCase("all") || input.equalsIgnoreCase("pickup") || input.equalsIgnoreCase("take")) {
 
-                if (currentRoom.getItems().size() >= 1) {
+                //Check if null
+                if (currentRoom.getItems() != null) {
 
                     if (currentRoom.getItems().size() >= 1) {
 
