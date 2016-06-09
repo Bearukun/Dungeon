@@ -892,7 +892,7 @@ public class GameControl implements Serializable {
 //        room99.west = null;
 //        room99.south = room6;
 //        room99.north = room21;
-        currentRoom = room96;
+        currentRoom = room17;
         previousRoom = currentRoom;
 
     }
@@ -1217,7 +1217,7 @@ public class GameControl implements Serializable {
 
             } else if (input.equalsIgnoreCase("Take all") || input.equalsIgnoreCase("all") || input.equalsIgnoreCase("pickup") || input.equalsIgnoreCase("take")) {
 
-                if (currentRoom.getItems() != null) {
+                if (currentRoom.getItems().size() >= 1) {
 
                     printer(player.addItemToInventory(currentRoom.getItems()));
                     currentRoom.setItems(null);
