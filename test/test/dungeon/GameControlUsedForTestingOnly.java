@@ -1,4 +1,4 @@
-package control;
+package test.dungeon;
 
 import java.io.Serializable;
 import model.Player;
@@ -17,7 +17,7 @@ import model.lockType.Unlocked;
 /**
  * GameControl class
  */
-public class GameControl implements Serializable {
+public class GameControlUsedForTestingOnly implements Serializable {
 
     //Declaring, initializing and instanciating variables. 
     private int highScore;
@@ -39,11 +39,9 @@ public class GameControl implements Serializable {
     private TextGenerator textGen;
 
     /**
-     * Constructor for the GameControl class
-     *
-     * @param playerName Name for the player
+     * Constructor
      */
-    public GameControl(String playerName) {
+    public GameControlUsedForTestingOnly(String playerName) {
 
         createPlayer(playerName);
         createRooms();
@@ -165,8 +163,8 @@ public class GameControl implements Serializable {
         room2.east = null;
         room2.south = room1;
         room2.north = room3;
-        room2.addMonster("Swarm of Scarabs", "a large group of flesh eating beetles", 0, new Boss(10, 1, 1, textGen.generateTaunt("Minion")));
-        room2.addItemToMonster("Mace of the Skeleton King", "a mace lies on the ground", "A powerfull mace that belonged to the Skeleton King", 200, new Weapon(20));
+            room2.addMonster("Swarm of Scarabs", "a large group of flesh eating beetles", 0, new Boss(10, 1, 1, textGen.generateTaunt("Minion")));
+            room2.addItemToMonster("Mace of the Skeleton King", "a mace lies on the ground", "A powerfull mace that belonged to the Skeleton King", 200, new Weapon(20));
         room2.addItemToMonster("Long Sword", "a big rusty sword", "A Long Sword that while it has seen better days, can still cut like it was just crafted!", 10, new Weapon(10));
 
         room2.addItemToMonster("Tal'Rasha's Elements", "a bunch of robes lies on the ground", "This is the magical impowered amor of the mage Tal'Rasha", 20, new ArmorSet(5, 10));
@@ -299,7 +297,7 @@ public class GameControl implements Serializable {
         room19.south = null;
         room19.north = null;
         room19.addMonster("Anubis", "God of mummification and the afterlife", 0, new Boss(200, 25, 999, textGen.generateTaunt("Boss")));
-        room19.addItemToMonster("Canopic Jar of Imsety", "a strange jar with a human head on the top", "A canopic jar containing the liver of Tal'Rasha", 0, new Key(true, "Stairway of Imsety"));
+        room19.addRoomItem("Canopic Jar of Imsety", "a strange jar with a human head on the top", "A canopic jar containing the liver of Tal'Rasha", 0, new Key(true, "Stairway of Imsety"));
         room19.addItemToMonster("Scyth of Anubis", "a gleaming weapon lies on a table", "The Golden Scyth of Anubis ", 300, new Weapon(50));
         room19.addItemToMonster("Head of Anubis", "The head of the physical manifistation of the fallen God lies on the floor", "Head of the physical manifistation of the God Anubis ", 1000, new Consumable(0, false, false));
         room19.addItemToMonster("Key of Anubis", "a strange key with the head of anubis lies on the floor", "Inscription on the Key states \"Treasury of Anubis\"", highScore, new Key(false, "Key of Anubis"));
@@ -403,7 +401,7 @@ public class GameControl implements Serializable {
         room33.north = null;
         room33.addMonster("Horus", "God of the Skies", 0, new Boss(150, 20, 999, textGen.generateTaunt("Boss")));
         room33.addItemToMonster("Sword of Horus", "a golden gleaming sword sticks out from under the corps of Horus", "A Golden powerfull imbued Sword, forged for the God Horus", 250, new Weapon(65));
-        room33.addItemToMonster("Canopic Jar of Hapy", "a strange jar with a baboon head on the top", "A canopic jar containing the lungs of Tal'Rasha", 0, new Key(true, "Stairway of Hapy"));
+        room33.addRoomItem("Canopic Jar of Hapy", "a strange jar with a baboon head on the top", "A canopic jar containing the lungs of Tal'Rasha", 0, new Key(true, "Stairway of Hapy"));
         room33.addItemToMonster("Head of Horus", "The head of the physical manifistation of the fallen God lies on the floor", "Head of the physical manifistation of the God Horus ", 1000, new Consumable(0, false, false));
         room33.addItemToMonster("Key of Horus", "a strange key with the head of Horus lies on the floor", "Inscription on the Key states \"Treasury of Horus\"", highScore, new Key(false, "Key of Horus"));
 
@@ -558,6 +556,7 @@ public class GameControl implements Serializable {
         room54.north = room53;
         room54.addRoomItem("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
 
+
         //Room55: Corridor
         room55.east = room3;
         room55.west = room54;
@@ -632,6 +631,7 @@ public class GameControl implements Serializable {
         room64.addRoomItem("Bone Sword", "a strange bone is lying on the floor", "A sword made of a single Human bone", 15, new Weapon(20));
         room64.addRoomItem("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
 
+
         //Room65: Chamber of Death
         room65.east = null;
         room65.west = room64;
@@ -703,7 +703,7 @@ public class GameControl implements Serializable {
         room73.north = room80;
         room73.addRoomItem("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
         room73.addMonster("Lich", "A floating skeleton with chains intertwined between its bones.", 1, new Minion(40, 15, 9, textGen.generateTaunt("Minion")));
-
+        
         //Room74: Chamber of Deception
         room74.east = room75;
         room74.west = room73;
@@ -757,6 +757,7 @@ public class GameControl implements Serializable {
         room80.addItemToChest("Frozen Key", "Strange frozen key", "A strange frozen key... Dosen't fit the chest it was found in", 25, new Key(false, "Frozen Key"));
         room80.addRoomItem("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
 
+
         //Room81: Sacrifice Room
         room81.east = room82;
         room81.west = null;
@@ -800,6 +801,7 @@ public class GameControl implements Serializable {
         room86.addItemToMonster("Robes of the High Priest of Seth", "strange robes lies on the floor", "Robes worn by the High Priest of Seth", 75, new ArmorSet(20, 35));
         room86.addItemToMonster("Health Potion", "a health potion", "A potion that will fully restore your health... Will it taste any good though?", 100, new Consumable(1, true, true));
 
+
         //Room87: Corridor
         room87.east = null;
         room87.west = room86;
@@ -812,7 +814,7 @@ public class GameControl implements Serializable {
         room88.south = room45; //SECRET DOOR THAT OPENS AFTER SETH BOSS IS KILLED! // KEY FROM HIGH PRIEST ROOM!
         room88.north = room88;
         room88.addMonster("Seth", "God of Disorder and Violence", 0, new Boss(175, 35, 999, textGen.generateTaunt("Boss")));
-        room88.addItemToMonster("Canopic Jar of Duamutef", "a strange jar with a jackal head on the top", "A canopic jar containing the stomach of Tal'Rasha", 0, new Key(true, "Stairway of Duamutef"));
+        room88.addRoomItem("Canopic Jar of Duamutef", "a strange jar with a jackal head on the top", "A canopic jar containing the stomach of Tal'Rasha", 0, new Key(true, "Stairway of Duamutef"));
         room88.addItemToMonster("Twisted Spear of Seth", "a spear lies on the floor", "A dark obsidian covered spear, forged by Seth himself", 400, new Weapon(100));
         room88.addItemToMonster("Head of Seth", "The head of the physical manifistation of the fallen God lies on the floor", "Head of the physical manifistation of the God Seth ", 1000, new Consumable(0, false, false));
         room88.addItemToMonster("Key of Seth", "a strange key with the head of Seth lies on the floor", "Inscription on the Key states \"Treasury of Seth\"", highScore, new Key(false, "Key of Seth"));
@@ -1120,7 +1122,7 @@ public class GameControl implements Serializable {
     /**
      * Method used to end the game, with different conditions.
      *
-     * @param endGamecode The exit code for the method.
+     * @param endGamecode
      */
     public void endGame(int endGamecode) {
 
@@ -1215,18 +1217,18 @@ public class GameControl implements Serializable {
                 used = true;
 
             } else if (input.equalsIgnoreCase("Take all") || input.equalsIgnoreCase("all") || input.equalsIgnoreCase("pickup") || input.equalsIgnoreCase("take")) {
-
-                if (currentRoom.getItems() != null) {
-
+                
+                if(currentRoom.getItems() != null){
+                            
                     printer(player.addItemToInventory(currentRoom.getItems()));
                     currentRoom.setItems(null);
                     used = true;
-
-                } else {
-
+                    
+                }else{
+                    
                     printer("There is nothing to pick up...");
                     used = true;
-
+                    
                 }
 
             } else if (input.equalsIgnoreCase("chest") || input.equalsIgnoreCase("open chest")) {
@@ -1338,10 +1340,6 @@ public class GameControl implements Serializable {
 
             }
 
-        } else if (input.equalsIgnoreCase("save") || input.equalsIgnoreCase("load") || input.equalsIgnoreCase("quit") || input.equalsIgnoreCase("new game")) {
-
-            used = true;
-
         }
 
         //Reminding person that the command was unknown.  
@@ -1373,5 +1371,849 @@ public class GameControl implements Serializable {
     public boolean hasDied() {
         return hasDied;
     }
+    
+    //getters used for testing.
+
+    public int getHighScore() {
+        return highScore;
+    }
+
+    public void setHighScore(int highScore) {
+        this.highScore = highScore;
+    }
+
+    public boolean isHasBeenRun() {
+        return hasBeenRun;
+    }
+
+    public void setHasBeenRun(boolean hasBeenRun) {
+        this.hasBeenRun = hasBeenRun;
+    }
+
+    public boolean isHasDied() {
+        return hasDied;
+    }
+
+    public void setHasDied(boolean hasDied) {
+        this.hasDied = hasDied;
+    }
+
+    public boolean isInBattle() {
+        return inBattle;
+    }
+
+    public void setInBattle(boolean inBattle) {
+        this.inBattle = inBattle;
+    }
+
+    public Room getRoom1() {
+        return room1;
+    }
+
+    public void setRoom1(Room room1) {
+        this.room1 = room1;
+    }
+
+    public Room getRoom2() {
+        return room2;
+    }
+
+    public void setRoom2(Room room2) {
+        this.room2 = room2;
+    }
+
+    public Room getRoom3() {
+        return room3;
+    }
+
+    public void setRoom3(Room room3) {
+        this.room3 = room3;
+    }
+
+    public Room getRoom4() {
+        return room4;
+    }
+
+    public void setRoom4(Room room4) {
+        this.room4 = room4;
+    }
+
+    public Room getRoom5() {
+        return room5;
+    }
+
+    public void setRoom5(Room room5) {
+        this.room5 = room5;
+    }
+
+    public Room getRoom6() {
+        return room6;
+    }
+
+    public void setRoom6(Room room6) {
+        this.room6 = room6;
+    }
+
+    public Room getRoom7() {
+        return room7;
+    }
+
+    public void setRoom7(Room room7) {
+        this.room7 = room7;
+    }
+
+    public Room getRoom8() {
+        return room8;
+    }
+
+    public void setRoom8(Room room8) {
+        this.room8 = room8;
+    }
+
+    public Room getRoom9() {
+        return room9;
+    }
+
+    public void setRoom9(Room room9) {
+        this.room9 = room9;
+    }
+
+    public Room getRoom10() {
+        return room10;
+    }
+
+    public void setRoom10(Room room10) {
+        this.room10 = room10;
+    }
+
+    public Room getRoom11() {
+        return room11;
+    }
+
+    public void setRoom11(Room room11) {
+        this.room11 = room11;
+    }
+
+    public Room getRoom12() {
+        return room12;
+    }
+
+    public void setRoom12(Room room12) {
+        this.room12 = room12;
+    }
+
+    public Room getRoom13() {
+        return room13;
+    }
+
+    public void setRoom13(Room room13) {
+        this.room13 = room13;
+    }
+
+    public Room getRoom14() {
+        return room14;
+    }
+
+    public void setRoom14(Room room14) {
+        this.room14 = room14;
+    }
+
+    public Room getRoom15() {
+        return room15;
+    }
+
+    public void setRoom15(Room room15) {
+        this.room15 = room15;
+    }
+
+    public Room getRoom16() {
+        return room16;
+    }
+
+    public void setRoom16(Room room16) {
+        this.room16 = room16;
+    }
+
+    public Room getRoom17() {
+        return room17;
+    }
+
+    public void setRoom17(Room room17) {
+        this.room17 = room17;
+    }
+
+    public Room getRoom18() {
+        return room18;
+    }
+
+    public void setRoom18(Room room18) {
+        this.room18 = room18;
+    }
+
+    public Room getRoom19() {
+        return room19;
+    }
+
+    public void setRoom19(Room room19) {
+        this.room19 = room19;
+    }
+
+    public Room getRoom20() {
+        return room20;
+    }
+
+    public void setRoom20(Room room20) {
+        this.room20 = room20;
+    }
+
+    public Room getRoom21() {
+        return room21;
+    }
+
+    public void setRoom21(Room room21) {
+        this.room21 = room21;
+    }
+
+    public Room getRoom22() {
+        return room22;
+    }
+
+    public void setRoom22(Room room22) {
+        this.room22 = room22;
+    }
+
+    public Room getRoom23() {
+        return room23;
+    }
+
+    public void setRoom23(Room room23) {
+        this.room23 = room23;
+    }
+
+    public Room getRoom24() {
+        return room24;
+    }
+
+    public void setRoom24(Room room24) {
+        this.room24 = room24;
+    }
+
+    public Room getRoom25() {
+        return room25;
+    }
+
+    public void setRoom25(Room room25) {
+        this.room25 = room25;
+    }
+
+    public Room getRoom26() {
+        return room26;
+    }
+
+    public void setRoom26(Room room26) {
+        this.room26 = room26;
+    }
+
+    public Room getRoom27() {
+        return room27;
+    }
+
+    public void setRoom27(Room room27) {
+        this.room27 = room27;
+    }
+
+    public Room getRoom28() {
+        return room28;
+    }
+
+    public void setRoom28(Room room28) {
+        this.room28 = room28;
+    }
+
+    public Room getRoom29() {
+        return room29;
+    }
+
+    public void setRoom29(Room room29) {
+        this.room29 = room29;
+    }
+
+    public Room getRoom30() {
+        return room30;
+    }
+
+    public void setRoom30(Room room30) {
+        this.room30 = room30;
+    }
+
+    public Room getRoom31() {
+        return room31;
+    }
+
+    public void setRoom31(Room room31) {
+        this.room31 = room31;
+    }
+
+    public Room getRoom32() {
+        return room32;
+    }
+
+    public void setRoom32(Room room32) {
+        this.room32 = room32;
+    }
+
+    public Room getRoom33() {
+        return room33;
+    }
+
+    public void setRoom33(Room room33) {
+        this.room33 = room33;
+    }
+
+    public Room getRoom34() {
+        return room34;
+    }
+
+    public void setRoom34(Room room34) {
+        this.room34 = room34;
+    }
+
+    public Room getRoom35() {
+        return room35;
+    }
+
+    public void setRoom35(Room room35) {
+        this.room35 = room35;
+    }
+
+    public Room getRoom36() {
+        return room36;
+    }
+
+    public void setRoom36(Room room36) {
+        this.room36 = room36;
+    }
+
+    public Room getRoom37() {
+        return room37;
+    }
+
+    public void setRoom37(Room room37) {
+        this.room37 = room37;
+    }
+
+    public Room getRoom38() {
+        return room38;
+    }
+
+    public void setRoom38(Room room38) {
+        this.room38 = room38;
+    }
+
+    public Room getRoom39() {
+        return room39;
+    }
+
+    public void setRoom39(Room room39) {
+        this.room39 = room39;
+    }
+
+    public Room getRoom40() {
+        return room40;
+    }
+
+    public void setRoom40(Room room40) {
+        this.room40 = room40;
+    }
+
+    public Room getRoom41() {
+        return room41;
+    }
+
+    public void setRoom41(Room room41) {
+        this.room41 = room41;
+    }
+
+    public Room getRoom42() {
+        return room42;
+    }
+
+    public void setRoom42(Room room42) {
+        this.room42 = room42;
+    }
+
+    public Room getRoom43() {
+        return room43;
+    }
+
+    public void setRoom43(Room room43) {
+        this.room43 = room43;
+    }
+
+    public Room getRoom44() {
+        return room44;
+    }
+
+    public void setRoom44(Room room44) {
+        this.room44 = room44;
+    }
+
+    public Room getRoom45() {
+        return room45;
+    }
+
+    public void setRoom45(Room room45) {
+        this.room45 = room45;
+    }
+
+    public Room getRoom46() {
+        return room46;
+    }
+
+    public void setRoom46(Room room46) {
+        this.room46 = room46;
+    }
+
+    public Room getRoom47() {
+        return room47;
+    }
+
+    public void setRoom47(Room room47) {
+        this.room47 = room47;
+    }
+
+    public Room getRoom48() {
+        return room48;
+    }
+
+    public void setRoom48(Room room48) {
+        this.room48 = room48;
+    }
+
+    public Room getRoom49() {
+        return room49;
+    }
+
+    public void setRoom49(Room room49) {
+        this.room49 = room49;
+    }
+
+    public Room getRoom50() {
+        return room50;
+    }
+
+    public void setRoom50(Room room50) {
+        this.room50 = room50;
+    }
+
+    public Room getRoom51() {
+        return room51;
+    }
+
+    public void setRoom51(Room room51) {
+        this.room51 = room51;
+    }
+
+    public Room getRoom52() {
+        return room52;
+    }
+
+    public void setRoom52(Room room52) {
+        this.room52 = room52;
+    }
+
+    public Room getRoom53() {
+        return room53;
+    }
+
+    public void setRoom53(Room room53) {
+        this.room53 = room53;
+    }
+
+    public Room getRoom54() {
+        return room54;
+    }
+
+    public void setRoom54(Room room54) {
+        this.room54 = room54;
+    }
+
+    public Room getRoom55() {
+        return room55;
+    }
+
+    public void setRoom55(Room room55) {
+        this.room55 = room55;
+    }
+
+    public Room getRoom56() {
+        return room56;
+    }
+
+    public void setRoom56(Room room56) {
+        this.room56 = room56;
+    }
+
+    public Room getRoom57() {
+        return room57;
+    }
+
+    public void setRoom57(Room room57) {
+        this.room57 = room57;
+    }
+
+    public Room getRoom58() {
+        return room58;
+    }
+
+    public void setRoom58(Room room58) {
+        this.room58 = room58;
+    }
+
+    public Room getRoom59() {
+        return room59;
+    }
+
+    public void setRoom59(Room room59) {
+        this.room59 = room59;
+    }
+
+    public Room getRoom60() {
+        return room60;
+    }
+
+    public void setRoom60(Room room60) {
+        this.room60 = room60;
+    }
+
+    public Room getRoom61() {
+        return room61;
+    }
+
+    public void setRoom61(Room room61) {
+        this.room61 = room61;
+    }
+
+    public Room getRoom62() {
+        return room62;
+    }
+
+    public void setRoom62(Room room62) {
+        this.room62 = room62;
+    }
+
+    public Room getRoom63() {
+        return room63;
+    }
+
+    public void setRoom63(Room room63) {
+        this.room63 = room63;
+    }
+
+    public Room getRoom64() {
+        return room64;
+    }
+
+    public void setRoom64(Room room64) {
+        this.room64 = room64;
+    }
+
+    public Room getRoom65() {
+        return room65;
+    }
+
+    public void setRoom65(Room room65) {
+        this.room65 = room65;
+    }
+
+    public Room getRoom66() {
+        return room66;
+    }
+
+    public void setRoom66(Room room66) {
+        this.room66 = room66;
+    }
+
+    public Room getRoom67() {
+        return room67;
+    }
+
+    public void setRoom67(Room room67) {
+        this.room67 = room67;
+    }
+
+    public Room getRoom68() {
+        return room68;
+    }
+
+    public void setRoom68(Room room68) {
+        this.room68 = room68;
+    }
+
+    public Room getRoom69() {
+        return room69;
+    }
+
+    public void setRoom69(Room room69) {
+        this.room69 = room69;
+    }
+
+    public Room getRoom70() {
+        return room70;
+    }
+
+    public void setRoom70(Room room70) {
+        this.room70 = room70;
+    }
+
+    public Room getRoom71() {
+        return room71;
+    }
+
+    public void setRoom71(Room room71) {
+        this.room71 = room71;
+    }
+
+    public Room getRoom72() {
+        return room72;
+    }
+
+    public void setRoom72(Room room72) {
+        this.room72 = room72;
+    }
+
+    public Room getRoom73() {
+        return room73;
+    }
+
+    public void setRoom73(Room room73) {
+        this.room73 = room73;
+    }
+
+    public Room getRoom74() {
+        return room74;
+    }
+
+    public void setRoom74(Room room74) {
+        this.room74 = room74;
+    }
+
+    public Room getRoom75() {
+        return room75;
+    }
+
+    public void setRoom75(Room room75) {
+        this.room75 = room75;
+    }
+
+    public Room getRoom76() {
+        return room76;
+    }
+
+    public void setRoom76(Room room76) {
+        this.room76 = room76;
+    }
+
+    public Room getRoom77() {
+        return room77;
+    }
+
+    public void setRoom77(Room room77) {
+        this.room77 = room77;
+    }
+
+    public Room getRoom78() {
+        return room78;
+    }
+
+    public void setRoom78(Room room78) {
+        this.room78 = room78;
+    }
+
+    public Room getRoom79() {
+        return room79;
+    }
+
+    public void setRoom79(Room room79) {
+        this.room79 = room79;
+    }
+
+    public Room getRoom80() {
+        return room80;
+    }
+
+    public void setRoom80(Room room80) {
+        this.room80 = room80;
+    }
+
+    public Room getRoom81() {
+        return room81;
+    }
+
+    public void setRoom81(Room room81) {
+        this.room81 = room81;
+    }
+
+    public Room getRoom82() {
+        return room82;
+    }
+
+    public void setRoom82(Room room82) {
+        this.room82 = room82;
+    }
+
+    public Room getRoom83() {
+        return room83;
+    }
+
+    public void setRoom83(Room room83) {
+        this.room83 = room83;
+    }
+
+    public Room getRoom84() {
+        return room84;
+    }
+
+    public void setRoom84(Room room84) {
+        this.room84 = room84;
+    }
+
+    public Room getRoom85() {
+        return room85;
+    }
+
+    public void setRoom85(Room room85) {
+        this.room85 = room85;
+    }
+
+    public Room getRoom86() {
+        return room86;
+    }
+
+    public void setRoom86(Room room86) {
+        this.room86 = room86;
+    }
+
+    public Room getRoom87() {
+        return room87;
+    }
+
+    public void setRoom87(Room room87) {
+        this.room87 = room87;
+    }
+
+    public Room getRoom88() {
+        return room88;
+    }
+
+    public void setRoom88(Room room88) {
+        this.room88 = room88;
+    }
+
+    public Room getRoom89() {
+        return room89;
+    }
+
+    public void setRoom89(Room room89) {
+        this.room89 = room89;
+    }
+
+    public Room getRoom90() {
+        return room90;
+    }
+
+    public void setRoom90(Room room90) {
+        this.room90 = room90;
+    }
+
+    public Room getRoom91() {
+        return room91;
+    }
+
+    public void setRoom91(Room room91) {
+        this.room91 = room91;
+    }
+
+    public Room getRoom92() {
+        return room92;
+    }
+
+    public void setRoom92(Room room92) {
+        this.room92 = room92;
+    }
+
+    public Room getRoom93() {
+        return room93;
+    }
+
+    public void setRoom93(Room room93) {
+        this.room93 = room93;
+    }
+
+    public Room getRoom94() {
+        return room94;
+    }
+
+    public void setRoom94(Room room94) {
+        this.room94 = room94;
+    }
+
+    public Room getRoom95() {
+        return room95;
+    }
+
+    public void setRoom95(Room room95) {
+        this.room95 = room95;
+    }
+
+    public Room getRoom96() {
+        return room96;
+    }
+
+    public void setRoom96(Room room96) {
+        this.room96 = room96;
+    }
+
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public void setCurrentRoom(Room currentRoom) {
+        this.currentRoom = currentRoom;
+    }
+
+    public Room getPreviousRoom() {
+        return previousRoom;
+    }
+
+    public void setPreviousRoom(Room previousRoom) {
+        this.previousRoom = previousRoom;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public TextGenerator getTextGen() {
+        return textGen;
+    }
+
+    public void setTextGen(TextGenerator textGen) {
+        this.textGen = textGen;
+    }
+
+
 
 }
