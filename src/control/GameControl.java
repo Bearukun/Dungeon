@@ -297,7 +297,7 @@ public class GameControl implements Serializable {
         room19.south = null;
         room19.north = null;
         room19.addMonster("Anubis", "God of mummification and the afterlife", 0, new Boss(200, 25, 999, textGen.generateTaunt("Boss")));
-        room19.addRoomItem("Canopic Jar of Imsety", "a strange jar with a human head on the top", "A canopic jar containing the liver of Tal'Rasha", 0, new Key(true, "Stairway of Imsety"));
+        room19.addItemToMonster("Canopic Jar of Imsety", "a strange jar with a human head on the top", "A canopic jar containing the liver of Tal'Rasha", 0, new Key(true, "Stairway of Imsety"));
         room19.addItemToMonster("Scyth of Anubis", "a gleaming weapon lies on a table", "The Golden Scyth of Anubis ", 300, new Weapon(50));
         room19.addItemToMonster("Head of Anubis", "The head of the physical manifistation of the fallen God lies on the floor", "Head of the physical manifistation of the God Anubis ", 1000, new Consumable(0, false, false));
         room19.addItemToMonster("Key of Anubis", "a strange key with the head of anubis lies on the floor", "Inscription on the Key states \"Treasury of Anubis\"", highScore, new Key(false, "Key of Anubis"));
@@ -401,7 +401,7 @@ public class GameControl implements Serializable {
         room33.north = null;
         room33.addMonster("Horus", "God of the Skies", 0, new Boss(150, 20, 999, textGen.generateTaunt("Boss")));
         room33.addItemToMonster("Sword of Horus", "a golden gleaming sword sticks out from under the corps of Horus", "A Golden powerfull imbued Sword, forged for the God Horus", 250, new Weapon(65));
-        room33.addRoomItem("Canopic Jar of Hapy", "a strange jar with a baboon head on the top", "A canopic jar containing the lungs of Tal'Rasha", 0, new Key(true, "Stairway of Hapy"));
+        room33.addItemToMonster("Canopic Jar of Hapy", "a strange jar with a baboon head on the top", "A canopic jar containing the lungs of Tal'Rasha", 0, new Key(true, "Stairway of Hapy"));
         room33.addItemToMonster("Head of Horus", "The head of the physical manifistation of the fallen God lies on the floor", "Head of the physical manifistation of the God Horus ", 1000, new Consumable(0, false, false));
         room33.addItemToMonster("Key of Horus", "a strange key with the head of Horus lies on the floor", "Inscription on the Key states \"Treasury of Horus\"", highScore, new Key(false, "Key of Horus"));
 
@@ -814,7 +814,7 @@ public class GameControl implements Serializable {
         room88.south = room45; //SECRET DOOR THAT OPENS AFTER SETH BOSS IS KILLED! // KEY FROM HIGH PRIEST ROOM!
         room88.north = room88;
         room88.addMonster("Seth", "God of Disorder and Violence", 0, new Boss(175, 35, 999, textGen.generateTaunt("Boss")));
-        room88.addRoomItem("Canopic Jar of Duamutef", "a strange jar with a jackal head on the top", "A canopic jar containing the stomach of Tal'Rasha", 0, new Key(true, "Stairway of Duamutef"));
+        room88.addItemToMonster("Canopic Jar of Duamutef", "a strange jar with a jackal head on the top", "A canopic jar containing the stomach of Tal'Rasha", 0, new Key(true, "Stairway of Duamutef"));
         room88.addItemToMonster("Twisted Spear of Seth", "a spear lies on the floor", "A dark obsidian covered spear, forged by Seth himself", 400, new Weapon(100));
         room88.addItemToMonster("Head of Seth", "The head of the physical manifistation of the fallen God lies on the floor", "Head of the physical manifistation of the God Seth ", 1000, new Consumable(0, false, false));
         room88.addItemToMonster("Key of Seth", "a strange key with the head of Seth lies on the floor", "Inscription on the Key states \"Treasury of Seth\"", highScore, new Key(false, "Key of Seth"));
