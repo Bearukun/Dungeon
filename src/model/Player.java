@@ -21,7 +21,7 @@ public class Player implements PlayerInterface, Serializable {
     public Player(String name) {
         this.name = name;
 
-        hp = 500;
+        hp = 30;
         tempHp = hp;
         level = 1;
         startingDamage = 6;
@@ -29,7 +29,7 @@ public class Player implements PlayerInterface, Serializable {
         damage = startingDamage;
         armor = startingArmor;
 
-        equipment.add(new Item("Short Sword", "", "This is a short sword", 1, new Weapon(600)));
+        equipment.add(new Item("Short Sword", "", "This is a short sword", 1, new Weapon(6)));
         equipment.add(new Item("Casual clothes", "", "this is your clothes.", 1, new ArmorSet(0, 1)));
         inventory.add(new Item("Healing potion", "an healing potion", "A healing potion that will give you full health", 0, new Consumable(1, true, true)));
         
