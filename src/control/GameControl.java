@@ -1215,6 +1215,7 @@ public class GameControl implements Serializable {
 
             } else if (input.equalsIgnoreCase("Take all") || input.equalsIgnoreCase("all") || input.equalsIgnoreCase("pickup") || input.equalsIgnoreCase("take")) {
 
+                //Check if null
                 if (currentRoom.getItems() != null) {
 
                     if (currentRoom.getItems().size() >= 1) {
