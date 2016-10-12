@@ -1,6 +1,7 @@
 package control;
 
 import java.io.Serializable;
+import java.util.Random;
 import model.Player;
 import model.Room;
 import model.monsterType.Boss;
@@ -37,6 +38,7 @@ public class GameControl implements Serializable {
     Item item;
     Player player;
     private TextGenerator textGen;
+    Random rnd = new Random();
 
     /**
      * Constructor for the GameControl class
@@ -168,7 +170,8 @@ public class GameControl implements Serializable {
         room2.addMonster("Swarm of Scarabs", "a large group of flesh eating beetles", 0, new Boss(10, 1, 1, textGen.generateTaunt("Minion")));
         room2.addItemToMonster("Mace of the Skeleton King", "a mace lies on the ground", "A powerfull mace that belonged to the Skeleton King", 200, new Weapon(20));
         room2.addItemToMonster("Long Sword", "a big rusty sword", "A Long Sword that while it has seen better days, can still cut like it was just crafted!", 10, new Weapon(10));
-
+        
+        
         room2.addItemToMonster("Tal'Rasha's Elements", "a bunch of robes lies on the ground", "This is the magical impowered amor of the mage Tal'Rasha", 20, new ArmorSet(5, 10));
         room2.addItemToMonster("Rusty key", "an old key with the inscription \"Go weeeeest\"", "This key unlocks the room west of the entrance.", 0, new Key(true, "Dungeon"));
 
@@ -878,6 +881,8 @@ public class GameControl implements Serializable {
         room96.addItemToMonster("Stone Obsidian Key", "a strange heavy obsidian key", "The key looks very old, only part of the inscription is intact spelling \"...Covernant\"", 0, new Key(true, "Stone Obsidian Key"));
         room96.addChest("Behind Tal'Rashas sarcofacus stands a stone chest made of obsidian", true, new Locked("Stone Obsidian Key", true)); //Spillet skal slutte når denne chest åbnes! Ceo har teksten!
 
+        
+        
         //Room97: Corridor
 //        room97.east = null;
 //        room97.west = null;
@@ -893,7 +898,7 @@ public class GameControl implements Serializable {
 //        room99.west = null;
 //        room99.south = room6;
 //        room99.north = room21;
-        currentRoom = room1;
+        currentRoom = room6;
         previousRoom = currentRoom;
 
     }
@@ -910,6 +915,22 @@ public class GameControl implements Serializable {
 
     }
 
+    
+    public void randomItemLocationSpawn(){
+        
+        
+        
+        int randomRoom = rnd.nextInt(10) +1;
+        
+        if (randomRoom == 10){
+            room10.addRoomItem("test", "test", "test", 20, new Weapon(20) );
+        }
+        
+        
+        
+        
+    
+}
     /**
      * Method used to move around.
      *

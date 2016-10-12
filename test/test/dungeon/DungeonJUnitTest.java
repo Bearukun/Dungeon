@@ -74,7 +74,7 @@ public class DungeonJUnitTest {
         assertTrue("Monster should be dead, it is not", gc.getCurrentRoom().getMonster().isIsAlive() == false);
         
         //Check if player can loot.
-        gc.inputAnalyzer("pickup");
+        gc.inputAnalyzer("east");
         assertTrue("Inventory should contain a rusty key, it does not: ", gc.getPlayer().getInventory().contains("Rusty key"));
                 
     }
