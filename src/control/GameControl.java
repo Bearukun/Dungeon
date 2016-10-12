@@ -928,7 +928,11 @@ public class GameControl implements Serializable {
             room20.addRoomItem("test", "test", "test", 20, new Weapon(20) );
         } else if(randomRoom == 30){
             room20.addRoomItem("test", "test", "test", 20, new Weapon(20) );
+        } else if(randomRoom == 40){
+            room20.addRoomItem("test", "test", "test", 20, new Weapon(20) );
         }
+        
+        
         
         
         
