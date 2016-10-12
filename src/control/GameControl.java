@@ -920,10 +920,12 @@ public class GameControl implements Serializable {
         
         
         
-        int randomRoom = rnd.nextInt(10) +1;
+        int randomRoom = rnd.nextInt(20) +1;
         
         if (randomRoom == 10){
             room10.addRoomItem("test", "test", "test", 20, new Weapon(20) );
+        } else if(randomRoom == 20){
+            room20.addRoomItem("test", "test", "test", 20, new Weapon(20) );
         }
         
         
